@@ -1,0 +1,36 @@
+---
+servers:
+  - name: Site2-L3=Site2-L4=vPC1
+    adapters:
+      - endpoint_ports: [NIC1, NIC2]
+        switch_ports:
+          - Ethernet1
+          - Ethernet1
+        switches:
+          - Site2-L3
+          - Site2-L4
+        profile: int_vpc_trunk_host
+        enabled: true
+        mtu:
+        vlans: '20'
+        port_channel:
+          description: PortChannel
+          mode: active
+          channel_id: 1
+  - name: Site2-L3=Site2-L4=vPC2
+    adapters:
+      - endpoint_ports: [NIC1, NIC2]
+        switch_ports:
+          - Ethernet2
+          - Ethernet2
+        switches:
+          - Site2-L3
+          - Site2-L4
+        profile: int_vpc_trunk_host
+        enabled: true
+        mtu:
+        vlans: '20'
+        port_channel:
+          description: PortChannel
+          mode: active
+          channel_id: 2

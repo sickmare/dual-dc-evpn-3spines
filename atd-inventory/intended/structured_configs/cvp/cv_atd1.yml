@@ -1,0 +1,123 @@
+---
+cvp_devices:
+  - fqdn: DCI-1
+    parentContainerName: ISN_DCI_ROUTER
+    configlets:
+      - AVD_DCI-1
+  - fqdn: DCI-2
+    parentContainerName: ISN_DCI_ROUTER
+    configlets:
+      - AVD_DCI-2
+  - fqdn: DCI-3
+    parentContainerName: ISN_DCI_ROUTER
+    configlets:
+      - AVD_DCI-3
+  - fqdn: Site1-BGW1
+    parentContainerName: Site1_BORDER_GW
+    configlets:
+      - AVD_Site1-BGW1
+  - fqdn: Site1-BGW2
+    parentContainerName: Site1_BORDER_GW
+    configlets:
+      - AVD_Site1-BGW2
+  - fqdn: Site1-BGW3
+    parentContainerName: Site1_BORDER_GW
+    configlets:
+      - AVD_Site1-BGW3
+  - fqdn: Site1-L1
+    parentContainerName: Site1_SINGLE_LEAF
+    configlets:
+      - AVD_Site1-L1
+  - fqdn: Site1-L2
+    parentContainerName: Site1_SINGLE_LEAF
+    configlets:
+      - AVD_Site1-L2
+  - fqdn: Site1-L3
+    parentContainerName: Site1_MLAG1
+    configlets:
+      - AVD_Site1-L3
+  - fqdn: Site1-L4
+    parentContainerName: Site1_MLAG1
+    configlets:
+      - AVD_Site1-L4
+  - fqdn: Site1-S1
+    parentContainerName: Site1_SPINES
+    configlets:
+      - AVD_Site1-S1
+  - fqdn: Site1-S2
+    parentContainerName: Site1_SPINES
+    configlets:
+      - AVD_Site1-S2
+  - fqdn: Site1-S3
+    parentContainerName: Site1_SPINES
+    configlets:
+      - AVD_Site1-S3
+  - fqdn: Site2-BGW1
+    parentContainerName: Site2_BORDER_GW
+    configlets:
+      - AVD_Site2-BGW1
+  - fqdn: Site2-BGW2
+    parentContainerName: Site2_BORDER_GW
+    configlets:
+      - AVD_Site2-BGW2
+  - fqdn: Site2-BGW3
+    parentContainerName: Site2_BORDER_GW
+    configlets:
+      - AVD_Site2-BGW3
+  - fqdn: Site2-L1
+    parentContainerName: Site2_SINGLE_LEAF
+    configlets:
+      - AVD_Site2-L1
+  - fqdn: Site2-L2
+    parentContainerName: Site2_SINGLE_LEAF
+    configlets:
+      - AVD_Site2-L2
+  - fqdn: Site2-L3
+    parentContainerName: Site2_MLAG1
+    configlets:
+      - AVD_Site2-L3
+  - fqdn: Site2-L4
+    parentContainerName: Site2_MLAG1
+    configlets:
+      - AVD_Site2-L4
+  - fqdn: Site2-S1
+    parentContainerName: Site2_SPINES
+    configlets:
+      - AVD_Site2-S1
+  - fqdn: Site2-S2
+    parentContainerName: Site2_SPINES
+    configlets:
+      - AVD_Site2-S2
+  - fqdn: Site2-S3
+    parentContainerName: Site2_SPINES
+    configlets:
+      - AVD_Site2-S3
+cvp_containers:
+  ATD_MGMT:
+    parentContainerName: Tenant
+  ISN_DCI_ROUTER:
+    parentContainerName: ATD_MGMT
+  Site1_BORDER_GW:
+    parentContainerName: Site1_FABRIC
+  Site1_FABRIC:
+    parentContainerName: ATD_MGMT
+  Site1_MLAG1:
+    parentContainerName: Site1_MLAG_LEAF
+  Site1_MLAG_LEAF:
+    parentContainerName: Site1_FABRIC
+  Site1_SINGLE_LEAF:
+    parentContainerName: Site1_FABRIC
+  Site1_SPINES:
+    parentContainerName: Site1_FABRIC
+  Site2_BORDER_GW:
+    parentContainerName: Site2_FABRIC
+  Site2_FABRIC:
+    parentContainerName: ATD_MGMT
+  Site2_MLAG1:
+    parentContainerName: Site2_MLAG_LEAF
+  Site2_MLAG_LEAF:
+    parentContainerName: Site2_FABRIC
+  Site2_SINGLE_LEAF:
+    parentContainerName: Site2_FABRIC
+  Site2_SPINES:
+    parentContainerName: Site2_FABRIC

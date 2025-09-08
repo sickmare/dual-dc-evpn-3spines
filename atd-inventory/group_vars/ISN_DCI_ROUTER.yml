@@ -1,0 +1,32 @@
+---
+type: super-spine
+
+# BGP defaults
+bgp_default_ipv4_unicast: false
+bgp_update_wait_install: false
+bgp_update_wait_for_convergence: false
+bgp_distance:
+  external_routes: 20
+  internal_routes: 200
+  local_routes: 200
+
+super_spine:
+  defaults:
+    platform: 7280CR3-36S
+    loopback_ipv4_pool: 192.168.250.0/24
+
+  nodes:
+    - name: DCI-1
+      id: 1
+      bgp_as: 64999
+      mgmt_ip: 192.168.0.100/24
+
+    - name: DCI-2
+      id: 2
+      bgp_as: 64999
+      mgmt_ip: 192.168.0.101/24
+
+    - name: DCI-3
+      id: 3
+      bgp_as: 64999
+      mgmt_ip: 192.168.0.102/24

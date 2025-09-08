@@ -1,0 +1,154 @@
+---
+all:
+  children:
+    cv_servers:
+      hosts:
+        cv_atd1:
+          ansible_host: 192.168.0.5
+          cv_collection: v3
+    ATD_MGMT:
+      children:
+        ISN_DCI_ROUTER:
+          hosts:
+            DCI-1:
+              type: super-spine
+              ansible_host: 192.168.0.100
+            DCI-2:
+              type: super-spine
+              ansible_host: 192.168.0.101
+            DCI-3:
+              type: super-spine
+              ansible_host: 192.168.0.102
+
+#########################################
+# Comment the field that get data value from source path/file for proto type translation script
+# Mentha Cheng will replace the below script
+# Begin here
+#########################################
+
+        Site1_FABRIC:
+          children:
+            Site1_SPINES:
+              hosts:
+                Site1-S1:
+                  type: spine
+                  ansible_host: 192.168.0.10
+                Site1-S2:
+                  type: spine
+                  ansible_host: 192.168.0.11
+                Site1-S3:
+                  type: spine
+                  ansible_host: 192.168.0.12
+            Site1_SINGLE_LEAF:
+              hosts:
+                Site1-L1:
+                  type: l3leaf
+                  ansible_host: 192.168.0.13
+                Site1-L2:
+                  type: l3leaf
+                  ansible_host: 192.168.0.14
+            Site1_MLAG_LEAF:
+              children:
+                Site1_MLAG1:
+                  hosts:
+                    Site1-L3:
+                      type: l3leaf
+                      ansible_host: 192.168.0.15
+                    Site1-L4:
+                      type: l3leaf
+                      ansible_host: 192.168.0.16
+            Site1_BORDER_GW:
+              vars:
+                evpn_overlay_bgp_rtc: true
+              hosts:
+                Site1-BGW1:
+                  type: l3leaf
+                  ansible_host: 192.168.0.17
+                Site1-BGW2:
+                  type: l3leaf
+                  ansible_host: 192.168.0.18
+                Site1-BGW3:
+                  type: l3leaf
+                  ansible_host: 192.168.0.19
+
+        Site2_FABRIC:
+          children:
+            Site2_SPINES:
+              hosts:
+                Site2-S1:
+                  type: spine
+                  ansible_host: 192.168.0.20
+                Site2-S2:
+                  type: spine
+                  ansible_host: 192.168.0.21
+                Site2-S3:
+                  type: spine
+                  ansible_host: 192.168.0.22
+            Site2_SINGLE_LEAF:
+              hosts:
+                Site2-L1:
+                  type: l3leaf
+                  ansible_host: 192.168.0.23
+                Site2-L2:
+                  type: l3leaf
+                  ansible_host: 192.168.0.24
+            Site2_MLAG_LEAF:
+              children:
+                Site2_MLAG1:
+                  hosts:
+                    Site2-L3:
+                      type: l3leaf
+                      ansible_host: 192.168.0.25
+                    Site2-L4:
+                      type: l3leaf
+                      ansible_host: 192.168.0.26
+            Site2_BORDER_GW:
+              vars:
+                evpn_overlay_bgp_rtc: true
+              hosts:
+                Site2-BGW1:
+                  type: l3leaf
+                  ansible_host: 192.168.0.27
+                Site2-BGW2:
+                  type: l3leaf
+                  ansible_host: 192.168.0.28
+                Site2-BGW3:
+                  type: l3leaf
+                  ansible_host: 192.168.0.29
+    MSD_DCI:
+      children:
+        ISN_DCI_ROUTER:
+        Site1_FABRIC:
+        Site2_FABRIC:
+    VRFS_NETWORKS:
+      children:
+        Site1_SINGLE_LEAF:
+        Site1_MLAG_LEAF:
+        Site1_BORDER_GW:
+        Site2_SINGLE_LEAF:
+        Site2_MLAG_LEAF:
+        Site2_BORDER_GW:
+    Site1_MLAG_PORT:
+      children:
+        Site1_MLAG_LEAF:
+    Site2_MLAG_PORT:
+      children:
+        Site2_MLAG_LEAF:
+    PORT_PROFILES:
+      children:
+        Site1_SINGLE_LEAF:
+        Site1_MLAG_LEAF:
+        Site2_SINGLE_LEAF:
+        Site2_MLAG_LEAF:
+  vars:
+    ansible_user: cvpadmin
+    ansible_password: cvp123!
+    ansible_network_os: arista.eos.eos
+    ansible_become: true
+    ansible_become_method: enable
+    ansible_connection: httpapi
+    ansible_httpapi_port: 443
+    ansible_httpapi_use_ssl: true
+    ansible_httpapi_validate_certs: false
+    ansible_python_interpreter: $(which python3)
+

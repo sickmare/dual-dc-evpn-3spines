@@ -1,0 +1,125 @@
+---
+fabric_name: ATD_MGMT
+bgp_graceful_restart:
+  enabled: true
+  restart_time: 300
+bgp_distance:
+  external_routes: 20
+  internal_routes: 200
+  local_routes: 200
+spine:
+  defaults:
+    platform: 7050CX3-32C
+    bgp_as: 65002
+    loopback_ipv4_pool: 192.2.255.0/24
+  nodes:
+    - name: Site2-S1
+      id: 1
+      mgmt_ip: 192.168.0.20/24
+    - name: Site2-S2
+      id: 2
+      mgmt_ip: 192.168.0.21/24
+    - name: Site2-S3
+      id: 3
+      mgmt_ip: 192.168.0.22/24
+l3leaf:
+  defaults:
+    loopback_ipv4_pool: 192.2.255.0/24
+    loopback_ipv4_offset: 2
+    vtep_loopback_ipv4_pool: 192.2.254.0/24
+    uplink_interfaces: [Ethernet51/1, Ethernet52/1, Ethernet53/1]
+    uplink_switches:
+      - Site2-S1
+      - Site2-S2
+      - Site2-S3
+    uplink_ipv4_pool: 172.32.255.0/24
+    virtual_router_mac_address: 00:1c:73:00:dc:01
+    spanning_tree_mode: mstp
+    spanning_tree_priority: 16384
+  node_groups:
+    - group: s2podsingle
+      platform: 7050SX3-48YC8C
+      mlag: false
+      nodes:
+        - name: Site2-L1
+          bgp_as: 65201
+          id: 21
+          mgmt_ip: 192.168.0.23/24
+          uplink_switch_interfaces: [Ethernet1/1, Ethernet1/1, Ethernet1/1]
+        - name: Site2-L2
+          bgp_as: 65202
+          id: 22
+          uplink_switch_interfaces: [Ethernet2/1, Ethernet2/1, Ethernet2/1]
+
+    - group: s2podmlag
+      platform: 7050SX3-48YC8C
+      mlag_interfaces: [Ethernet49/1, Ethernet50/1]
+      mlag_peer_ipv4_pool: 10.222.252.0/24
+      mlag_peer_l3_ipv4_pool: 10.222.251.0/24
+      bgp_as: 65203
+      nodes:
+        - name: Site2-L3
+          id: 23
+          mgmt_ip: 192.168.0.25/24
+          uplink_switch_interfaces: [Ethernet3/1, Ethernet3/1, Ethernet3/1]
+        - name: Site2-L4
+          id: 24
+          mgmt_ip: 192.168.0.26/24
+          uplink_switch_interfaces: [Ethernet4/1, Ethernet4/1, Ethernet4/1]
+
+    - group: s2podbgw
+      platform: 7280CR3-36S
+      bgp_as: 65231
+      evpn_gateway:
+        remote_peers:
+          - hostname: DCI-1
+          - hostname: DCI-2
+          - hostname: DCI-3
+        evpn_l2:
+          enabled: true
+        evpn_l3:
+          enabled: true
+          inter_domain: true
+      nodes:
+        - name: Site2-BGW1
+          id: 25
+          mgmt_ip: 192.168.0.27/24
+          uplink_switch_interfaces:
+            - Ethernet5/1
+            - Ethernet5/1
+            - Ethernet5/1
+        - name: Site2-BGW2
+          id: 26
+          mgmt_ip: 192.168.0.28/24
+          uplink_switch_interfaces:
+            - Ethernet6/1
+            - Ethernet6/1
+            - Ethernet6/1
+        - name: Site2-BGW3
+          id: 27
+          mgmt_ip: 192.168.0.29/24
+          uplink_switch_interfaces:
+            - Ethernet7/1
+            - Ethernet7/1
+            - Ethernet7/1
+
+
+p2p_uplinks_mtu: 9000
+bfd_multihop:
+  interval: 1200
+  min_rx: 1200
+  multiplier: 3
+name_servers:
+  - 192.168.0.5
+  - 192.168.0.6
+ntp:
+  servers:
+    - name: 192.168.0.5
+      preferred: true
+      vrf: mgmt
+      iburst: true
+    - name: 192.168.0.6
+      preferred: true
+      vrf: mgmt
+      iburst: true
+dns_domain: act.lab

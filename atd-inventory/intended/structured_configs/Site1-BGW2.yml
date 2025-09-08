@@ -1,0 +1,403 @@
+aaa_root:
+  disabled: true
+config_end: true
+enable_password:
+  disabled: true
+ethernet_interfaces:
+- name: Ethernet51/1
+  description: P2P_Site1-S1_Ethernet6/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.30.255.91/31
+  peer: Site1-S1
+  peer_interface: Ethernet6/1
+  peer_type: spine
+  switchport:
+    enabled: false
+- name: Ethernet52/1
+  description: P2P_Site1-S2_Ethernet6/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.30.255.93/31
+  peer: Site1-S2
+  peer_interface: Ethernet6/1
+  peer_type: spine
+  switchport:
+    enabled: false
+- name: Ethernet53/1
+  description: P2P_Site1-S3_Ethernet6/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.30.255.95/31
+  peer: Site1-S3
+  peer_interface: Ethernet6/1
+  peer_type: spine
+  switchport:
+    enabled: false
+- name: Ethernet5/1
+  description: P2P_DCI-1_Ethernet2/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.16.30.6/31
+  peer: DCI-1
+  peer_interface: Ethernet2/1
+  peer_type: super-spine
+  switchport:
+    enabled: false
+- name: Ethernet6/1
+  description: P2P_DCI-2_Ethernet2/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.16.30.8/31
+  peer: DCI-2
+  peer_interface: Ethernet2/1
+  peer_type: super-spine
+  switchport:
+    enabled: false
+- name: Ethernet7/1
+  description: P2P_DCI-3_Ethernet2/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.16.30.10/31
+  peer: DCI-3
+  peer_interface: Ethernet2/1
+  peer_type: super-spine
+  switchport:
+    enabled: false
+hostname: Site1-BGW2
+ip_igmp_snooping:
+  globally_enabled: true
+ip_name_servers:
+- ip_address: 192.168.0.5
+  vrf: mgmt
+- ip_address: 192.168.0.6
+  vrf: mgmt
+ip_routing: true
+ip_virtual_router_mac_address: 00:1c:73:00:dc:01
+is_deployed: true
+local_users:
+- name: arista
+  privilege: 15
+  role: network-admin
+  sha512_password: $6$arista$hvhzPKMNzxDEPi2.4ml69k2ZGn88hWas4/loWEFDCkC2QEh/onTkN954QCDvZPAHLZDn41AoDozW5SKPFe0.6.
+loopback_interfaces:
+- name: Loopback0
+  description: ROUTER_ID
+  shutdown: false
+  ip_address: 192.0.255.18/32
+- name: Loopback1
+  description: VXLAN_TUNNEL_SOURCE
+  shutdown: false
+  ip_address: 192.0.254.18/32
+- name: Loopback100
+  description: DIAG_VRF_bluevrf
+  shutdown: false
+  vrf: bluevrf
+  ip_address: 10.255.1.18/32
+management_api_http:
+  enable_https: true
+  enable_vrfs:
+  - name: mgmt
+management_interfaces:
+- name: Management1
+  description: OOB_MANAGEMENT
+  shutdown: false
+  vrf: mgmt
+  ip_address: 192.168.0.18/24
+  type: oob
+  gateway: 192.168.0.5
+metadata:
+  platform: 7280CR3-36S
+  fabric_name: ATD_MGMT
+prefix_lists:
+- name: PL-LOOPBACKS-EVPN-OVERLAY
+  sequence_numbers:
+  - sequence: 10
+    action: permit 192.0.255.0/24 eq 32
+  - sequence: 20
+    action: permit 192.0.254.0/24 eq 32
+route_maps:
+- name: RM-CONN-2-BGP
+  sequence_numbers:
+  - sequence: 10
+    type: permit
+    match:
+    - ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+router_bfd:
+  multihop:
+    interval: 1200
+    min_rx: 1200
+    multiplier: 3
+router_bgp:
+  as: '65131'
+  router_id: 192.0.255.18
+  distance:
+    external_routes: 20
+    internal_routes: 200
+    local_routes: 200
+  graceful_restart:
+    enabled: true
+    restart_time: 300
+  maximum_paths:
+    paths: 4
+    ecmp: 4
+  updates:
+    wait_install: true
+  bgp:
+    default:
+      ipv4_unicast: false
+  peer_groups:
+  - name: IPv4-UNDERLAY-PEERS
+    type: ipv4
+    send_community: all
+    maximum_routes: 12000
+  - name: EVPN-OVERLAY-PEERS
+    type: evpn
+    update_source: Loopback0
+    bfd: true
+    ebgp_multihop: 3
+    send_community: all
+    maximum_routes: 0
+  - name: EVPN-OVERLAY-CORE
+    type: evpn
+    update_source: Loopback0
+    bfd: true
+    ebgp_multihop: 15
+    send_community: all
+    maximum_routes: 0
+  neighbors:
+  - ip_address: 172.30.255.90
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65001'
+    peer: Site1-S1
+    description: Site1-S1_Ethernet6/1
+  - ip_address: 172.30.255.92
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65001'
+    peer: Site1-S2
+    description: Site1-S2_Ethernet6/1
+  - ip_address: 172.30.255.94
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65001'
+    peer: Site1-S3
+    description: Site1-S3_Ethernet6/1
+  - ip_address: 192.0.255.1
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65001'
+    peer: Site1-S1
+    description: Site1-S1_Loopback0
+  - ip_address: 192.0.255.2
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65001'
+    peer: Site1-S2
+    description: Site1-S2_Loopback0
+  - ip_address: 192.0.255.3
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65001'
+    peer: Site1-S3
+    description: Site1-S3_Loopback0
+  - ip_address: 192.168.250.1
+    peer_group: EVPN-OVERLAY-CORE
+    remote_as: '64999'
+    peer: DCI-1
+    description: DCI-1_Loopback0
+  - ip_address: 192.168.250.2
+    peer_group: EVPN-OVERLAY-CORE
+    remote_as: '64999'
+    peer: DCI-2
+    description: DCI-2_Loopback0
+  - ip_address: 192.168.250.3
+    peer_group: EVPN-OVERLAY-CORE
+    remote_as: '64999'
+    peer: DCI-3
+    description: DCI-3_Loopback0
+  - ip_address: 172.16.30.7
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '64999'
+    peer: DCI-1
+    description: DCI-1
+  - ip_address: 172.16.30.9
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '64999'
+    peer: DCI-2
+    description: DCI-2
+  - ip_address: 172.16.30.11
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '64999'
+    peer: DCI-3
+    description: DCI-3
+  redistribute:
+    connected:
+      enabled: true
+      route_map: RM-CONN-2-BGP
+  vlans:
+  - id: 2300
+    tenant: Tenant_A
+    rd: 192.0.255.18:32300
+    rd_evpn_domain:
+      domain: remote
+      rd: 192.0.255.18:32300
+    route_targets:
+      both:
+      - 32300:32300
+      import_export_evpn_domains:
+      - domain: remote
+        route_target: 32300:32300
+    redistribute_routes:
+    - learned
+  - id: 2301
+    tenant: Tenant_A
+    rd: 192.0.255.18:32301
+    rd_evpn_domain:
+      domain: remote
+      rd: 192.0.255.18:32301
+    route_targets:
+      both:
+      - 32301:32301
+      import_export_evpn_domains:
+      - domain: remote
+        route_target: 32301:32301
+    redistribute_routes:
+    - learned
+  - id: 20
+    tenant: Tenant_A
+    rd: 192.0.255.18:30020
+    rd_evpn_domain:
+      domain: remote
+      rd: 192.0.255.18:30020
+    route_targets:
+      both:
+      - 30020:30020
+      import_export_evpn_domains:
+      - domain: remote
+        route_target: 30020:30020
+    redistribute_routes:
+    - learned
+  - id: 30
+    tenant: Tenant_A
+    rd: 192.0.255.18:30030
+    rd_evpn_domain:
+      domain: remote
+      rd: 192.0.255.18:30030
+    route_targets:
+      both:
+      - 30030:30030
+      import_export_evpn_domains:
+      - domain: remote
+        route_target: 30030:30030
+    redistribute_routes:
+    - learned
+  address_family_evpn:
+    neighbor_default:
+      next_hop_self_received_evpn_routes:
+        enable: true
+        inter_domain: true
+    peer_groups:
+    - name: EVPN-OVERLAY-CORE
+      activate: true
+      domain_remote: true
+    - name: EVPN-OVERLAY-PEERS
+      activate: true
+  address_family_rtc:
+    peer_groups:
+    - name: EVPN-OVERLAY-CORE
+      activate: true
+    - name: EVPN-OVERLAY-PEERS
+      activate: true
+  address_family_ipv4:
+    peer_groups:
+    - name: IPv4-UNDERLAY-PEERS
+      activate: true
+    - name: EVPN-OVERLAY-PEERS
+      activate: false
+    - name: EVPN-OVERLAY-CORE
+      activate: false
+  vrfs:
+  - name: bluevrf
+    rd: 192.0.255.18:10
+    route_targets:
+      import:
+      - address_family: evpn
+        route_targets:
+        - '10:10'
+      export:
+      - address_family: evpn
+        route_targets:
+        - '10:10'
+    router_id: 192.0.255.18
+    redistribute:
+      connected:
+        enabled: true
+service_routing_protocols_model: multi-agent
+spanning_tree:
+  mode: mstp
+  mst_instances:
+  - id: '0'
+    priority: 16384
+static_routes:
+- vrf: mgmt
+  destination_address_prefix: 0.0.0.0/0
+  gateway: 192.168.0.5
+transceiver_qsfp_default_mode_4x10: true
+virtual_source_nat_vrfs:
+- name: bluevrf
+  ip_address: 10.255.1.18
+vlan_interfaces:
+- name: Vlan2300
+  description: bluenet1
+  shutdown: false
+  vrf: bluevrf
+  ip_address_virtual: 192.168.11.1/24
+  tenant: Tenant_A
+  tags:
+  - bluenet1-tag
+- name: Vlan2301
+  description: bluenet2
+  shutdown: false
+  vrf: bluevrf
+  ip_address_virtual: 192.168.12.1/24
+  tenant: Tenant_A
+  tags:
+  - bluenet1-tag
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+vlans:
+- id: 2300
+  name: bluenet1
+  tenant: Tenant_A
+- id: 2301
+  name: bluenet2
+  tenant: Tenant_A
+- id: 20
+  name: L2-V20
+  tenant: Tenant_A
+- id: 30
+  name: L2-V30
+  tenant: Tenant_A
+vrfs:
+- name: mgmt
+  ip_routing: false
+- name: bluevrf
+  ip_routing: true
+  tenant: Tenant_A
+vxlan_interface:
+  vxlan1:
+    description: Site1-BGW2_VTEP
+    vxlan:
+      source_interface: Loopback1
+      udp_port: 4789
+      vlans:
+      - id: 2300
+        vni: 32300
+      - id: 2301
+        vni: 32301
+      - id: 20
+        vni: 30020
+      - id: 30
+        vni: 30030
+      vrfs:
+      - name: bluevrf
+        vni: 10

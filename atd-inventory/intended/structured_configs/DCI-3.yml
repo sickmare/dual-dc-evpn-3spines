@@ -1,0 +1,179 @@
+aaa_root:
+  disabled: true
+config_end: true
+enable_password:
+  disabled: true
+ethernet_interfaces:
+- name: Ethernet1/1
+  description: P2P_Site1-BGW1_Ethernet7/1
+  shutdown: false
+  mtu: 9214
+  ip_address: 172.16.30.5/31
+  peer: Site1-BGW1
+  peer_interface: Ethernet7/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet2/1
+  description: P2P_Site1-BGW2_Ethernet7/1
+  shutdown: false
+  mtu: 9214
+  ip_address: 172.16.30.11/31
+  peer: Site1-BGW2
+  peer_interface: Ethernet7/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet3/1
+  description: P2P_Site1-BGW3_Ethernet7/1
+  shutdown: false
+  mtu: 9214
+  ip_address: 172.16.30.17/31
+  peer: Site1-BGW3
+  peer_interface: Ethernet7/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet4/1
+  description: P2P_Site2-BGW1_Ethernet7/1
+  shutdown: false
+  mtu: 9214
+  ip_address: 172.16.30.23/31
+  peer: Site2-BGW1
+  peer_interface: Ethernet7/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet5/1
+  description: P2P_Site2-BGW2_Ethernet7/1
+  shutdown: false
+  mtu: 9214
+  ip_address: 172.16.30.29/31
+  peer: Site2-BGW2
+  peer_interface: Ethernet7/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet6/1
+  description: P2P_Site2-BGW3_Ethernet7/1
+  shutdown: false
+  mtu: 9214
+  ip_address: 172.16.30.35/31
+  peer: Site2-BGW3
+  peer_interface: Ethernet7/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+hostname: DCI-3
+ip_routing: true
+is_deployed: true
+local_users:
+- name: arista
+  privilege: 15
+  role: network-admin
+  sha512_password: $6$arista$hvhzPKMNzxDEPi2.4ml69k2ZGn88hWas4/loWEFDCkC2QEh/onTkN954QCDvZPAHLZDn41AoDozW5SKPFe0.6.
+loopback_interfaces:
+- name: Loopback0
+  description: ROUTER_ID
+  shutdown: false
+  ip_address: 192.168.250.3/32
+management_api_http:
+  enable_https: true
+  enable_vrfs:
+  - name: mgmt
+management_interfaces:
+- name: Management1
+  description: OOB_MANAGEMENT
+  shutdown: false
+  vrf: mgmt
+  ip_address: 192.168.0.102/24
+  type: oob
+  gateway: 192.168.0.5
+metadata:
+  platform: 7280CR3-36S
+  fabric_name: ATD_MGMT
+prefix_lists:
+- name: PL-LOOPBACKS-EVPN-OVERLAY
+  sequence_numbers:
+  - sequence: 10
+    action: permit 192.168.250.0/24 eq 32
+route_maps:
+- name: RM-CONN-2-BGP
+  sequence_numbers:
+  - sequence: 10
+    type: permit
+    match:
+    - ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+router_bgp:
+  as: '64999'
+  router_id: 192.168.250.3
+  distance:
+    external_routes: 20
+    internal_routes: 200
+    local_routes: 200
+  maximum_paths:
+    paths: 4
+    ecmp: 4
+  bgp:
+    default:
+      ipv4_unicast: false
+  peer_groups:
+  - name: IPv4-UNDERLAY-PEERS
+    type: ipv4
+    send_community: all
+    maximum_routes: 12000
+  neighbors:
+  - ip_address: 172.16.30.4
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65131'
+    peer: Site1-BGW1
+    description: Site1-BGW1
+  - ip_address: 172.16.30.10
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65131'
+    peer: Site1-BGW2
+    description: Site1-BGW2
+  - ip_address: 172.16.30.16
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65131'
+    peer: Site1-BGW3
+    description: Site1-BGW3
+  - ip_address: 172.16.30.22
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65231'
+    peer: Site2-BGW1
+    description: Site2-BGW1
+  - ip_address: 172.16.30.28
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65231'
+    peer: Site2-BGW2
+    description: Site2-BGW2
+  - ip_address: 172.16.30.34
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65231'
+    peer: Site2-BGW3
+    description: Site2-BGW3
+  redistribute:
+    connected:
+      enabled: true
+      route_map: RM-CONN-2-BGP
+  address_family_ipv4:
+    peer_groups:
+    - name: IPv4-UNDERLAY-PEERS
+      activate: true
+service_routing_protocols_model: multi-agent
+spanning_tree:
+  mode: none
+static_routes:
+- vrf: mgmt
+  destination_address_prefix: 0.0.0.0/0
+  gateway: 192.168.0.5
+transceiver_qsfp_default_mode_4x10: true
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+vrfs:
+- name: mgmt
+  ip_routing: false

@@ -1,0 +1,73 @@
+anta_inventory:
+  hosts:
+  - host: 192.168.0.10 
+    name: Site1-S1
+    tags: ["SPINE", "Site1"]
+  - host: 192.168.0.11
+    name: Site1-S2
+    tags: ["SPINE", "Site1"]
+  - host: 192.168.0.12
+    name: Site1-S3
+    tags: ["SPINE", "Site1"] 
+  - host: 192.168.0.13
+    name: Site1-L1
+    tags: ["LEAF", "Site1"]
+  - host: 192.168.0.14
+    name: Site1-L2
+    tags: ["LEAF", "Site1"]
+  - host: 192.168.0.15
+    name: Site1-L3
+    tags: ["LEAF", "Site1"]
+  - host: 192.168.0.16
+    name: Site1-L4
+    tags: ["LEAF", "Site1"]
+  - host: 192.168.0.17
+    name: Site1-BGW1
+    tags: ["LEAF", "Site1"]
+  - host: 192.168.0.18
+    name: Site1-BGW2
+    tags: ["LEAF", "Site1"]
+  - host: 192.168.0.19
+    name: Site1-BGW3
+    tags: ["LEAF", "Site1"]
+##### DC2 #####
+  - host: 192.168.0.20 
+    name: Site2-S1
+    tags: ["SPINE", "Site2"]
+  - host: 192.168.0.21
+    name: Site2-S2
+    tags: ["SPINE", "Site2"]
+  - host: 192.168.0.22
+    name: Site2-S3
+    tags: ["SPINE", "Site2"] 
+  - host: 192.168.0.23
+    name: Site2-L1
+    tags: ["LEAF", "Site2"]
+  - host: 192.168.0.24
+    name: Site2-L2
+    tags: ["LEAF", "Site2"]
+  - host: 192.168.0.25
+    name: Site2-L3
+    tags: ["LEAF", "Site2"]
+  - host: 192.168.0.26
+    name: Site2-L4
+    tags: ["LEAF", "Site2"]
+  - host: 192.168.0.27
+    name: Site2-BGW1
+    tags: ["LEAF", "Site2"]
+  - host: 192.168.0.28
+    name: Site2-BGW2
+    tags: ["LEAF", "Site2"]
+  - host: 192.168.0.29
+    name: Site2-BGW3
+    tags: ["LEAF", "Site2"]
+##### DCI/Core #####
+  - host: 192.168.0.100
+    name: DCI-1
+    tags: ["DCI", "CORE"]
+  - host: 192.168.0.101
+    name: DCI-2
+    tags: ["DCI", "CORE"]
+  - host: 192.168.0.102
+    name: DCI-3
+    tags: ["DCI", "CORE"]

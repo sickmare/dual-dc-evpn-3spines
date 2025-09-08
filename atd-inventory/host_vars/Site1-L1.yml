@@ -1,0 +1,23 @@
+---
+network_ports:
+  - switches:
+      - Site1-L1
+    switch_ports:
+      - Ethernet1
+    enabled: true
+    description: test eth1 trunk port
+    mtu:
+    vlans: "20,2300,2301,30"
+    profile: int_trunk_host
+  - switches:
+      - Site1-L1
+    switch_ports:
+      - Ethernet2
+    enabled: true
+    mtu: 9000
+    profile: int_routed_host
+    structured_config:
+      ip_address: 10.192.12.254/24
+      vrf: bluevrf
+      description: test eth2 routed port
+      mtu:

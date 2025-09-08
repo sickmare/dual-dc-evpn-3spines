@@ -1,0 +1,258 @@
+aaa_root:
+  disabled: true
+config_end: true
+enable_password:
+  disabled: true
+ethernet_interfaces:
+- name: Ethernet1/1
+  description: P2P_Site2-L1_Ethernet53/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.32.255.124/31
+  peer: Site2-L1
+  peer_interface: Ethernet53/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet2/1
+  description: P2P_Site2-L2_Ethernet53/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.32.255.130/31
+  peer: Site2-L2
+  peer_interface: Ethernet53/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet3/1
+  description: P2P_Site2-L3_Ethernet53/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.32.255.136/31
+  peer: Site2-L3
+  peer_interface: Ethernet53/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet4/1
+  description: P2P_Site2-L4_Ethernet53/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.32.255.142/31
+  peer: Site2-L4
+  peer_interface: Ethernet53/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet5/1
+  description: P2P_Site2-BGW1_Ethernet53/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.32.255.148/31
+  peer: Site2-BGW1
+  peer_interface: Ethernet53/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet6/1
+  description: P2P_Site2-BGW2_Ethernet53/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.32.255.154/31
+  peer: Site2-BGW2
+  peer_interface: Ethernet53/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet7/1
+  description: P2P_Site2-BGW3_Ethernet53/1
+  shutdown: false
+  mtu: 9000
+  ip_address: 172.32.255.160/31
+  peer: Site2-BGW3
+  peer_interface: Ethernet53/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+hostname: Site2-S3
+ip_name_servers:
+- ip_address: 192.168.0.5
+  vrf: mgmt
+- ip_address: 192.168.0.6
+  vrf: mgmt
+ip_routing: true
+is_deployed: true
+local_users:
+- name: arista
+  privilege: 15
+  role: network-admin
+  sha512_password: $6$arista$hvhzPKMNzxDEPi2.4ml69k2ZGn88hWas4/loWEFDCkC2QEh/onTkN954QCDvZPAHLZDn41AoDozW5SKPFe0.6.
+loopback_interfaces:
+- name: Loopback0
+  description: ROUTER_ID
+  shutdown: false
+  ip_address: 192.2.255.3/32
+management_api_http:
+  enable_https: true
+  enable_vrfs:
+  - name: mgmt
+management_interfaces:
+- name: Management1
+  description: OOB_MANAGEMENT
+  shutdown: false
+  vrf: mgmt
+  ip_address: 192.168.0.22/24
+  type: oob
+  gateway: 192.168.0.5
+metadata:
+  platform: 7050CX3-32C
+  fabric_name: ATD_MGMT
+prefix_lists:
+- name: PL-LOOPBACKS-EVPN-OVERLAY
+  sequence_numbers:
+  - sequence: 10
+    action: permit 192.2.255.0/24 eq 32
+route_maps:
+- name: RM-CONN-2-BGP
+  sequence_numbers:
+  - sequence: 10
+    type: permit
+    match:
+    - ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+router_bfd:
+  multihop:
+    interval: 1200
+    min_rx: 1200
+    multiplier: 3
+router_bgp:
+  as: '65002'
+  router_id: 192.2.255.3
+  distance:
+    external_routes: 20
+    internal_routes: 200
+    local_routes: 200
+  graceful_restart:
+    enabled: true
+    restart_time: 300
+  maximum_paths:
+    paths: 4
+    ecmp: 4
+  updates:
+    wait_install: true
+  bgp:
+    default:
+      ipv4_unicast: false
+  peer_groups:
+  - name: IPv4-UNDERLAY-PEERS
+    type: ipv4
+    send_community: all
+    maximum_routes: 12000
+  - name: EVPN-OVERLAY-PEERS
+    type: evpn
+    next_hop_unchanged: true
+    update_source: Loopback0
+    bfd: true
+    ebgp_multihop: 3
+    send_community: all
+    maximum_routes: 0
+  neighbors:
+  - ip_address: 172.32.255.125
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65201'
+    peer: Site2-L1
+    description: Site2-L1_Ethernet53/1
+  - ip_address: 172.32.255.131
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65202'
+    peer: Site2-L2
+    description: Site2-L2_Ethernet53/1
+  - ip_address: 172.32.255.137
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65203'
+    peer: Site2-L3
+    description: Site2-L3_Ethernet53/1
+  - ip_address: 172.32.255.143
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65203'
+    peer: Site2-L4
+    description: Site2-L4_Ethernet53/1
+  - ip_address: 172.32.255.149
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65231'
+    peer: Site2-BGW1
+    description: Site2-BGW1_Ethernet53/1
+  - ip_address: 172.32.255.155
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65231'
+    peer: Site2-BGW2
+    description: Site2-BGW2_Ethernet53/1
+  - ip_address: 172.32.255.161
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65231'
+    peer: Site2-BGW3
+    description: Site2-BGW3_Ethernet53/1
+  - ip_address: 192.2.255.27
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65231'
+    peer: Site2-BGW1
+    description: Site2-BGW1_Loopback0
+  - ip_address: 192.2.255.28
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65231'
+    peer: Site2-BGW2
+    description: Site2-BGW2_Loopback0
+  - ip_address: 192.2.255.29
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65231'
+    peer: Site2-BGW3
+    description: Site2-BGW3_Loopback0
+  - ip_address: 192.2.255.23
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65201'
+    peer: Site2-L1
+    description: Site2-L1_Loopback0
+  - ip_address: 192.2.255.24
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65202'
+    peer: Site2-L2
+    description: Site2-L2_Loopback0
+  - ip_address: 192.2.255.25
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65203'
+    peer: Site2-L3
+    description: Site2-L3_Loopback0
+  - ip_address: 192.2.255.26
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65203'
+    peer: Site2-L4
+    description: Site2-L4_Loopback0
+  redistribute:
+    connected:
+      enabled: true
+      route_map: RM-CONN-2-BGP
+  address_family_evpn:
+    peer_groups:
+    - name: EVPN-OVERLAY-PEERS
+      activate: true
+  address_family_ipv4:
+    peer_groups:
+    - name: IPv4-UNDERLAY-PEERS
+      activate: true
+    - name: EVPN-OVERLAY-PEERS
+      activate: false
+service_routing_protocols_model: multi-agent
+spanning_tree:
+  mode: none
+static_routes:
+- vrf: mgmt
+  destination_address_prefix: 0.0.0.0/0
+  gateway: 192.168.0.5
+transceiver_qsfp_default_mode_4x10: true
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+vrfs:
+- name: mgmt
+  ip_routing: false

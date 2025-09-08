@@ -1,0 +1,32 @@
+---
+fabric_name: ATD_MGMT
+
+underlay_routing_protocol: ebgp
+
+overlay_routing_protocol: ebgp
+
+evpn_vlan_aware_bundles: false
+
+eos_designs_documentation:
+#  enable: true
+  connected_endpoints: true
+#  topology_csv: true
+#  p2p_links_csv: true
+
+aaa_authorization:
+  exec:
+    default: local
+
+local_users:
+  - name: arista
+    privilege: 15
+    role: network-admin
+    sha512_password: "{{ ansible_password | password_hash('sha512', salt='arista', rounds=5000) }}"
+
+
+
+mgmt_gateway: 192.168.0.5
+mgmt_interface: Management1
+mgmt_interface_vrf: mgmt
+
+dns_domain: act.lab
