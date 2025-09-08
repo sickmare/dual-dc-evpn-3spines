@@ -1,0 +1,11 @@
+Address
+Interface       IP Address           Status     Protocol         MTU    Owner  
+--------------- -------------------- ---------- ------------ ---------- -------
+Ethernet1/1     172.16.30.1/31       up         up              9214           
+Ethernet2/1     172.16.30.7/31       up         up              9214           
+Ethernet3/1     172.16.30.13/31      up         up              9214           
+Ethernet4/1     172.16.30.19/31      up         up              9214           
+Ethernet5/1     172.16.30.25/31      up         up              9214           
+Ethernet6/1     172.16.30.31/31      up         up              9214           
+Loopback0       192.168.250.1/32     up         up             65535           
+Management1     192.168.0.100/24     up         up              1500

@@ -1,0 +1,572 @@
+anta.tests.connectivity:
+- VerifyLLDPNeighbors:
+    neighbors:
+    - neighbor_device: Site1-S1.act.lab
+      neighbor_port: Ethernet1/1
+      port: Ethernet51/1
+    result_overwrite:
+      custom_field: 'Local: Ethernet51/1 - Remote: Site1-S1 Ethernet1/1'
+- VerifyLLDPNeighbors:
+    neighbors:
+    - neighbor_device: Site1-S2.act.lab
+      neighbor_port: Ethernet1/1
+      port: Ethernet52/1
+    result_overwrite:
+      custom_field: 'Local: Ethernet52/1 - Remote: Site1-S2 Ethernet1/1'
+- VerifyLLDPNeighbors:
+    neighbors:
+    - neighbor_device: Site1-S3.act.lab
+      neighbor_port: Ethernet1/1
+      port: Ethernet53/1
+    result_overwrite:
+      custom_field: 'Local: Ethernet53/1 - Remote: Site1-S3 Ethernet1/1'
+- VerifyReachability:
+    hosts:
+    - destination: 172.30.255.60
+      repeat: 1
+      source: 172.30.255.61
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: P2P Interface Ethernet51/1 (IP: 172.30.255.61) - Destination:
+        Site1-S1 Ethernet1/1 (IP: 172.30.255.60)'
+- VerifyReachability:
+    hosts:
+    - destination: 172.30.255.62
+      repeat: 1
+      source: 172.30.255.63
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: P2P Interface Ethernet52/1 (IP: 172.30.255.63) - Destination:
+        Site1-S2 Ethernet1/1 (IP: 172.30.255.62)'
+- VerifyReachability:
+    hosts:
+    - destination: 172.30.255.64
+      repeat: 1
+      source: 172.30.255.65
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: P2P Interface Ethernet53/1 (IP: 172.30.255.65) - Destination:
+        Site1-S3 Ethernet1/1 (IP: 172.30.255.64)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.168.250.1
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: DCI-1 Loopback0
+        (IP: 192.168.250.1)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.168.250.2
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: DCI-2 Loopback0
+        (IP: 192.168.250.2)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.168.250.3
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: DCI-3 Loopback0
+        (IP: 192.168.250.3)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.0.255.1
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site1-S1
+        Loopback0 (IP: 192.0.255.1)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.0.255.2
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site1-S2
+        Loopback0 (IP: 192.0.255.2)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.0.255.3
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site1-S3
+        Loopback0 (IP: 192.0.255.3)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.0.255.13
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site1-L1
+        Loopback0 (IP: 192.0.255.13)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.0.255.14
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site1-L2
+        Loopback0 (IP: 192.0.255.14)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.0.255.15
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site1-L3
+        Loopback0 (IP: 192.0.255.15)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.0.255.16
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site1-L4
+        Loopback0 (IP: 192.0.255.16)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.0.255.17
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site1-BGW1
+        Loopback0 (IP: 192.0.255.17)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.0.255.18
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site1-BGW2
+        Loopback0 (IP: 192.0.255.18)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.0.255.19
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site1-BGW3
+        Loopback0 (IP: 192.0.255.19)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.2.255.1
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site2-S1
+        Loopback0 (IP: 192.2.255.1)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.2.255.2
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site2-S2
+        Loopback0 (IP: 192.2.255.2)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.2.255.3
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site2-S3
+        Loopback0 (IP: 192.2.255.3)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.2.255.23
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site2-L1
+        Loopback0 (IP: 192.2.255.23)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.2.255.24
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site2-L2
+        Loopback0 (IP: 192.2.255.24)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.2.255.25
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site2-L3
+        Loopback0 (IP: 192.2.255.25)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.2.255.26
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site2-L4
+        Loopback0 (IP: 192.2.255.26)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.2.255.27
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site2-BGW1
+        Loopback0 (IP: 192.2.255.27)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.2.255.28
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site2-BGW2
+        Loopback0 (IP: 192.2.255.28)'
+- VerifyReachability:
+    hosts:
+    - destination: 192.2.255.29
+      repeat: 1
+      source: 192.0.255.13
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: Loopback0 (IP: 192.0.255.13) - Destination: Site2-BGW3
+        Loopback0 (IP: 192.2.255.29)'
+anta.tests.hardware:
+- VerifyEnvironmentPower:
+    result_overwrite:
+      custom_field: 'Accepted States: ''ok'''
+    states:
+    - ok
+- VerifyEnvironmentCooling:
+    result_overwrite:
+      custom_field: 'Accepted States: ''ok'''
+    states:
+    - ok
+- VerifyTemperature: null
+- VerifyTransceiversManufacturers:
+    manufacturers:
+    - Arista Networks
+    - Arastra, Inc.
+    - Not Present
+    result_overwrite:
+      custom_field: 'Accepted Manufacturers: ''Arista Networks'', ''Arastra, Inc.'',
+        ''Not Present'''
+anta.tests.interfaces:
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet51/1
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet51/1 - P2P_Site1-S1_Ethernet1/1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet52/1
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet52/1 - P2P_Site1-S2_Ethernet1/1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet53/1
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet53/1 - P2P_Site1-S3_Ethernet1/1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet1
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet1 - test eth1 trunk port = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet2
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet2 - test eth2 routed port = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Vlan2300
+      status: up
+    result_overwrite:
+      custom_field: Interface Vlan2300 - bluenet1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Vlan2301
+      status: up
+    result_overwrite:
+      custom_field: Interface Vlan2301 - bluenet2 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Loopback0
+      status: up
+    result_overwrite:
+      custom_field: Interface Loopback0 - ROUTER_ID = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Loopback1
+      status: up
+    result_overwrite:
+      custom_field: Interface Loopback1 - VXLAN_TUNNEL_SOURCE = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Loopback100
+      status: up
+    result_overwrite:
+      custom_field: Interface Loopback100 - DIAG_VRF_bluevrf = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Vxlan1
+      status: up
+    result_overwrite:
+      custom_field: Interface Vxlan1 = 'up'
+anta.tests.routing.bgp:
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.0.255.1
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: Site1-S1 (IP: 192.0.255.1)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.0.255.2
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: Site1-S2 (IP: 192.0.255.2)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.0.255.3
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: Site1-S3 (IP: 192.0.255.3)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: ipv4
+      peers:
+      - 172.30.255.60
+      safi: unicast
+    result_overwrite:
+      custom_field: 'BGP IPv4 Unicast Peer: Site1-S1 (IP: 172.30.255.60)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: ipv4
+      peers:
+      - 172.30.255.62
+      safi: unicast
+    result_overwrite:
+      custom_field: 'BGP IPv4 Unicast Peer: Site1-S2 (IP: 172.30.255.62)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: ipv4
+      peers:
+      - 172.30.255.64
+      safi: unicast
+    result_overwrite:
+      custom_field: 'BGP IPv4 Unicast Peer: Site1-S3 (IP: 172.30.255.64)'
+anta.tests.routing.generic:
+- VerifyRoutingProtocolModel:
+    model: multi-agent
+    result_overwrite:
+      custom_field: 'Routing protocol model: multi-agent'
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.168.250.1 - Peer: DCI-1'
+    routes:
+    - 192.168.250.1
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.168.250.2 - Peer: DCI-2'
+    routes:
+    - 192.168.250.2
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.168.250.3 - Peer: DCI-3'
+    routes:
+    - 192.168.250.3
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.255.1 - Peer: Site1-S1'
+    routes:
+    - 192.0.255.1
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.255.2 - Peer: Site1-S2'
+    routes:
+    - 192.0.255.2
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.255.3 - Peer: Site1-S3'
+    routes:
+    - 192.0.255.3
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.255.13 - Peer: Site1-L1'
+    routes:
+    - 192.0.255.13
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.255.14 - Peer: Site1-L2'
+    routes:
+    - 192.0.255.14
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.255.15 - Peer: Site1-L3'
+    routes:
+    - 192.0.255.15
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.255.16 - Peer: Site1-L4'
+    routes:
+    - 192.0.255.16
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.255.17 - Peer: Site1-BGW1'
+    routes:
+    - 192.0.255.17
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.255.18 - Peer: Site1-BGW2'
+    routes:
+    - 192.0.255.18
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.255.19 - Peer: Site1-BGW3'
+    routes:
+    - 192.0.255.19
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.255.1 - Peer: Site2-S1'
+    routes:
+    - 192.2.255.1
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.255.2 - Peer: Site2-S2'
+    routes:
+    - 192.2.255.2
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.255.3 - Peer: Site2-S3'
+    routes:
+    - 192.2.255.3
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.255.23 - Peer: Site2-L1'
+    routes:
+    - 192.2.255.23
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.255.24 - Peer: Site2-L2'
+    routes:
+    - 192.2.255.24
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.255.25 - Peer: Site2-L3'
+    routes:
+    - 192.2.255.25
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.255.26 - Peer: Site2-L4'
+    routes:
+    - 192.2.255.26
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.255.27 - Peer: Site2-BGW1'
+    routes:
+    - 192.2.255.27
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.255.28 - Peer: Site2-BGW2'
+    routes:
+    - 192.2.255.28
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.255.29 - Peer: Site2-BGW3'
+    routes:
+    - 192.2.255.29
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.254.13 - Peer: Site1-L1'
+    routes:
+    - 192.0.254.13
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.254.14 - Peer: Site1-L2'
+    routes:
+    - 192.0.254.14
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.254.15 - Peer: Site1-L3'
+    routes:
+    - 192.0.254.15
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.254.17 - Peer: Site1-BGW1'
+    routes:
+    - 192.0.254.17
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.254.18 - Peer: Site1-BGW2'
+    routes:
+    - 192.0.254.18
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.0.254.19 - Peer: Site1-BGW3'
+    routes:
+    - 192.0.254.19
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.254.23 - Peer: Site2-L1'
+    routes:
+    - 192.2.254.23
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.254.24 - Peer: Site2-L2'
+    routes:
+    - 192.2.254.24
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.254.25 - Peer: Site2-L3'
+    routes:
+    - 192.2.254.25
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.254.27 - Peer: Site2-BGW1'
+    routes:
+    - 192.2.254.27
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.254.28 - Peer: Site2-BGW2'
+    routes:
+    - 192.2.254.28
+- VerifyRoutingTableEntry:
+    result_overwrite:
+      custom_field: 'Route: 192.2.254.29 - Peer: Site2-BGW3'
+    routes:
+    - 192.2.254.29
+anta.tests.system:
+- VerifyNTP: null
+- VerifyReloadCause: null

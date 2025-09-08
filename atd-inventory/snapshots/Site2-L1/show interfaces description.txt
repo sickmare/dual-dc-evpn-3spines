@@ -1,0 +1,65 @@
+Interface                      Status         Protocol           Description
+Et1                            down           down               test eth1 access port
+Et2                            up             up                 test eth2 routed port
+Et3                            down           down               
+Et4                            down           down               
+Et5                            down           down               
+Et6                            down           down               
+Et7                            down           down               
+Et8                            down           down               
+Et9                            down           down               
+Et10                           down           down               
+Et11                           down           down               
+Et12                           down           down               
+Et13                           down           down               
+Et14                           down           down               
+Et15                           down           down               
+Et16                           down           down               
+Et17                           down           down               
+Et18                           down           down               
+Et19                           down           down               
+Et20                           down           down               
+Et21                           down           down               
+Et22                           down           down               
+Et23                           down           down               
+Et24                           down           down               
+Et25                           down           down               
+Et26                           down           down               
+Et27                           down           down               
+Et28                           down           down               
+Et29                           down           down               
+Et30                           down           down               
+Et31                           down           down               
+Et32                           down           down               
+Et33                           down           down               
+Et34                           down           down               
+Et35                           down           down               
+Et36                           down           down               
+Et37                           down           down               
+Et38                           down           down               
+Et39                           down           down               
+Et40                           down           down               
+Et41                           down           down               
+Et42                           down           down               
+Et43                           down           down               
+Et44                           down           down               
+Et45                           down           down               
+Et46                           down           down               
+Et47                           down           down               
+Et48                           down           down               
+Et49/1                         down           down               
+Et50/1                         down           down               
+Et51/1                         up             up                 P2P_Site2-S1_Ethernet1/1
+Et52/1                         up             up                 P2P_Site2-S2_Ethernet1/1
+Et53/1                         up             up                 P2P_Site2-S3_Ethernet1/1
+Et54/1                         down           down               
+Et55/1                         down           down               
+Et56/1                         down           down               
+Lo0                            up             up                 ROUTER_ID
+Lo1                            up             up                 VXLAN_TUNNEL_SOURCE
+Lo100                          up             up                 DIAG_VRF_bluevrf
+Ma1                            up             up                 OOB_MANAGEMENT
+Vl2300                         up             up                 bluenet1
+Vl2301                         up             up                 bluenet2
+Vl4097                         up             up                 
+Vx1                            up             up                 Site2-L1_VTEP

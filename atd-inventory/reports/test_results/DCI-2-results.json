@@ -1,0 +1,334 @@
+[
+  {
+    "name": "DCI-2",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: Site1-BGW1 (IP: 172.16.30.2)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: Site1-BGW2 (IP: 172.16.30.8)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: Site1-BGW3 (IP: 172.16.30.14)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: Site2-BGW1 (IP: 172.16.30.20)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: Site2-BGW2 (IP: 172.16.30.26)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: Site2-BGW3 (IP: 172.16.30.32)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet1/1 - Remote: Site1-BGW1 Ethernet6/1"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet2/1 - Remote: Site1-BGW2 Ethernet6/1"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet3/1 - Remote: Site1-BGW3 Ethernet6/1"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet4/1 - Remote: Site2-BGW1 Ethernet6/1"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet5/1 - Remote: Site2-BGW2 Ethernet6/1"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet6/1 - Remote: Site2-BGW3 Ethernet6/1"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet1/1 (IP: 172.16.30.3) - Destination: Site1-BGW1 Ethernet6/1 (IP: 172.16.30.2)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet2/1 (IP: 172.16.30.9) - Destination: Site1-BGW2 Ethernet6/1 (IP: 172.16.30.8)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet3/1 (IP: 172.16.30.15) - Destination: Site1-BGW3 Ethernet6/1 (IP: 172.16.30.14)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet4/1 (IP: 172.16.30.21) - Destination: Site2-BGW1 Ethernet6/1 (IP: 172.16.30.20)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet5/1 (IP: 172.16.30.27) - Destination: Site2-BGW2 Ethernet6/1 (IP: 172.16.30.26)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet6/1 (IP: 172.16.30.33) - Destination: Site2-BGW3 Ethernet6/1 (IP: 172.16.30.32)"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyEnvironmentCooling",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies the status of power supply fans and all fan trays.",
+    "result": "skipped",
+    "messages": [
+      "VerifyEnvironmentCooling test is not supported on vEOS-lab."
+    ],
+    "custom_field": "Accepted States: 'ok'"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyEnvironmentPower",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies the power supplies status.",
+    "result": "skipped",
+    "messages": [
+      "VerifyEnvironmentPower test is not supported on vEOS-lab."
+    ],
+    "custom_field": "Accepted States: 'ok'"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyTemperature",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies if the device temperature is within acceptable limits.",
+    "result": "skipped",
+    "messages": [
+      "VerifyTemperature test is not supported on vEOS-lab."
+    ]
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyTransceiversManufacturers",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies if all the transceivers come from approved manufacturers.",
+    "result": "skipped",
+    "messages": [
+      "VerifyTransceiversManufacturers test is not supported on vEOS-lab."
+    ],
+    "custom_field": "Accepted Manufacturers: 'Arista Networks', 'Arastra, Inc.', 'Not Present'"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet1/1 - P2P_Site1-BGW1_Ethernet6/1 = 'up'"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet2/1 - P2P_Site1-BGW2_Ethernet6/1 = 'up'"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet3/1 - P2P_Site1-BGW3_Ethernet6/1 = 'up'"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet4/1 - P2P_Site2-BGW1_Ethernet6/1 = 'up'"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet5/1 - P2P_Site2-BGW2_Ethernet6/1 = 'up'"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet6/1 - P2P_Site2-BGW3_Ethernet6/1 = 'up'"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Loopback0 - ROUTER_ID = 'up'"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyRoutingProtocolModel",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies the configured routing protocol model.",
+    "result": "success",
+    "custom_field": "Routing protocol model: multi-agent"
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyNTP",
+    "categories": [
+      "system"
+    ],
+    "description": "Verifies if NTP is synchronised.",
+    "result": "failure",
+    "messages": [
+      "The device is not synchronized with the configured NTP server(s): 'unsynchronised'"
+    ]
+  },
+  {
+    "name": "DCI-2",
+    "test": "VerifyReloadCause",
+    "categories": [
+      "system"
+    ],
+    "description": "Verifies the last reload cause of the device.",
+    "result": "success"
+  }
+]

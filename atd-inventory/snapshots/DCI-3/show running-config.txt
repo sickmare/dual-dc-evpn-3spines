@@ -1,0 +1,203 @@
+! Command: show running-config
+! device: DCI-3 (vEOS-lab, EOS-4.32.2F)
+!
+! boot system flash:/CloudEOS.swi
+!
+no aaa root
+!
+username arista privilege 15 role network-admin secret sha512 $6$arista$hvhzPKMNzxDEPi2.4ml69k2ZGn88hWas4/loWEFDCkC2QEh/onTkN954QCDvZPAHLZDn41AoDozW5SKPFe0.6.
+username cvpadmin privilege 15 role network-admin secret sha512 $6$FJybVRwI5yrmny3M$GNksq4jiBSIozgZqHfJmvAu5K3B6VofCqhiglEZQV/Q.G/EgivMrQC5w1dvy5Sx98aX1l4HVcHfB0u.6/ExIe1
+!
+management api http-commands
+   no shutdown
+   !
+   vrf default
+      no shutdown
+   !
+   vrf mgmt
+      no shutdown
+!
+daemon TerminAttr
+   exec /usr/bin/TerminAttr -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata -cvaddr=192.168.0.5:9910 -cvauth=token,/tmp/token -cvvrf=mgmt -taillogs
+   no shutdown
+!
+vlan internal order ascending range 1006 1199
+!
+no service interface inactive port-id allocation disabled
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname DCI-3
+ip name-server vrf mgmt 192.168.0.5
+dns domain act.lab
+!
+spanning-tree mode none
+!
+system l1
+   unsupported speed action error
+   unsupported error-correction action error
+!
+vrf instance mgmt
+!
+aaa authorization exec default local
+!
+interface Ethernet1/1
+   description P2P_Site1-BGW1_Ethernet7/1
+   mtu 9214
+   no switchport
+   ip address 172.16.30.5/31
+!
+interface Ethernet2/1
+   description P2P_Site1-BGW2_Ethernet7/1
+   mtu 9214
+   no switchport
+   ip address 172.16.30.11/31
+!
+interface Ethernet3/1
+   description P2P_Site1-BGW3_Ethernet7/1
+   mtu 9214
+   no switchport
+   ip address 172.16.30.17/31
+!
+interface Ethernet4/1
+   description P2P_Site2-BGW1_Ethernet7/1
+   mtu 9214
+   no switchport
+   ip address 172.16.30.23/31
+!
+interface Ethernet5/1
+   description P2P_Site2-BGW2_Ethernet7/1
+   mtu 9214
+   no switchport
+   ip address 172.16.30.29/31
+!
+interface Ethernet6/1
+   description P2P_Site2-BGW3_Ethernet7/1
+   mtu 9214
+   no switchport
+   ip address 172.16.30.35/31
+!
+interface Ethernet7/1
+!
+interface Ethernet8/1
+!
+interface Ethernet9/1
+!
+interface Ethernet10/1
+!
+interface Ethernet11/1
+!
+interface Ethernet12/1
+!
+interface Ethernet13/1
+!
+interface Ethernet14/1
+!
+interface Ethernet15/1
+!
+interface Ethernet16/1
+!
+interface Ethernet17/1
+!
+interface Ethernet18/1
+!
+interface Ethernet19/1
+!
+interface Ethernet20/1
+!
+interface Ethernet21/1
+!
+interface Ethernet22/1
+!
+interface Ethernet23/1
+!
+interface Ethernet24/1
+!
+interface Ethernet25/1
+!
+interface Ethernet26/1
+!
+interface Ethernet27/1
+!
+interface Ethernet28/1
+!
+interface Ethernet29/1
+!
+interface Ethernet30/1
+!
+interface Ethernet31/1
+!
+interface Ethernet32/1
+!
+interface Ethernet33/1
+!
+interface Ethernet34/1
+!
+interface Ethernet35/1
+!
+interface Ethernet36/1
+!
+interface Loopback0
+   description ROUTER_ID
+   ip address 192.168.250.3/32
+!
+interface Management1
+   description OOB_MANAGEMENT
+   vrf mgmt
+   ip address 192.168.0.102/24
+!
+ip routing
+no ip routing vrf mgmt
+!
+ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+   seq 10 permit 192.168.250.0/24 eq 32
+!
+ip route vrf mgmt 0.0.0.0/0 192.168.0.5
+!
+ntp server vrf mgmt 192.168.0.5
+ntp server vrf mgmt 192.168.0.6
+!
+route-map RM-CONN-2-BGP permit 10
+   match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+!
+router bgp 64999
+   router-id 192.168.250.3
+   no bgp default ipv4-unicast
+   distance bgp 20 200 200
+   maximum-paths 4 ecmp 4
+   neighbor IPv4-UNDERLAY-PEERS peer group
+   neighbor IPv4-UNDERLAY-PEERS send-community
+   neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
+   neighbor 172.16.30.4 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.16.30.4 remote-as 65131
+   neighbor 172.16.30.4 description Site1-BGW1
+   neighbor 172.16.30.10 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.16.30.10 remote-as 65131
+   neighbor 172.16.30.10 description Site1-BGW2
+   neighbor 172.16.30.16 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.16.30.16 remote-as 65131
+   neighbor 172.16.30.16 description Site1-BGW3
+   neighbor 172.16.30.22 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.16.30.22 remote-as 65231
+   neighbor 172.16.30.22 description Site2-BGW1
+   neighbor 172.16.30.28 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.16.30.28 remote-as 65231
+   neighbor 172.16.30.28 description Site2-BGW2
+   neighbor 172.16.30.34 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.16.30.34 remote-as 65231
+   neighbor 172.16.30.34 description Site2-BGW3
+   redistribute connected route-map RM-CONN-2-BGP
+   !
+   address-family ipv4
+      neighbor IPv4-UNDERLAY-PEERS activate
+!
+router multicast
+   ipv4
+      software-forwarding kernel
+   !
+   ipv6
+      software-forwarding kernel
+!
+end

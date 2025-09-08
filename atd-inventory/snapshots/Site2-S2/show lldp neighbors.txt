@@ -1,0 +1,15 @@
+Last table change time   : 2:38:25 ago
+Number of table inserts  : 7
+Number of table deletes  : 0
+Number of table drops    : 0
+Number of table age-outs : 0
+
+Port           Neighbor Device ID       Neighbor Port ID    TTL
+----------- ------------------------ ---------------------- ---
+Et1/1          Site2-L1.act.lab         Ethernet52/1        120
+Et2/1          Site2-L2.act.lab         Ethernet52/1        120
+Et3/1          Site2-L3.act.lab         Ethernet52/1        120
+Et4/1          Site2-L4.act.lab         Ethernet52/1        120
+Et5/1          Site2-BGW1.act.lab       Ethernet2/1         120
+Et6/1          Site2-BGW2.act.lab       Ethernet2/1         120
+Et7/1          Site2-BGW3.act.lab       Ethernet2/1         120

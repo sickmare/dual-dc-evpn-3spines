@@ -1,0 +1,71 @@
+Interface                      Status         Protocol           Description
+Et1                            up             up                 SERVER_Site2-L3=Site2-L4=vPC1_NIC1
+Et2                            up             up                 SERVER_Site2-L3=Site2-L4=vPC2_NIC1
+Et3                            up             up                 test eth3 routed port
+Et4                            up             up                 
+Et5                            up             up                 
+Et6                            up             up                 
+Et7                            up             up                 
+Et8                            up             up                 
+Et9                            up             up                 
+Et10                           up             up                 
+Et11                           up             up                 
+Et12                           up             up                 
+Et13                           up             up                 
+Et14                           up             up                 
+Et15                           up             up                 
+Et16                           up             up                 
+Et17                           up             up                 
+Et18                           up             up                 
+Et19                           up             up                 
+Et20                           up             up                 
+Et21                           up             up                 
+Et22                           up             up                 
+Et23                           up             up                 
+Et24                           up             up                 
+Et25                           up             up                 
+Et26                           up             up                 
+Et27                           up             up                 
+Et28                           up             up                 
+Et29                           up             up                 
+Et30                           up             up                 
+Et31                           up             up                 
+Et32                           up             up                 
+Et33                           up             up                 
+Et34                           up             up                 
+Et35                           up             up                 
+Et36                           up             up                 
+Et37                           up             up                 
+Et38                           up             up                 
+Et39                           up             up                 
+Et40                           up             up                 
+Et41                           up             up                 
+Et42                           up             up                 
+Et43                           up             up                 
+Et44                           up             up                 
+Et45                           up             up                 
+Et46                           up             up                 
+Et47                           up             up                 
+Et48                           up             up                 
+Et49/1                         up             up                 MLAG_Site2-L4_Ethernet49/1
+Et50/1                         up             up                 MLAG_Site2-L4_Ethernet50/1
+Et51/1                         up             up                 P2P_Site2-S1_Ethernet3/1
+Et52/1                         up             up                 P2P_Site2-S2_Ethernet3/1
+Et53/1                         up             up                 P2P_Site2-S3_Ethernet3/1
+Et54/1                         up             up                 
+Et55/1                         up             up                 
+Et56/1                         up             up                 
+Lo0                            up             up                 ROUTER_ID
+Lo1                            up             up                 VXLAN_TUNNEL_SOURCE
+Lo100                          up             up                 DIAG_VRF_bluevrf
+Ma1                            up             up                 OOB_MANAGEMENT
+Po1                            down           lowerlayerdown     PortChannel
+Po2                            down           lowerlayerdown     PortChannel
+Po491                          up             up                 MLAG_Site2-L4_Port-Channel491
+Vl2300                         up             up                 bluenet1
+Vl2301                         up             up                 bluenet2
+Vl3009                         up             up                 MLAG_L3_VRF_bluevrf
+Vl4093                         up             up                 MLAG_L3
+Vl4094                         up             up                 MLAG
+Vl4097                         up             up                 
+Vx1                            up             up                 Site2-L3_VTEP

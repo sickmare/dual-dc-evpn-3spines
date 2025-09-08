@@ -1,0 +1,480 @@
+[
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "failure",
+    "messages": [
+      "AFI: evpn Peer: 192.0.255.17 - Session state is not established - State: Active"
+    ],
+    "custom_field": "BGP EVPN Peer: Site1-BGW1 (IP: 192.0.255.17)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "failure",
+    "messages": [
+      "AFI: evpn Peer: 192.0.255.18 - Session state is not established - State: Active"
+    ],
+    "custom_field": "BGP EVPN Peer: Site1-BGW2 (IP: 192.0.255.18)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "failure",
+    "messages": [
+      "AFI: evpn Peer: 192.0.255.19 - Session state is not established - State: Active"
+    ],
+    "custom_field": "BGP EVPN Peer: Site1-BGW3 (IP: 192.0.255.19)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: Site1-L1 (IP: 192.0.255.13)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: Site1-L2 (IP: 192.0.255.14)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: Site1-L3 (IP: 192.0.255.15)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: Site1-L4 (IP: 192.0.255.16)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "failure",
+    "messages": [
+      "AFI: ipv4 SAFI: unicast VRF: default Peer: 172.30.255.89 - Session state is not established - State: Active"
+    ],
+    "custom_field": "BGP IPv4 Unicast Peer: Site1-BGW1 (IP: 172.30.255.89)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "failure",
+    "messages": [
+      "AFI: ipv4 SAFI: unicast VRF: default Peer: 172.30.255.95 - Session state is not established - State: Active"
+    ],
+    "custom_field": "BGP IPv4 Unicast Peer: Site1-BGW2 (IP: 172.30.255.95)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "failure",
+    "messages": [
+      "AFI: ipv4 SAFI: unicast VRF: default Peer: 172.30.255.101 - Session state is not established - State: Active"
+    ],
+    "custom_field": "BGP IPv4 Unicast Peer: Site1-BGW3 (IP: 172.30.255.101)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: Site1-L1 (IP: 172.30.255.65)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: Site1-L2 (IP: 172.30.255.71)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: Site1-L3 (IP: 172.30.255.77)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP IPv4 Unicast Peer: Site1-L4 (IP: 172.30.255.83)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet1/1 - Remote: Site1-L1 Ethernet53/1"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet2/1 - Remote: Site1-L2 Ethernet53/1"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet3/1 - Remote: Site1-L3 Ethernet53/1"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet4/1 - Remote: Site1-L4 Ethernet53/1"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "failure",
+    "messages": [
+      "Port Ethernet5/1 (Neighbor: Site1-BGW1.act.lab, Neighbor Port: Ethernet53/1) - Wrong LLDP neighbors: Site1-BGW1.act.lab/Ethernet3/1"
+    ],
+    "custom_field": "Local: Ethernet5/1 - Remote: Site1-BGW1 Ethernet53/1"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "failure",
+    "messages": [
+      "Port Ethernet6/1 (Neighbor: Site1-BGW2.act.lab, Neighbor Port: Ethernet53/1) - Wrong LLDP neighbors: Site1-BGW2.act.lab/Ethernet3/1"
+    ],
+    "custom_field": "Local: Ethernet6/1 - Remote: Site1-BGW2 Ethernet53/1"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "failure",
+    "messages": [
+      "Port Ethernet7/1 (Neighbor: Site1-BGW3.act.lab, Neighbor Port: Ethernet53/1) - Wrong LLDP neighbors: Site1-BGW3.act.lab/Ethernet3/1"
+    ],
+    "custom_field": "Local: Ethernet7/1 - Remote: Site1-BGW3 Ethernet53/1"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet1/1 (IP: 172.30.255.64) - Destination: Site1-L1 Ethernet53/1 (IP: 172.30.255.65)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet2/1 (IP: 172.30.255.70) - Destination: Site1-L2 Ethernet53/1 (IP: 172.30.255.71)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet3/1 (IP: 172.30.255.76) - Destination: Site1-L3 Ethernet53/1 (IP: 172.30.255.77)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet4/1 (IP: 172.30.255.82) - Destination: Site1-L4 Ethernet53/1 (IP: 172.30.255.83)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "failure",
+    "messages": [
+      "Host 172.30.255.89 (src: 172.30.255.88, vrf: default, size: 100B, repeat: 1) - Unreachable"
+    ],
+    "custom_field": "Source: P2P Interface Ethernet5/1 (IP: 172.30.255.88) - Destination: Site1-BGW1 Ethernet53/1 (IP: 172.30.255.89)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "failure",
+    "messages": [
+      "Host 172.30.255.95 (src: 172.30.255.94, vrf: default, size: 100B, repeat: 1) - Unreachable"
+    ],
+    "custom_field": "Source: P2P Interface Ethernet6/1 (IP: 172.30.255.94) - Destination: Site1-BGW2 Ethernet53/1 (IP: 172.30.255.95)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "failure",
+    "messages": [
+      "Host 172.30.255.101 (src: 172.30.255.100, vrf: default, size: 100B, repeat: 1) - Unreachable"
+    ],
+    "custom_field": "Source: P2P Interface Ethernet7/1 (IP: 172.30.255.100) - Destination: Site1-BGW3 Ethernet53/1 (IP: 172.30.255.101)"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyEnvironmentCooling",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies the status of power supply fans and all fan trays.",
+    "result": "skipped",
+    "messages": [
+      "VerifyEnvironmentCooling test is not supported on vEOS-lab."
+    ],
+    "custom_field": "Accepted States: 'ok'"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyEnvironmentPower",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies the power supplies status.",
+    "result": "skipped",
+    "messages": [
+      "VerifyEnvironmentPower test is not supported on vEOS-lab."
+    ],
+    "custom_field": "Accepted States: 'ok'"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyTemperature",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies if the device temperature is within acceptable limits.",
+    "result": "skipped",
+    "messages": [
+      "VerifyTemperature test is not supported on vEOS-lab."
+    ]
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyTransceiversManufacturers",
+    "categories": [
+      "hardware"
+    ],
+    "description": "Verifies if all the transceivers come from approved manufacturers.",
+    "result": "skipped",
+    "messages": [
+      "VerifyTransceiversManufacturers test is not supported on vEOS-lab."
+    ],
+    "custom_field": "Accepted Manufacturers: 'Arista Networks', 'Arastra, Inc.', 'Not Present'"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet1/1 - P2P_Site1-L1_Ethernet53/1 = 'up'"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet2/1 - P2P_Site1-L2_Ethernet53/1 = 'up'"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet3/1 - P2P_Site1-L3_Ethernet53/1 = 'up'"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet4/1 - P2P_Site1-L4_Ethernet53/1 = 'up'"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet5/1 - P2P_Site1-BGW1_Ethernet53/1 = 'up'"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet6/1 - P2P_Site1-BGW2_Ethernet53/1 = 'up'"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet7/1 - P2P_Site1-BGW3_Ethernet53/1 = 'up'"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Loopback0 - ROUTER_ID = 'up'"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyRoutingProtocolModel",
+    "categories": [
+      "routing"
+    ],
+    "description": "Verifies the configured routing protocol model.",
+    "result": "success",
+    "custom_field": "Routing protocol model: multi-agent"
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyNTP",
+    "categories": [
+      "system"
+    ],
+    "description": "Verifies if NTP is synchronised.",
+    "result": "failure",
+    "messages": [
+      "The device is not synchronized with the configured NTP server(s): 'unsynchronised'"
+    ]
+  },
+  {
+    "name": "Site1-S3",
+    "test": "VerifyReloadCause",
+    "categories": [
+      "system"
+    ],
+    "description": "Verifies the last reload cause of the device.",
+    "result": "success"
+  }
+]

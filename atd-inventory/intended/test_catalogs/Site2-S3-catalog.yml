@@ -1,0 +1,296 @@
+anta.tests.connectivity:
+- VerifyLLDPNeighbors:
+    neighbors:
+    - neighbor_device: Site2-L1.act.lab
+      neighbor_port: Ethernet53/1
+      port: Ethernet1/1
+    result_overwrite:
+      custom_field: 'Local: Ethernet1/1 - Remote: Site2-L1 Ethernet53/1'
+- VerifyLLDPNeighbors:
+    neighbors:
+    - neighbor_device: Site2-L2.act.lab
+      neighbor_port: Ethernet53/1
+      port: Ethernet2/1
+    result_overwrite:
+      custom_field: 'Local: Ethernet2/1 - Remote: Site2-L2 Ethernet53/1'
+- VerifyLLDPNeighbors:
+    neighbors:
+    - neighbor_device: Site2-L3.act.lab
+      neighbor_port: Ethernet53/1
+      port: Ethernet3/1
+    result_overwrite:
+      custom_field: 'Local: Ethernet3/1 - Remote: Site2-L3 Ethernet53/1'
+- VerifyLLDPNeighbors:
+    neighbors:
+    - neighbor_device: Site2-L4.act.lab
+      neighbor_port: Ethernet53/1
+      port: Ethernet4/1
+    result_overwrite:
+      custom_field: 'Local: Ethernet4/1 - Remote: Site2-L4 Ethernet53/1'
+- VerifyLLDPNeighbors:
+    neighbors:
+    - neighbor_device: Site2-BGW1.act.lab
+      neighbor_port: Ethernet53/1
+      port: Ethernet5/1
+    result_overwrite:
+      custom_field: 'Local: Ethernet5/1 - Remote: Site2-BGW1 Ethernet53/1'
+- VerifyLLDPNeighbors:
+    neighbors:
+    - neighbor_device: Site2-BGW2.act.lab
+      neighbor_port: Ethernet53/1
+      port: Ethernet6/1
+    result_overwrite:
+      custom_field: 'Local: Ethernet6/1 - Remote: Site2-BGW2 Ethernet53/1'
+- VerifyLLDPNeighbors:
+    neighbors:
+    - neighbor_device: Site2-BGW3.act.lab
+      neighbor_port: Ethernet53/1
+      port: Ethernet7/1
+    result_overwrite:
+      custom_field: 'Local: Ethernet7/1 - Remote: Site2-BGW3 Ethernet53/1'
+- VerifyReachability:
+    hosts:
+    - destination: 172.32.255.125
+      repeat: 1
+      source: 172.32.255.124
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: P2P Interface Ethernet1/1 (IP: 172.32.255.124) - Destination:
+        Site2-L1 Ethernet53/1 (IP: 172.32.255.125)'
+- VerifyReachability:
+    hosts:
+    - destination: 172.32.255.131
+      repeat: 1
+      source: 172.32.255.130
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: P2P Interface Ethernet2/1 (IP: 172.32.255.130) - Destination:
+        Site2-L2 Ethernet53/1 (IP: 172.32.255.131)'
+- VerifyReachability:
+    hosts:
+    - destination: 172.32.255.137
+      repeat: 1
+      source: 172.32.255.136
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: P2P Interface Ethernet3/1 (IP: 172.32.255.136) - Destination:
+        Site2-L3 Ethernet53/1 (IP: 172.32.255.137)'
+- VerifyReachability:
+    hosts:
+    - destination: 172.32.255.143
+      repeat: 1
+      source: 172.32.255.142
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: P2P Interface Ethernet4/1 (IP: 172.32.255.142) - Destination:
+        Site2-L4 Ethernet53/1 (IP: 172.32.255.143)'
+- VerifyReachability:
+    hosts:
+    - destination: 172.32.255.149
+      repeat: 1
+      source: 172.32.255.148
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: P2P Interface Ethernet5/1 (IP: 172.32.255.148) - Destination:
+        Site2-BGW1 Ethernet53/1 (IP: 172.32.255.149)'
+- VerifyReachability:
+    hosts:
+    - destination: 172.32.255.155
+      repeat: 1
+      source: 172.32.255.154
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: P2P Interface Ethernet6/1 (IP: 172.32.255.154) - Destination:
+        Site2-BGW2 Ethernet53/1 (IP: 172.32.255.155)'
+- VerifyReachability:
+    hosts:
+    - destination: 172.32.255.161
+      repeat: 1
+      source: 172.32.255.160
+      vrf: default
+    result_overwrite:
+      custom_field: 'Source: P2P Interface Ethernet7/1 (IP: 172.32.255.160) - Destination:
+        Site2-BGW3 Ethernet53/1 (IP: 172.32.255.161)'
+anta.tests.hardware:
+- VerifyEnvironmentPower:
+    result_overwrite:
+      custom_field: 'Accepted States: ''ok'''
+    states:
+    - ok
+- VerifyEnvironmentCooling:
+    result_overwrite:
+      custom_field: 'Accepted States: ''ok'''
+    states:
+    - ok
+- VerifyTemperature: null
+- VerifyTransceiversManufacturers:
+    manufacturers:
+    - Arista Networks
+    - Arastra, Inc.
+    - Not Present
+    result_overwrite:
+      custom_field: 'Accepted Manufacturers: ''Arista Networks'', ''Arastra, Inc.'',
+        ''Not Present'''
+anta.tests.interfaces:
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet1/1
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet1/1 - P2P_Site2-L1_Ethernet53/1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet2/1
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet2/1 - P2P_Site2-L2_Ethernet53/1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet3/1
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet3/1 - P2P_Site2-L3_Ethernet53/1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet4/1
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet4/1 - P2P_Site2-L4_Ethernet53/1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet5/1
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet5/1 - P2P_Site2-BGW1_Ethernet53/1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet6/1
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet6/1 - P2P_Site2-BGW2_Ethernet53/1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Ethernet7/1
+      status: up
+    result_overwrite:
+      custom_field: Interface Ethernet7/1 - P2P_Site2-BGW3_Ethernet53/1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Loopback0
+      status: up
+    result_overwrite:
+      custom_field: Interface Loopback0 - ROUTER_ID = 'up'
+anta.tests.routing.bgp:
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.2.255.27
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: Site2-BGW1 (IP: 192.2.255.27)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.2.255.28
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: Site2-BGW2 (IP: 192.2.255.28)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.2.255.29
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: Site2-BGW3 (IP: 192.2.255.29)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.2.255.23
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: Site2-L1 (IP: 192.2.255.23)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.2.255.24
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: Site2-L2 (IP: 192.2.255.24)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.2.255.25
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: Site2-L3 (IP: 192.2.255.25)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.2.255.26
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: Site2-L4 (IP: 192.2.255.26)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: ipv4
+      peers:
+      - 172.32.255.125
+      safi: unicast
+    result_overwrite:
+      custom_field: 'BGP IPv4 Unicast Peer: Site2-L1 (IP: 172.32.255.125)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: ipv4
+      peers:
+      - 172.32.255.131
+      safi: unicast
+    result_overwrite:
+      custom_field: 'BGP IPv4 Unicast Peer: Site2-L2 (IP: 172.32.255.131)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: ipv4
+      peers:
+      - 172.32.255.137
+      safi: unicast
+    result_overwrite:
+      custom_field: 'BGP IPv4 Unicast Peer: Site2-L3 (IP: 172.32.255.137)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: ipv4
+      peers:
+      - 172.32.255.143
+      safi: unicast
+    result_overwrite:
+      custom_field: 'BGP IPv4 Unicast Peer: Site2-L4 (IP: 172.32.255.143)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: ipv4
+      peers:
+      - 172.32.255.149
+      safi: unicast
+    result_overwrite:
+      custom_field: 'BGP IPv4 Unicast Peer: Site2-BGW1 (IP: 172.32.255.149)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: ipv4
+      peers:
+      - 172.32.255.155
+      safi: unicast
+    result_overwrite:
+      custom_field: 'BGP IPv4 Unicast Peer: Site2-BGW2 (IP: 172.32.255.155)'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: ipv4
+      peers:
+      - 172.32.255.161
+      safi: unicast
+    result_overwrite:
+      custom_field: 'BGP IPv4 Unicast Peer: Site2-BGW3 (IP: 172.32.255.161)'
+anta.tests.routing.generic:
+- VerifyRoutingProtocolModel:
+    model: multi-agent
+    result_overwrite:
+      custom_field: 'Routing protocol model: multi-agent'
+anta.tests.system:
+- VerifyNTP: null
+- VerifyReloadCause: null
