@@ -74,15 +74,15 @@
 | super-spine | DCI-3 | Ethernet4/1 | l3leaf | Site2-BGW1 | Ethernet7/1 |
 | super-spine | DCI-3 | Ethernet5/1 | l3leaf | Site2-BGW2 | Ethernet7/1 |
 | super-spine | DCI-3 | Ethernet6/1 | l3leaf | Site2-BGW3 | Ethernet7/1 |
-| l3leaf | Site1-BGW1 | Ethernet51/1 | spine | Site1-S1 | Ethernet5/1 |
-| l3leaf | Site1-BGW1 | Ethernet52/1 | spine | Site1-S2 | Ethernet5/1 |
-| l3leaf | Site1-BGW1 | Ethernet53/1 | spine | Site1-S3 | Ethernet5/1 |
-| l3leaf | Site1-BGW2 | Ethernet51/1 | spine | Site1-S1 | Ethernet6/1 |
-| l3leaf | Site1-BGW2 | Ethernet52/1 | spine | Site1-S2 | Ethernet6/1 |
-| l3leaf | Site1-BGW2 | Ethernet53/1 | spine | Site1-S3 | Ethernet6/1 |
-| l3leaf | Site1-BGW3 | Ethernet51/1 | spine | Site1-S1 | Ethernet7/1 |
-| l3leaf | Site1-BGW3 | Ethernet52/1 | spine | Site1-S2 | Ethernet7/1 |
-| l3leaf | Site1-BGW3 | Ethernet53/1 | spine | Site1-S3 | Ethernet7/1 |
+| l3leaf | Site1-BGW1 | Ethernet1/1 | spine | Site1-S1 | Ethernet5/1 |
+| l3leaf | Site1-BGW1 | Ethernet2/1 | spine | Site1-S2 | Ethernet5/1 |
+| l3leaf | Site1-BGW1 | Ethernet3/1 | spine | Site1-S3 | Ethernet5/1 |
+| l3leaf | Site1-BGW2 | Ethernet1/1 | spine | Site1-S1 | Ethernet6/1 |
+| l3leaf | Site1-BGW2 | Ethernet2/1 | spine | Site1-S2 | Ethernet6/1 |
+| l3leaf | Site1-BGW2 | Ethernet3/1 | spine | Site1-S3 | Ethernet6/1 |
+| l3leaf | Site1-BGW3 | Ethernet1/1 | spine | Site1-S1 | Ethernet7/1 |
+| l3leaf | Site1-BGW3 | Ethernet2/1 | spine | Site1-S2 | Ethernet7/1 |
+| l3leaf | Site1-BGW3 | Ethernet3/1 | spine | Site1-S3 | Ethernet7/1 |
 | l3leaf | Site1-L1 | Ethernet51/1 | spine | Site1-S1 | Ethernet1/1 |
 | l3leaf | Site1-L1 | Ethernet52/1 | spine | Site1-S2 | Ethernet1/1 |
 | l3leaf | Site1-L1 | Ethernet53/1 | spine | Site1-S3 | Ethernet1/1 |
@@ -97,15 +97,15 @@
 | l3leaf | Site1-L4 | Ethernet51/1 | spine | Site1-S1 | Ethernet4/1 |
 | l3leaf | Site1-L4 | Ethernet52/1 | spine | Site1-S2 | Ethernet4/1 |
 | l3leaf | Site1-L4 | Ethernet53/1 | spine | Site1-S3 | Ethernet4/1 |
-| l3leaf | Site2-BGW1 | Ethernet51/1 | spine | Site2-S1 | Ethernet5/1 |
-| l3leaf | Site2-BGW1 | Ethernet52/1 | spine | Site2-S2 | Ethernet5/1 |
-| l3leaf | Site2-BGW1 | Ethernet53/1 | spine | Site2-S3 | Ethernet5/1 |
-| l3leaf | Site2-BGW2 | Ethernet51/1 | spine | Site2-S1 | Ethernet6/1 |
-| l3leaf | Site2-BGW2 | Ethernet52/1 | spine | Site2-S2 | Ethernet6/1 |
-| l3leaf | Site2-BGW2 | Ethernet53/1 | spine | Site2-S3 | Ethernet6/1 |
-| l3leaf | Site2-BGW3 | Ethernet51/1 | spine | Site2-S1 | Ethernet7/1 |
-| l3leaf | Site2-BGW3 | Ethernet52/1 | spine | Site2-S2 | Ethernet7/1 |
-| l3leaf | Site2-BGW3 | Ethernet53/1 | spine | Site2-S3 | Ethernet7/1 |
+| l3leaf | Site2-BGW1 | Ethernet1/1 | spine | Site2-S1 | Ethernet5/1 |
+| l3leaf | Site2-BGW1 | Ethernet2/1 | spine | Site2-S2 | Ethernet5/1 |
+| l3leaf | Site2-BGW1 | Ethernet3/1 | spine | Site2-S3 | Ethernet5/1 |
+| l3leaf | Site2-BGW2 | Ethernet1/1 | spine | Site2-S1 | Ethernet6/1 |
+| l3leaf | Site2-BGW2 | Ethernet2/1 | spine | Site2-S2 | Ethernet6/1 |
+| l3leaf | Site2-BGW2 | Ethernet3/1 | spine | Site2-S3 | Ethernet6/1 |
+| l3leaf | Site2-BGW3 | Ethernet1/1 | spine | Site2-S1 | Ethernet7/1 |
+| l3leaf | Site2-BGW3 | Ethernet2/1 | spine | Site2-S2 | Ethernet7/1 |
+| l3leaf | Site2-BGW3 | Ethernet3/1 | spine | Site2-S3 | Ethernet7/1 |
 | l3leaf | Site2-L1 | Ethernet51/1 | spine | Site2-S1 | Ethernet1/1 |
 | l3leaf | Site2-L1 | Ethernet52/1 | spine | Site2-S2 | Ethernet1/1 |
 | l3leaf | Site2-L1 | Ethernet53/1 | spine | Site2-S3 | Ethernet1/1 |
@@ -152,15 +152,15 @@
 | DCI-3 | Ethernet4/1 | 172.16.30.23/31 | Site2-BGW1 | Ethernet7/1 | 172.16.30.22/31 |
 | DCI-3 | Ethernet5/1 | 172.16.30.29/31 | Site2-BGW2 | Ethernet7/1 | 172.16.30.28/31 |
 | DCI-3 | Ethernet6/1 | 172.16.30.35/31 | Site2-BGW3 | Ethernet7/1 | 172.16.30.34/31 |
-| Site1-BGW1 | Ethernet51/1 | 172.30.255.85/31 | Site1-S1 | Ethernet5/1 | 172.30.255.84/31 |
-| Site1-BGW1 | Ethernet52/1 | 172.30.255.87/31 | Site1-S2 | Ethernet5/1 | 172.30.255.86/31 |
-| Site1-BGW1 | Ethernet53/1 | 172.30.255.89/31 | Site1-S3 | Ethernet5/1 | 172.30.255.88/31 |
-| Site1-BGW2 | Ethernet51/1 | 172.30.255.91/31 | Site1-S1 | Ethernet6/1 | 172.30.255.90/31 |
-| Site1-BGW2 | Ethernet52/1 | 172.30.255.93/31 | Site1-S2 | Ethernet6/1 | 172.30.255.92/31 |
-| Site1-BGW2 | Ethernet53/1 | 172.30.255.95/31 | Site1-S3 | Ethernet6/1 | 172.30.255.94/31 |
-| Site1-BGW3 | Ethernet51/1 | 172.30.255.97/31 | Site1-S1 | Ethernet7/1 | 172.30.255.96/31 |
-| Site1-BGW3 | Ethernet52/1 | 172.30.255.99/31 | Site1-S2 | Ethernet7/1 | 172.30.255.98/31 |
-| Site1-BGW3 | Ethernet53/1 | 172.30.255.101/31 | Site1-S3 | Ethernet7/1 | 172.30.255.100/31 |
+| Site1-BGW1 | Ethernet1/1 | 172.30.255.85/31 | Site1-S1 | Ethernet5/1 | 172.30.255.84/31 |
+| Site1-BGW1 | Ethernet2/1 | 172.30.255.87/31 | Site1-S2 | Ethernet5/1 | 172.30.255.86/31 |
+| Site1-BGW1 | Ethernet3/1 | 172.30.255.89/31 | Site1-S3 | Ethernet5/1 | 172.30.255.88/31 |
+| Site1-BGW2 | Ethernet1/1 | 172.30.255.91/31 | Site1-S1 | Ethernet6/1 | 172.30.255.90/31 |
+| Site1-BGW2 | Ethernet2/1 | 172.30.255.93/31 | Site1-S2 | Ethernet6/1 | 172.30.255.92/31 |
+| Site1-BGW2 | Ethernet3/1 | 172.30.255.95/31 | Site1-S3 | Ethernet6/1 | 172.30.255.94/31 |
+| Site1-BGW3 | Ethernet1/1 | 172.30.255.97/31 | Site1-S1 | Ethernet7/1 | 172.30.255.96/31 |
+| Site1-BGW3 | Ethernet2/1 | 172.30.255.99/31 | Site1-S2 | Ethernet7/1 | 172.30.255.98/31 |
+| Site1-BGW3 | Ethernet3/1 | 172.30.255.101/31 | Site1-S3 | Ethernet7/1 | 172.30.255.100/31 |
 | Site1-L1 | Ethernet51/1 | 172.30.255.61/31 | Site1-S1 | Ethernet1/1 | 172.30.255.60/31 |
 | Site1-L1 | Ethernet52/1 | 172.30.255.63/31 | Site1-S2 | Ethernet1/1 | 172.30.255.62/31 |
 | Site1-L1 | Ethernet53/1 | 172.30.255.65/31 | Site1-S3 | Ethernet1/1 | 172.30.255.64/31 |
@@ -173,15 +173,15 @@
 | Site1-L4 | Ethernet51/1 | 172.30.255.79/31 | Site1-S1 | Ethernet4/1 | 172.30.255.78/31 |
 | Site1-L4 | Ethernet52/1 | 172.30.255.81/31 | Site1-S2 | Ethernet4/1 | 172.30.255.80/31 |
 | Site1-L4 | Ethernet53/1 | 172.30.255.83/31 | Site1-S3 | Ethernet4/1 | 172.30.255.82/31 |
-| Site2-BGW1 | Ethernet51/1 | 172.32.255.145/31 | Site2-S1 | Ethernet5/1 | 172.32.255.144/31 |
-| Site2-BGW1 | Ethernet52/1 | 172.32.255.147/31 | Site2-S2 | Ethernet5/1 | 172.32.255.146/31 |
-| Site2-BGW1 | Ethernet53/1 | 172.32.255.149/31 | Site2-S3 | Ethernet5/1 | 172.32.255.148/31 |
-| Site2-BGW2 | Ethernet51/1 | 172.32.255.151/31 | Site2-S1 | Ethernet6/1 | 172.32.255.150/31 |
-| Site2-BGW2 | Ethernet52/1 | 172.32.255.153/31 | Site2-S2 | Ethernet6/1 | 172.32.255.152/31 |
-| Site2-BGW2 | Ethernet53/1 | 172.32.255.155/31 | Site2-S3 | Ethernet6/1 | 172.32.255.154/31 |
-| Site2-BGW3 | Ethernet51/1 | 172.32.255.157/31 | Site2-S1 | Ethernet7/1 | 172.32.255.156/31 |
-| Site2-BGW3 | Ethernet52/1 | 172.32.255.159/31 | Site2-S2 | Ethernet7/1 | 172.32.255.158/31 |
-| Site2-BGW3 | Ethernet53/1 | 172.32.255.161/31 | Site2-S3 | Ethernet7/1 | 172.32.255.160/31 |
+| Site2-BGW1 | Ethernet1/1 | 172.32.255.145/31 | Site2-S1 | Ethernet5/1 | 172.32.255.144/31 |
+| Site2-BGW1 | Ethernet2/1 | 172.32.255.147/31 | Site2-S2 | Ethernet5/1 | 172.32.255.146/31 |
+| Site2-BGW1 | Ethernet3/1 | 172.32.255.149/31 | Site2-S3 | Ethernet5/1 | 172.32.255.148/31 |
+| Site2-BGW2 | Ethernet1/1 | 172.32.255.151/31 | Site2-S1 | Ethernet6/1 | 172.32.255.150/31 |
+| Site2-BGW2 | Ethernet2/1 | 172.32.255.153/31 | Site2-S2 | Ethernet6/1 | 172.32.255.152/31 |
+| Site2-BGW2 | Ethernet3/1 | 172.32.255.155/31 | Site2-S3 | Ethernet6/1 | 172.32.255.154/31 |
+| Site2-BGW3 | Ethernet1/1 | 172.32.255.157/31 | Site2-S1 | Ethernet7/1 | 172.32.255.156/31 |
+| Site2-BGW3 | Ethernet2/1 | 172.32.255.159/31 | Site2-S2 | Ethernet7/1 | 172.32.255.158/31 |
+| Site2-BGW3 | Ethernet3/1 | 172.32.255.161/31 | Site2-S3 | Ethernet7/1 | 172.32.255.160/31 |
 | Site2-L1 | Ethernet51/1 | 172.32.255.121/31 | Site2-S1 | Ethernet1/1 | 172.32.255.120/31 |
 | Site2-L1 | Ethernet52/1 | 172.32.255.123/31 | Site2-S2 | Ethernet1/1 | 172.32.255.122/31 |
 | Site2-L1 | Ethernet53/1 | 172.32.255.125/31 | Site2-S3 | Ethernet1/1 | 172.32.255.124/31 |
@@ -269,14 +269,14 @@
 
 | Name | Port | Fabric Device | Fabric Port | Description | Shutdown | Mode | Access VLAN | Trunk Allowed VLANs | Profile |
 | ---- | ---- | ------------- | ------------| ----------- | -------- | ---- | ----------- | ------------------- | ------- |
-| Site1-L3=Site1-L4=vPC1 | NIC1 | Site1-L3 | Ethernet1 | SERVER_Site1-L3=Site1-L4=vPC1_NIC1 | False | trunk | - | 20 | int_vpc_trunk_host |
-| Site1-L3=Site1-L4=vPC1 | NIC2 | Site1-L4 | Ethernet1 | SERVER_Site1-L3=Site1-L4=vPC1_NIC2 | False | trunk | - | 20 | int_vpc_trunk_host |
-| Site1-L3=Site1-L4=vPC2 | NIC1 | Site1-L3 | Ethernet2 | SERVER_Site1-L3=Site1-L4=vPC2_NIC1 | False | trunk | - | 20 | int_vpc_trunk_host |
-| Site1-L3=Site1-L4=vPC2 | NIC2 | Site1-L4 | Ethernet2 | SERVER_Site1-L3=Site1-L4=vPC2_NIC2 | False | trunk | - | 20 | int_vpc_trunk_host |
-| Site2-L3=Site2-L4=vPC1 | NIC1 | Site2-L3 | Ethernet1 | SERVER_Site2-L3=Site2-L4=vPC1_NIC1 | False | trunk | - | 20 | int_vpc_trunk_host |
-| Site2-L3=Site2-L4=vPC1 | NIC2 | Site2-L4 | Ethernet1 | SERVER_Site2-L3=Site2-L4=vPC1_NIC2 | False | trunk | - | 20 | int_vpc_trunk_host |
-| Site2-L3=Site2-L4=vPC2 | NIC1 | Site2-L3 | Ethernet2 | SERVER_Site2-L3=Site2-L4=vPC2_NIC1 | False | trunk | - | 20 | int_vpc_trunk_host |
-| Site2-L3=Site2-L4=vPC2 | NIC2 | Site2-L4 | Ethernet2 | SERVER_Site2-L3=Site2-L4=vPC2_NIC2 | False | trunk | - | 20 | int_vpc_trunk_host |
+| Site1-L3=Site1-L4=vPC1 | NIC1 | Site1-L3 | Ethernet1 | SERVER_Site1-L3=Site1-L4=vPC1_NIC1 | False | trunk | - | 101-102,201-202,301-302 | int_vpc_trunk_host |
+| Site1-L3=Site1-L4=vPC1 | NIC2 | Site1-L4 | Ethernet1 | SERVER_Site1-L3=Site1-L4=vPC1_NIC2 | False | trunk | - | 101-102,201-202,301-302 | int_vpc_trunk_host |
+| Site1-L3=Site1-L4=vPC2 | NIC1 | Site1-L3 | Ethernet2 | SERVER_Site1-L3=Site1-L4=vPC2_NIC1 | False | trunk | - | 101-102,201-202,301-302 | int_vpc_trunk_host |
+| Site1-L3=Site1-L4=vPC2 | NIC2 | Site1-L4 | Ethernet2 | SERVER_Site1-L3=Site1-L4=vPC2_NIC2 | False | trunk | - | 101-102,201-202,301-302 | int_vpc_trunk_host |
+| Site2-L3=Site2-L4=vPC1 | NIC1 | Site2-L3 | Ethernet1 | SERVER_Site2-L3=Site2-L4=vPC1_NIC1 | False | trunk | - | 101-102,201-202,301-302 | int_vpc_trunk_host |
+| Site2-L3=Site2-L4=vPC1 | NIC2 | Site2-L4 | Ethernet1 | SERVER_Site2-L3=Site2-L4=vPC1_NIC2 | False | trunk | - | 101-102,201-202,301-302 | int_vpc_trunk_host |
+| Site2-L3=Site2-L4=vPC2 | NIC1 | Site2-L3 | Ethernet2 | SERVER_Site2-L3=Site2-L4=vPC2_NIC1 | False | trunk | - | 101-102,201-202,301-302 | int_vpc_trunk_host |
+| Site2-L3=Site2-L4=vPC2 | NIC2 | Site2-L4 | Ethernet2 | SERVER_Site2-L3=Site2-L4=vPC2_NIC2 | False | trunk | - | 101-102,201-202,301-302 | int_vpc_trunk_host |
 
 ### Port Profiles
 

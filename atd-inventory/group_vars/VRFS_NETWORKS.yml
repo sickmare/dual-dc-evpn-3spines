@@ -9,24 +9,43 @@ tenants:
           loopback: 100
           loopback_ip_range: 10.255.1.0/24
         svis:
-          - id: 2300
+          - id: 101
             name: bluenet1
-            vni_override: 32300
+            vni_override: 30101
             tags: [bluenet1-tag]
             enabled: true
-            ip_address_virtual: 192.168.11.1/24
-          - id: 2301
+            ip_address_virtual: 10.10.101.254/24
+
+          - id: 102
             name: bluenet2
-            vni_override: 32301
-            tags: [bluenet1-tag]
+            vni_override: 30102
+            tags: [bluenet2-tag]
             enabled: true
-            ip_address_virtual: 192.168.12.1/24
+            ip_address_virtual: 10.10.102.254/24
+      - name: redvrf
+        vrf_vni: 20
+        vtep_diagnostic:
+          loopback: 200
+          loopback_ip_range: 10.255.2.0/24
+        svis:
+          - id: 201
+            name: rednet1
+            vni_override: 30201
+            tags: [rednet1-tag]
+            enabled: true
+            ip_address_virtual: 10.20.201.254/24
+          - id: 202
+            name: rednet2
+            vni_override: 30202
+            tags: [rednet2-tag]
+            enabled: true
+            ip_address_virtual: 10.20.202.254/24
     l2vlans:
-      - id: 20
-        vni_override: 30020
-        name: L2-V20
-        tags: [ExternalNetwork-tag]
-      - id: 30
-        vni_override: 30030
-        name: L2-V30
-        tags: [ExternalNetwork-tag]
+      - id: 301
+        vni_override: 30301
+        name: L2-V301
+        tags: [L2-V301-tag]
+      - id: 302
+        vni_override: 30302
+        name: L2-V302
+        tags: [L2-V302-tag]

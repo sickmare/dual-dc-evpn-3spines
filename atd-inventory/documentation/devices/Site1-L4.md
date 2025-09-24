@@ -259,11 +259,14 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
-| 20 | L2-V20 | - |
-| 30 | L2-V30 | - |
-| 2300 | bluenet1 | - |
-| 2301 | bluenet2 | - |
+| 101 | bluenet1 | - |
+| 102 | bluenet2 | - |
+| 201 | rednet1 | - |
+| 202 | rednet2 | - |
+| 301 | L2-V301 | - |
+| 302 | L2-V302 | - |
 | 3009 | MLAG_L3_VRF_bluevrf | MLAG |
+| 3019 | MLAG_L3_VRF_redvrf | MLAG |
 | 4093 | MLAG_L3 | MLAG |
 | 4094 | MLAG | MLAG |
 
@@ -271,20 +274,30 @@ vlan internal order ascending range 1006 1199
 
 ```eos
 !
-vlan 20
-   name L2-V20
-!
-vlan 30
-   name L2-V30
-!
-vlan 2300
+vlan 101
    name bluenet1
 !
-vlan 2301
+vlan 102
    name bluenet2
+!
+vlan 201
+   name rednet1
+!
+vlan 202
+   name rednet2
+!
+vlan 301
+   name L2-V301
+!
+vlan 302
+   name L2-V302
 !
 vlan 3009
    name MLAG_L3_VRF_bluevrf
+   trunk group MLAG
+!
+vlan 3019
+   name MLAG_L3_VRF_redvrf
    trunk group MLAG
 !
 vlan 4093
@@ -306,8 +319,8 @@ vlan 4094
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
-| Ethernet1 | SERVER_Site1-L3=Site1-L4=vPC1_NIC2 | *trunk | *20 | *- | *- | 1 |
-| Ethernet2 | SERVER_Site1-L3=Site1-L4=vPC2_NIC2 | *trunk | *20 | *- | *- | 2 |
+| Ethernet1 | SERVER_Site1-L3=Site1-L4=vPC1_NIC2 | *trunk | *101-102,201-202,301-302 | *- | *- | 1 |
+| Ethernet2 | SERVER_Site1-L3=Site1-L4=vPC2_NIC2 | *trunk | *101-102,201-202,301-302 | *- | *- | 2 |
 | Ethernet49/1 | MLAG_Site1-L3_Ethernet49/1 | *trunk | *- | *- | *MLAG | 491 |
 | Ethernet50/1 | MLAG_Site1-L3_Ethernet50/1 | *trunk | *- | *- | *MLAG | 491 |
 
@@ -317,7 +330,7 @@ vlan 4094
 
 | Interface | Description | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet3 | test eth3 routed port | - | 10.192.43.254/24 | bluevrf | - | False | - | - |
+| Ethernet3 | test eth3 routed port | - | 10.192.144.254/24 | bluevrf | - | False | - | - |
 | Ethernet51/1 | P2P_Site1-S1_Ethernet4/1 | - | 172.30.255.79/31 | default | 9000 | False | - | - |
 | Ethernet52/1 | P2P_Site1-S2_Ethernet4/1 | - | 172.30.255.81/31 | default | 9000 | False | - | - |
 | Ethernet53/1 | P2P_Site1-S3_Ethernet4/1 | - | 172.30.255.83/31 | default | 9000 | False | - | - |
@@ -340,9 +353,9 @@ interface Ethernet3
    description test eth3 routed port
    no shutdown
    no switchport
-   switchport
+   no switchport
    vrf bluevrf
-   ip address 10.192.43.254/24
+   ip address 10.192.144.254/24
 !
 interface Ethernet49/1
    description MLAG_Site1-L3_Ethernet49/1
@@ -384,8 +397,8 @@ interface Ethernet53/1
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
-| Port-Channel1 | PortChannel | trunk | 20 | - | - | - | - | 1 | - |
-| Port-Channel2 | PortChannel | trunk | 20 | - | - | - | - | 2 | - |
+| Port-Channel1 | PortChannel | trunk | 101-102,201-202,301-302 | - | - | - | - | 1 | - |
+| Port-Channel2 | PortChannel | trunk | 101-102,201-202,301-302 | - | - | - | - | 2 | - |
 | Port-Channel491 | MLAG_Site1-L3_Port-Channel491 | trunk | - | - | MLAG | - | - | - | - |
 
 #### Port-Channel Interfaces Device Configuration
@@ -395,7 +408,7 @@ interface Ethernet53/1
 interface Port-Channel1
    description PortChannel
    no shutdown
-   switchport trunk allowed vlan 20
+   switchport trunk allowed vlan 101-102,201-202,301-302
    switchport mode trunk
    switchport
    mlag 1
@@ -405,7 +418,7 @@ interface Port-Channel1
 interface Port-Channel2
    description PortChannel
    no shutdown
-   switchport trunk allowed vlan 20
+   switchport trunk allowed vlan 101-102,201-202,301-302
    switchport mode trunk
    switchport
    mlag 2
@@ -431,6 +444,7 @@ interface Port-Channel491
 | Loopback0 | ROUTER_ID | default | 192.0.255.16/32 |
 | Loopback1 | VXLAN_TUNNEL_SOURCE | default | 192.0.254.15/32 |
 | Loopback100 | DIAG_VRF_bluevrf | bluevrf | 10.255.1.16/32 |
+| Loopback200 | DIAG_VRF_redvrf | redvrf | 10.255.2.16/32 |
 
 ##### IPv6
 
@@ -439,6 +453,7 @@ interface Port-Channel491
 | Loopback0 | ROUTER_ID | default | - |
 | Loopback1 | VXLAN_TUNNEL_SOURCE | default | - |
 | Loopback100 | DIAG_VRF_bluevrf | bluevrf | - |
+| Loopback200 | DIAG_VRF_redvrf | redvrf | - |
 
 #### Loopback Interfaces Device Configuration
 
@@ -459,6 +474,12 @@ interface Loopback100
    no shutdown
    vrf bluevrf
    ip address 10.255.1.16/32
+!
+interface Loopback200
+   description DIAG_VRF_redvrf
+   no shutdown
+   vrf redvrf
+   ip address 10.255.2.16/32
 ```
 
 ### VLAN Interfaces
@@ -467,19 +488,25 @@ interface Loopback100
 
 | Interface | Description | VRF |  MTU | Shutdown |
 | --------- | ----------- | --- | ---- | -------- |
-| Vlan2300 | bluenet1 | bluevrf | - | False |
-| Vlan2301 | bluenet2 | bluevrf | - | False |
+| Vlan101 | bluenet1 | bluevrf | - | False |
+| Vlan102 | bluenet2 | bluevrf | - | False |
+| Vlan201 | rednet1 | redvrf | - | False |
+| Vlan202 | rednet2 | redvrf | - | False |
 | Vlan3009 | MLAG_L3_VRF_bluevrf | bluevrf | 9000 | False |
+| Vlan3019 | MLAG_L3_VRF_redvrf | redvrf | 9000 | False |
 | Vlan4093 | MLAG_L3 | default | 9000 | False |
-| Vlan4094 | MLAG | default | 9000 | False |
+| Vlan4094 | MLAG | default | 1500 | False |
 
 ##### IPv4
 
 | Interface | VRF | IP Address | IP Address Virtual | IP Router Virtual Address | ACL In | ACL Out |
 | --------- | --- | ---------- | ------------------ | ------------------------- | ------ | ------- |
-| Vlan2300 |  bluevrf  |  -  |  192.168.11.1/24  |  -  |  -  |  -  |
-| Vlan2301 |  bluevrf  |  -  |  192.168.12.1/24  |  -  |  -  |  -  |
+| Vlan101 |  bluevrf  |  -  |  10.10.101.254/24  |  -  |  -  |  -  |
+| Vlan102 |  bluevrf  |  -  |  10.10.102.254/24  |  -  |  -  |  -  |
+| Vlan201 |  redvrf  |  -  |  10.20.201.254/24  |  -  |  -  |  -  |
+| Vlan202 |  redvrf  |  -  |  10.20.202.254/24  |  -  |  -  |  -  |
 | Vlan3009 |  bluevrf  |  10.255.251.25/31  |  -  |  -  |  -  |  -  |
+| Vlan3019 |  redvrf  |  10.255.251.25/31  |  -  |  -  |  -  |  -  |
 | Vlan4093 |  default  |  10.255.251.25/31  |  -  |  -  |  -  |  -  |
 | Vlan4094 |  default  |  10.255.252.25/31  |  -  |  -  |  -  |  -  |
 
@@ -487,23 +514,42 @@ interface Loopback100
 
 ```eos
 !
-interface Vlan2300
+interface Vlan101
    description bluenet1
    no shutdown
    vrf bluevrf
-   ip address virtual 192.168.11.1/24
+   ip address virtual 10.10.101.254/24
 !
-interface Vlan2301
+interface Vlan102
    description bluenet2
    no shutdown
    vrf bluevrf
-   ip address virtual 192.168.12.1/24
+   ip address virtual 10.10.102.254/24
+!
+interface Vlan201
+   description rednet1
+   no shutdown
+   vrf redvrf
+   ip address virtual 10.20.201.254/24
+!
+interface Vlan202
+   description rednet2
+   no shutdown
+   vrf redvrf
+   ip address virtual 10.20.202.254/24
 !
 interface Vlan3009
    description MLAG_L3_VRF_bluevrf
    no shutdown
    mtu 9000
    vrf bluevrf
+   ip address 10.255.251.25/31
+!
+interface Vlan3019
+   description MLAG_L3_VRF_redvrf
+   no shutdown
+   mtu 9000
+   vrf redvrf
    ip address 10.255.251.25/31
 !
 interface Vlan4093
@@ -515,7 +561,7 @@ interface Vlan4093
 interface Vlan4094
    description MLAG
    no shutdown
-   mtu 9000
+   mtu 1500
    no autostate
    ip address 10.255.252.25/31
 ```
@@ -534,16 +580,19 @@ interface Vlan4094
 
 | VLAN | VNI | Flood List | Multicast Group |
 | ---- | --- | ---------- | --------------- |
-| 20 | 30020 | - | - |
-| 30 | 30030 | - | - |
-| 2300 | 32300 | - | - |
-| 2301 | 32301 | - | - |
+| 101 | 30101 | - | - |
+| 102 | 30102 | - | - |
+| 201 | 30201 | - | - |
+| 202 | 30202 | - | - |
+| 301 | 30301 | - | - |
+| 302 | 30302 | - | - |
 
 ##### VRF to VNI and Multicast Group Mappings
 
 | VRF | VNI | Multicast Group |
 | ---- | --- | --------------- |
 | bluevrf | 10 | - |
+| redvrf | 20 | - |
 
 #### VXLAN Interface Device Configuration
 
@@ -554,11 +603,14 @@ interface Vxlan1
    vxlan source-interface Loopback1
    vxlan virtual-router encapsulation mac-address mlag-system-id
    vxlan udp-port 4789
-   vxlan vlan 20 vni 30020
-   vxlan vlan 30 vni 30030
-   vxlan vlan 2300 vni 32300
-   vxlan vlan 2301 vni 32301
+   vxlan vlan 101 vni 30101
+   vxlan vlan 102 vni 30102
+   vxlan vlan 201 vni 30201
+   vxlan vlan 202 vni 30202
+   vxlan vlan 301 vni 30301
+   vxlan vlan 302 vni 30302
    vxlan vrf bluevrf vni 10
+   vxlan vrf redvrf vni 20
 ```
 
 ## Routing
@@ -594,6 +646,7 @@ ip virtual-router mac-address 00:1c:73:00:dc:01
 | default | True |
 | bluevrf | True |
 | mgmt | False |
+| redvrf | True |
 
 #### IP Routing Device Configuration
 
@@ -602,6 +655,7 @@ ip virtual-router mac-address 00:1c:73:00:dc:01
 ip routing
 ip routing vrf bluevrf
 no ip routing vrf mgmt
+ip routing vrf redvrf
 ```
 
 ### IPv6 Routing
@@ -613,6 +667,7 @@ no ip routing vrf mgmt
 | default | False |
 | bluevrf | false |
 | mgmt | false |
+| redvrf | false |
 
 ### Static Routes
 
@@ -643,7 +698,6 @@ ASN Notation: asplain
 | ---------- |
 | graceful-restart restart-time 300 |
 | graceful-restart |
-| update wait-install |
 | no bgp default ipv4-unicast |
 | distance bgp 20 200 200 |
 | maximum-paths 4 ecmp 4 |
@@ -691,6 +745,7 @@ ASN Notation: asplain
 | 192.0.255.2 | 65001 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 192.0.255.3 | 65001 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 10.255.251.24 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | bluevrf | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - | - |
+| 10.255.251.24 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | redvrf | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - | - |
 
 #### Router BGP EVPN Address Family
 
@@ -704,16 +759,19 @@ ASN Notation: asplain
 
 | VLAN | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute |
 | ---- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ |
-| 20 | 192.0.255.16:30020 | 30020:30020 | - | - | learned |
-| 30 | 192.0.255.16:30030 | 30030:30030 | - | - | learned |
-| 2300 | 192.0.255.16:32300 | 32300:32300 | - | - | learned |
-| 2301 | 192.0.255.16:32301 | 32301:32301 | - | - | learned |
+| 101 | 192.0.255.16:30101 | 30101:30101 | - | - | learned |
+| 102 | 192.0.255.16:30102 | 30102:30102 | - | - | learned |
+| 201 | 192.0.255.16:30201 | 30201:30201 | - | - | learned |
+| 202 | 192.0.255.16:30202 | 30202:30202 | - | - | learned |
+| 301 | 192.0.255.16:30301 | 30301:30301 | - | - | learned |
+| 302 | 192.0.255.16:30302 | 30302:30302 | - | - | learned |
 
 #### Router BGP VRFs
 
 | VRF | Route-Distinguisher | Redistribute |
 | --- | ------------------- | ------------ |
 | bluevrf | 192.0.255.16:10 | connected |
+| redvrf | 192.0.255.16:20 | connected |
 
 #### Router BGP Device Configuration
 
@@ -721,7 +779,6 @@ ASN Notation: asplain
 !
 router bgp 65103
    router-id 192.0.255.16
-   update wait-install
    no bgp default ipv4-unicast
    distance bgp 20 200 200
    graceful-restart restart-time 300
@@ -765,24 +822,34 @@ router bgp 65103
    neighbor 192.0.255.3 description Site1-S3_Loopback0
    redistribute connected route-map RM-CONN-2-BGP
    !
-   vlan 20
-      rd 192.0.255.16:30020
-      route-target both 30020:30020
+   vlan 101
+      rd 192.0.255.16:30101
+      route-target both 30101:30101
       redistribute learned
    !
-   vlan 30
-      rd 192.0.255.16:30030
-      route-target both 30030:30030
+   vlan 102
+      rd 192.0.255.16:30102
+      route-target both 30102:30102
       redistribute learned
    !
-   vlan 2300
-      rd 192.0.255.16:32300
-      route-target both 32300:32300
+   vlan 201
+      rd 192.0.255.16:30201
+      route-target both 30201:30201
       redistribute learned
    !
-   vlan 2301
-      rd 192.0.255.16:32301
-      route-target both 32301:32301
+   vlan 202
+      rd 192.0.255.16:30202
+      route-target both 30202:30202
+      redistribute learned
+   !
+   vlan 301
+      rd 192.0.255.16:30301
+      route-target both 30301:30301
+      redistribute learned
+   !
+   vlan 302
+      rd 192.0.255.16:30302
+      route-target both 30302:30302
       redistribute learned
    !
    address-family evpn
@@ -798,9 +865,17 @@ router bgp 65103
       route-target import evpn 10:10
       route-target export evpn 10:10
       router-id 192.0.255.16
-      update wait-install
       neighbor 10.255.251.24 peer group MLAG-IPv4-UNDERLAY-PEER
       neighbor 10.255.251.24 description Site1-L3_Vlan3009
+      redistribute connected route-map RM-CONN-2-BGP-VRFS
+   !
+   vrf redvrf
+      rd 192.0.255.16:20
+      route-target import evpn 20:20
+      route-target export evpn 20:20
+      router-id 192.0.255.16
+      neighbor 10.255.251.24 peer group MLAG-IPv4-UNDERLAY-PEER
+      neighbor 10.255.251.24 description Site1-L3_Vlan3019
       redistribute connected route-map RM-CONN-2-BGP-VRFS
 ```
 
@@ -916,6 +991,7 @@ route-map RM-MLAG-PEER-IN permit 10
 | -------- | ---------- |
 | bluevrf | enabled |
 | mgmt | disabled |
+| redvrf | enabled |
 
 ### VRF Instances Device Configuration
 
@@ -924,6 +1000,8 @@ route-map RM-MLAG-PEER-IN permit 10
 vrf instance bluevrf
 !
 vrf instance mgmt
+!
+vrf instance redvrf
 ```
 
 ## Virtual Source NAT
@@ -933,10 +1011,12 @@ vrf instance mgmt
 | Source NAT VRF | Source NAT IPv4 Address | Source NAT IPv6 Address |
 | -------------- | ----------------------- | ----------------------- |
 | bluevrf | 10.255.1.16 | - |
+| redvrf | 10.255.2.16 | - |
 
 ### Virtual Source NAT Configuration
 
 ```eos
 !
 ip address virtual source-nat vrf bluevrf address 10.255.1.16
+ip address virtual source-nat vrf redvrf address 10.255.2.16
 ```

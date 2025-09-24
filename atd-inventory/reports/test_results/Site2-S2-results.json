@@ -6,10 +6,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: evpn Peer: 192.2.255.27 - Session state is not established - State: Active"
-    ],
+    "result": "success",
     "custom_field": "BGP EVPN Peer: Site2-BGW1 (IP: 192.2.255.27)"
   },
   {
@@ -19,10 +16,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: evpn Peer: 192.2.255.28 - Session state is not established - State: Active"
-    ],
+    "result": "success",
     "custom_field": "BGP EVPN Peer: Site2-BGW2 (IP: 192.2.255.28)"
   },
   {
@@ -32,10 +26,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: evpn Peer: 192.2.255.29 - Session state is not established - State: Active"
-    ],
+    "result": "success",
     "custom_field": "BGP EVPN Peer: Site2-BGW3 (IP: 192.2.255.29)"
   },
   {
@@ -85,10 +76,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: ipv4 SAFI: unicast VRF: default Peer: 172.32.255.147 - Session state is not established - State: Active"
-    ],
+    "result": "success",
     "custom_field": "BGP IPv4 Unicast Peer: Site2-BGW1 (IP: 172.32.255.147)"
   },
   {
@@ -98,10 +86,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: ipv4 SAFI: unicast VRF: default Peer: 172.32.255.153 - Session state is not established - State: Active"
-    ],
+    "result": "success",
     "custom_field": "BGP IPv4 Unicast Peer: Site2-BGW2 (IP: 172.32.255.153)"
   },
   {
@@ -111,10 +96,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: ipv4 SAFI: unicast VRF: default Peer: 172.32.255.159 - Session state is not established - State: Active"
-    ],
+    "result": "success",
     "custom_field": "BGP IPv4 Unicast Peer: Site2-BGW3 (IP: 172.32.255.159)"
   },
   {
@@ -204,11 +186,8 @@
       "connectivity"
     ],
     "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
-    "result": "failure",
-    "messages": [
-      "Port Ethernet5/1 (Neighbor: Site2-BGW1.act.lab, Neighbor Port: Ethernet52/1) - Wrong LLDP neighbors: Site2-BGW1.act.lab/Ethernet2/1"
-    ],
-    "custom_field": "Local: Ethernet5/1 - Remote: Site2-BGW1 Ethernet52/1"
+    "result": "success",
+    "custom_field": "Local: Ethernet5/1 - Remote: Site2-BGW1 Ethernet2/1"
   },
   {
     "name": "Site2-S2",
@@ -217,11 +196,8 @@
       "connectivity"
     ],
     "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
-    "result": "failure",
-    "messages": [
-      "Port Ethernet6/1 (Neighbor: Site2-BGW2.act.lab, Neighbor Port: Ethernet52/1) - Wrong LLDP neighbors: Site2-BGW2.act.lab/Ethernet2/1"
-    ],
-    "custom_field": "Local: Ethernet6/1 - Remote: Site2-BGW2 Ethernet52/1"
+    "result": "success",
+    "custom_field": "Local: Ethernet6/1 - Remote: Site2-BGW2 Ethernet2/1"
   },
   {
     "name": "Site2-S2",
@@ -230,11 +206,8 @@
       "connectivity"
     ],
     "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
-    "result": "failure",
-    "messages": [
-      "Port Ethernet7/1 (Neighbor: Site2-BGW3.act.lab, Neighbor Port: Ethernet52/1) - Wrong LLDP neighbors: Site2-BGW3.act.lab/Ethernet2/1"
-    ],
-    "custom_field": "Local: Ethernet7/1 - Remote: Site2-BGW3 Ethernet52/1"
+    "result": "success",
+    "custom_field": "Local: Ethernet7/1 - Remote: Site2-BGW3 Ethernet2/1"
   },
   {
     "name": "Site2-S2",
@@ -283,11 +256,8 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 172.32.255.147 (src: 172.32.255.146, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
-    "custom_field": "Source: P2P Interface Ethernet5/1 (IP: 172.32.255.146) - Destination: Site2-BGW1 Ethernet52/1 (IP: 172.32.255.147)"
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet5/1 (IP: 172.32.255.146) - Destination: Site2-BGW1 Ethernet2/1 (IP: 172.32.255.147)"
   },
   {
     "name": "Site2-S2",
@@ -296,11 +266,8 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 172.32.255.153 (src: 172.32.255.152, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
-    "custom_field": "Source: P2P Interface Ethernet6/1 (IP: 172.32.255.152) - Destination: Site2-BGW2 Ethernet52/1 (IP: 172.32.255.153)"
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet6/1 (IP: 172.32.255.152) - Destination: Site2-BGW2 Ethernet2/1 (IP: 172.32.255.153)"
   },
   {
     "name": "Site2-S2",
@@ -309,11 +276,8 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 172.32.255.159 (src: 172.32.255.158, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
-    "custom_field": "Source: P2P Interface Ethernet7/1 (IP: 172.32.255.158) - Destination: Site2-BGW3 Ethernet52/1 (IP: 172.32.255.159)"
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet7/1 (IP: 172.32.255.158) - Destination: Site2-BGW3 Ethernet2/1 (IP: 172.32.255.159)"
   },
   {
     "name": "Site2-S2",
@@ -414,7 +378,7 @@
     ],
     "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
     "result": "success",
-    "custom_field": "Interface Ethernet5/1 - P2P_Site2-BGW1_Ethernet52/1 = 'up'"
+    "custom_field": "Interface Ethernet5/1 - P2P_Site2-BGW1_Ethernet2/1 = 'up'"
   },
   {
     "name": "Site2-S2",
@@ -424,7 +388,7 @@
     ],
     "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
     "result": "success",
-    "custom_field": "Interface Ethernet6/1 - P2P_Site2-BGW2_Ethernet52/1 = 'up'"
+    "custom_field": "Interface Ethernet6/1 - P2P_Site2-BGW2_Ethernet2/1 = 'up'"
   },
   {
     "name": "Site2-S2",
@@ -434,7 +398,7 @@
     ],
     "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
     "result": "success",
-    "custom_field": "Interface Ethernet7/1 - P2P_Site2-BGW3_Ethernet52/1 = 'up'"
+    "custom_field": "Interface Ethernet7/1 - P2P_Site2-BGW3_Ethernet2/1 = 'up'"
   },
   {
     "name": "Site2-S2",

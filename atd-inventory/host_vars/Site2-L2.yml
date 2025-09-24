@@ -7,7 +7,7 @@ network_ports:
     enabled: true
     description: test eth1 access port
     mtu:
-    vlans: "2300"
+    vlans: "201"
     profile: int_access_host
   - switches:
       - Site2-L2
@@ -18,6 +18,6 @@ network_ports:
     profile: int_routed_host
     structured_config:
       ip_address: 10.192.222.254/24
-      vrf: bluevrf
+      vrf: redvrf
       description: test eth2 routed port
       mtu:

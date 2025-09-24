@@ -8,7 +8,7 @@ network_ports:
     mtu: 9000
     profile: int_routed_host
     structured_config:
-      ip_address: 10.192.43.254/24
+      ip_address: 10.192.144.254/24
       vrf: bluevrf
       description: test eth3 routed port
       mtu:

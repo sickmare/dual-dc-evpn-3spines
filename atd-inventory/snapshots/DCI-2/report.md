@@ -17,36 +17,36 @@ Et3/1                          up             up                 P2P_Site1-BGW3_
 Et4/1                          up             up                 P2P_Site2-BGW1_Ethernet6/1
 Et5/1                          up             up                 P2P_Site2-BGW2_Ethernet6/1
 Et6/1                          up             up                 P2P_Site2-BGW3_Ethernet6/1
-Et7/1                          down           down               
-Et8/1                          down           down               
-Et9/1                          down           down               
-Et10/1                         down           down               
-Et11/1                         down           down               
-Et12/1                         down           down               
-Et13/1                         down           down               
-Et14/1                         down           down               
-Et15/1                         down           down               
-Et16/1                         down           down               
-Et17/1                         down           down               
-Et18/1                         down           down               
-Et19/1                         down           down               
-Et20/1                         down           down               
-Et21/1                         down           down               
-Et22/1                         down           down               
-Et23/1                         down           down               
-Et24/1                         down           down               
-Et25/1                         down           down               
-Et26/1                         down           down               
-Et27/1                         down           down               
-Et28/1                         down           down               
-Et29/1                         down           down               
-Et30/1                         down           down               
-Et31/1                         down           down               
-Et32/1                         down           down               
-Et33/1                         down           down               
-Et34/1                         down           down               
-Et35/1                         down           down               
-Et36/1                         down           down               
+Et7/1                          up             up                 
+Et8/1                          up             up                 
+Et9/1                          up             up                 
+Et10/1                         up             up                 
+Et11/1                         up             up                 
+Et12/1                         up             up                 
+Et13/1                         up             up                 
+Et14/1                         up             up                 
+Et15/1                         up             up                 
+Et16/1                         up             up                 
+Et17/1                         up             up                 
+Et18/1                         up             up                 
+Et19/1                         up             up                 
+Et20/1                         up             up                 
+Et21/1                         up             up                 
+Et22/1                         up             up                 
+Et23/1                         up             up                 
+Et24/1                         up             up                 
+Et25/1                         up             up                 
+Et26/1                         up             up                 
+Et27/1                         up             up                 
+Et28/1                         up             up                 
+Et29/1                         up             up                 
+Et30/1                         up             up                 
+Et31/1                         up             up                 
+Et32/1                         up             up                 
+Et33/1                         up             up                 
+Et34/1                         up             up                 
+Et35/1                         up             up                 
+Et36/1                         up             up                 
 Lo0                            up             up                 ROUTER_ID
 Ma1                            up             up                 OOB_MANAGEMENT
 ```
@@ -68,7 +68,7 @@ Management1     192.168.0.101/24     up         up              1500
 ## show lldp neighbors
 
 ```
-Last table change time   : 2:43:42 ago
+Last table change time   : 0:54:39 ago
 Number of table inserts  : 6
 Number of table deletes  : 0
 Number of table drops    : 0
@@ -94,7 +94,7 @@ Et6/1          Site2-BGW3.act.lab       Ethernet6/1         120
 no aaa root
 !
 username arista privilege 15 role network-admin secret sha512 $6$arista$hvhzPKMNzxDEPi2.4ml69k2ZGn88hWas4/loWEFDCkC2QEh/onTkN954QCDvZPAHLZDn41AoDozW5SKPFe0.6.
-username cvpadmin privilege 15 role network-admin secret sha512 $6$wQ47S3n8va1pD4v5$G92i6gzm5C4SIaA4o.TqSm.xMLmcnwfUaOjPWkABuqQDfoaj0Pjy4ohKy4aqZULCE9mDA4E0G1Mf8yxLLl/vh/
+username cvpadmin privilege 15 role network-admin secret sha512 $6$Htbh6qy0dK40Jr/j$Ge57e/QnnqJ3Lt9aE5Gn653e0PwsPqKkB9tMmS5rA6v4vfeWCL.npyTc2Qkd3kbcFvPCM6gDP8fApdMgbbJg51
 !
 management api http-commands
    no shutdown
@@ -254,7 +254,16 @@ router bgp 64999
    router-id 192.168.250.2
    no bgp default ipv4-unicast
    distance bgp 20 200 200
+   graceful-restart restart-time 300
+   graceful-restart
    maximum-paths 4 ecmp 4
+   neighbor EVPN-OVERLAY-CORE peer group
+   neighbor EVPN-OVERLAY-CORE next-hop-unchanged
+   neighbor EVPN-OVERLAY-CORE update-source Loopback0
+   neighbor EVPN-OVERLAY-CORE bfd
+   neighbor EVPN-OVERLAY-CORE ebgp-multihop 15
+   neighbor EVPN-OVERLAY-CORE send-community
+   neighbor EVPN-OVERLAY-CORE maximum-routes 0
    neighbor IPv4-UNDERLAY-PEERS peer group
    neighbor IPv4-UNDERLAY-PEERS send-community
    neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
@@ -276,7 +285,28 @@ router bgp 64999
    neighbor 172.16.30.32 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.16.30.32 remote-as 65231
    neighbor 172.16.30.32 description Site2-BGW3
+   neighbor 192.0.255.17 peer group EVPN-OVERLAY-CORE
+   neighbor 192.0.255.17 remote-as 65131
+   neighbor 192.0.255.17 description Site1_BGW1_Loopback0
+   neighbor 192.0.255.18 peer group EVPN-OVERLAY-CORE
+   neighbor 192.0.255.18 remote-as 65131
+   neighbor 192.0.255.18 description Site1_BGW2_Loopback0
+   neighbor 192.0.255.19 peer group EVPN-OVERLAY-CORE
+   neighbor 192.0.255.19 remote-as 65131
+   neighbor 192.0.255.19 description Site1_BGW3_Loopback0
+   neighbor 192.2.255.27 peer group EVPN-OVERLAY-CORE
+   neighbor 192.2.255.27 remote-as 65231
+   neighbor 192.2.255.27 description Site2_BGW1_Loopback0
+   neighbor 192.2.255.28 peer group EVPN-OVERLAY-CORE
+   neighbor 192.2.255.28 remote-as 65231
+   neighbor 192.2.255.28 description Site2_BGW2_Loopback0
+   neighbor 192.2.255.29 peer group EVPN-OVERLAY-CORE
+   neighbor 192.2.255.29 remote-as 65231
+   neighbor 192.2.255.29 description Site2_BGW3_Loopback0
    redistribute connected route-map RM-CONN-2-BGP
+   !
+   address-family evpn
+      neighbor EVPN-OVERLAY-CORE activate
    !
    address-family ipv4
       neighbor IPv4-UNDERLAY-PEERS activate
@@ -306,7 +336,7 @@ Internal build ID: 47416e3e-5279-42fe-a5bd-cf7624a68bb9
 Image format version: 1.0
 Image optimization: None
 
-Uptime: 2 hours and 47 minutes
+Uptime: 58 minutes
 Total memory: 3970560 kB
-Free memory: 2502888 kB
+Free memory: 2533148 kB
 ```

@@ -6,7 +6,7 @@
 no aaa root
 !
 username arista privilege 15 role network-admin secret sha512 $6$arista$hvhzPKMNzxDEPi2.4ml69k2ZGn88hWas4/loWEFDCkC2QEh/onTkN954QCDvZPAHLZDn41AoDozW5SKPFe0.6.
-username cvpadmin privilege 15 role network-admin secret sha512 $6$nY3taX0kZ0P4xPPR$FkQxVg0P6mAWTd/tzCD1c/RcYOAqqEZ4Pty3lNrA9g9E5m9Bw7vV/yy1H3biEMubO6gkdvRtlbrK6/2Hbc4CR.
+username cvpadmin privilege 15 role network-admin secret sha512 $6$QHOL2YEJCMsRUdRE$pR0yGbKMaWjoX1AVFLKIbGc3losaZRXeskKAQI7Feii9h3GE33DiiTF6fYFQoZsue52ryzx5AWWksr3dgzkMM/
 !
 management api http-commands
    no shutdown
@@ -69,19 +69,19 @@ interface Ethernet4/1
    ip address 172.30.255.80/31
 !
 interface Ethernet5/1
-   description P2P_Site1-BGW1_Ethernet52/1
+   description P2P_Site1-BGW1_Ethernet2/1
    mtu 9000
    no switchport
    ip address 172.30.255.86/31
 !
 interface Ethernet6/1
-   description P2P_Site1-BGW2_Ethernet52/1
+   description P2P_Site1-BGW2_Ethernet2/1
    mtu 9000
    no switchport
    ip address 172.30.255.92/31
 !
 interface Ethernet7/1
-   description P2P_Site1-BGW3_Ethernet52/1
+   description P2P_Site1-BGW3_Ethernet2/1
    mtu 9000
    no switchport
    ip address 172.30.255.98/31
@@ -168,7 +168,6 @@ router bfd
 !
 router bgp 65001
    router-id 192.0.255.2
-   update wait-install
    no bgp default ipv4-unicast
    distance bgp 20 200 200
    graceful-restart restart-time 300
@@ -198,13 +197,13 @@ router bgp 65001
    neighbor 172.30.255.81 description Site1-L4_Ethernet52/1
    neighbor 172.30.255.87 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.30.255.87 remote-as 65131
-   neighbor 172.30.255.87 description Site1-BGW1_Ethernet52/1
+   neighbor 172.30.255.87 description Site1-BGW1_Ethernet2/1
    neighbor 172.30.255.93 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.30.255.93 remote-as 65131
-   neighbor 172.30.255.93 description Site1-BGW2_Ethernet52/1
+   neighbor 172.30.255.93 description Site1-BGW2_Ethernet2/1
    neighbor 172.30.255.99 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.30.255.99 remote-as 65131
-   neighbor 172.30.255.99 description Site1-BGW3_Ethernet52/1
+   neighbor 172.30.255.99 description Site1-BGW3_Ethernet2/1
    neighbor 192.0.255.13 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.13 remote-as 65101
    neighbor 192.0.255.13 description Site1-L1_Loopback0

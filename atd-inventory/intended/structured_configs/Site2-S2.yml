@@ -45,32 +45,32 @@ ethernet_interfaces:
   switchport:
     enabled: false
 - name: Ethernet5/1
-  description: P2P_Site2-BGW1_Ethernet52/1
+  description: P2P_Site2-BGW1_Ethernet2/1
   shutdown: false
   mtu: 9000
   ip_address: 172.32.255.146/31
   peer: Site2-BGW1
-  peer_interface: Ethernet52/1
+  peer_interface: Ethernet2/1
   peer_type: l3leaf
   switchport:
     enabled: false
 - name: Ethernet6/1
-  description: P2P_Site2-BGW2_Ethernet52/1
+  description: P2P_Site2-BGW2_Ethernet2/1
   shutdown: false
   mtu: 9000
   ip_address: 172.32.255.152/31
   peer: Site2-BGW2
-  peer_interface: Ethernet52/1
+  peer_interface: Ethernet2/1
   peer_type: l3leaf
   switchport:
     enabled: false
 - name: Ethernet7/1
-  description: P2P_Site2-BGW3_Ethernet52/1
+  description: P2P_Site2-BGW3_Ethernet2/1
   shutdown: false
   mtu: 9000
   ip_address: 172.32.255.158/31
   peer: Site2-BGW3
-  peer_interface: Ethernet52/1
+  peer_interface: Ethernet2/1
   peer_type: l3leaf
   switchport:
     enabled: false
@@ -137,8 +137,6 @@ router_bgp:
   maximum_paths:
     paths: 4
     ecmp: 4
-  updates:
-    wait_install: true
   bgp:
     default:
       ipv4_unicast: false
@@ -180,17 +178,17 @@ router_bgp:
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65231'
     peer: Site2-BGW1
-    description: Site2-BGW1_Ethernet52/1
+    description: Site2-BGW1_Ethernet2/1
   - ip_address: 172.32.255.153
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65231'
     peer: Site2-BGW2
-    description: Site2-BGW2_Ethernet52/1
+    description: Site2-BGW2_Ethernet2/1
   - ip_address: 172.32.255.159
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65231'
     peer: Site2-BGW3
-    description: Site2-BGW3_Ethernet52/1
+    description: Site2-BGW3_Ethernet2/1
   - ip_address: 192.2.255.27
     peer_group: EVPN-OVERLAY-PEERS
     remote_as: '65231'

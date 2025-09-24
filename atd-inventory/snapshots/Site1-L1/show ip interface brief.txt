@@ -1,13 +1,18 @@
 Address
-Interface        IP Address           Status     Protocol         MTU   Owner  
----------------- -------------------- ---------- ------------ --------- -------
-Ethernet51/1     172.30.255.61/31     up         up              9000          
-Ethernet52/1     172.30.255.63/31     up         up              9000          
-Ethernet53/1     172.30.255.65/31     up         up              9000          
-Loopback0        192.0.255.13/32      up         up             65535          
-Loopback1        192.0.254.13/32      up         up             65535          
-Loopback100      10.255.1.13/32       up         up             65535          
-Management1      192.168.0.13/24      up         up              1500          
-Vlan2300         192.168.11.1/24      up         up              1500          
-Vlan2301         192.168.12.1/24      up         up              1500          
-Vlan4097         unassigned           up         up              9164
+Interface       IP Address            Status     Protocol         MTU   Owner  
+--------------- --------------------- ---------- ------------ --------- -------
+Ethernet2       10.192.111.254/24     up         up              1500          
+Ethernet51/1    172.30.255.61/31      up         up              9000          
+Ethernet52/1    172.30.255.63/31      up         up              9000          
+Ethernet53/1    172.30.255.65/31      up         up              9000          
+Loopback0       192.0.255.13/32       up         up             65535          
+Loopback1       192.0.254.13/32       up         up             65535          
+Loopback100     10.255.1.13/32        up         up             65535          
+Loopback200     10.255.2.13/32        up         up             65535          
+Management1     192.168.0.13/24       up         up              1500          
+Vlan101         10.10.101.254/24      up         up              1500          
+Vlan102         10.10.102.254/24      up         up              1500          
+Vlan201         10.20.201.254/24      up         up              1500          
+Vlan202         10.20.202.254/24      up         up              1500          
+Vlan4097        unassigned            up         up              9164          
+Vlan4098        unassigned            up         up              9164

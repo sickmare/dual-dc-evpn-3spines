@@ -1,5 +1,5 @@
 Interface                      Status         Protocol           Description
-Et1                            down           down               test eth1 trunk port
+Et1                            up             up                 test eth1 access port
 Et2                            up             up                 test eth2 routed port
 Et3                            down           down               
 Et4                            down           down               
@@ -58,8 +58,12 @@ Et56/1                         down           down
 Lo0                            up             up                 ROUTER_ID
 Lo1                            up             up                 VXLAN_TUNNEL_SOURCE
 Lo100                          up             up                 DIAG_VRF_bluevrf
+Lo200                          up             up                 DIAG_VRF_redvrf
 Ma1                            up             up                 OOB_MANAGEMENT
-Vl2300                         up             up                 bluenet1
-Vl2301                         up             up                 bluenet2
+Vl101                          up             up                 bluenet1
+Vl102                          up             up                 bluenet2
+Vl201                          up             up                 rednet1
+Vl202                          up             up                 rednet2
 Vl4097                         up             up                 
+Vl4098                         up             up                 
 Vx1                            up             up                 Site1-L2_VTEP

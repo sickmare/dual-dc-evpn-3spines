@@ -111,6 +111,9 @@ router_bgp:
     external_routes: 20
     internal_routes: 200
     local_routes: 200
+  graceful_restart:
+    enabled: true
+    restart_time: 300
   maximum_paths:
     paths: 4
     ecmp: 4
@@ -122,6 +125,14 @@ router_bgp:
     type: ipv4
     send_community: all
     maximum_routes: 12000
+  - name: EVPN-OVERLAY-CORE
+    type: evpn
+    next_hop_unchanged: true
+    update_source: Loopback0
+    bfd: true
+    ebgp_multihop: 15
+    send_community: all
+    maximum_routes: 0
   neighbors:
   - ip_address: 172.16.30.4
     peer_group: IPv4-UNDERLAY-PEERS
@@ -153,10 +164,38 @@ router_bgp:
     remote_as: '65231'
     peer: Site2-BGW3
     description: Site2-BGW3
+  - ip_address: 192.0.255.17
+    peer_group: EVPN-OVERLAY-CORE
+    remote_as: '65131'
+    description: Site1_BGW1_Loopback0
+  - ip_address: 192.0.255.18
+    peer_group: EVPN-OVERLAY-CORE
+    remote_as: '65131'
+    description: Site1_BGW2_Loopback0
+  - ip_address: 192.0.255.19
+    peer_group: EVPN-OVERLAY-CORE
+    remote_as: '65131'
+    description: Site1_BGW3_Loopback0
+  - ip_address: 192.2.255.27
+    peer_group: EVPN-OVERLAY-CORE
+    remote_as: '65231'
+    description: Site2_BGW1_Loopback0
+  - ip_address: 192.2.255.28
+    peer_group: EVPN-OVERLAY-CORE
+    remote_as: '65231'
+    description: Site2_BGW2_Loopback0
+  - ip_address: 192.2.255.29
+    peer_group: EVPN-OVERLAY-CORE
+    remote_as: '65231'
+    description: Site2_BGW3_Loopback0
   redistribute:
     connected:
       enabled: true
       route_map: RM-CONN-2-BGP
+  address_family_evpn:
+    peer_groups:
+    - name: EVPN-OVERLAY-CORE
+      activate: true
   address_family_ipv4:
     peer_groups:
     - name: IPv4-UNDERLAY-PEERS

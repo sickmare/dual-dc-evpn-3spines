@@ -3,35 +3,35 @@ Et1/1                          up             up                 P2P_Site1-L1_Et
 Et2/1                          up             up                 P2P_Site1-L2_Ethernet52/1
 Et3/1                          up             up                 P2P_Site1-L3_Ethernet52/1
 Et4/1                          up             up                 P2P_Site1-L4_Ethernet52/1
-Et5/1                          up             up                 P2P_Site1-BGW1_Ethernet52/1
-Et6/1                          up             up                 P2P_Site1-BGW2_Ethernet52/1
-Et7/1                          up             up                 P2P_Site1-BGW3_Ethernet52/1
-Et8/1                          down           down               
-Et9/1                          down           down               
-Et10/1                         down           down               
-Et11/1                         down           down               
-Et12/1                         down           down               
-Et13/1                         down           down               
-Et14/1                         down           down               
-Et15/1                         down           down               
-Et16/1                         down           down               
-Et17/1                         down           down               
-Et18/1                         down           down               
-Et19/1                         down           down               
-Et20/1                         down           down               
-Et21/1                         down           down               
-Et22/1                         down           down               
-Et23/1                         down           down               
-Et24/1                         down           down               
-Et25/1                         down           down               
-Et26/1                         down           down               
-Et27/1                         down           down               
-Et28/1                         down           down               
-Et29/1                         down           down               
-Et30/1                         down           down               
-Et31/1                         down           down               
-Et32/1                         down           down               
-Et33                           down           down               
-Et34                           down           down               
+Et5/1                          up             up                 P2P_Site1-BGW1_Ethernet2/1
+Et6/1                          up             up                 P2P_Site1-BGW2_Ethernet2/1
+Et7/1                          up             up                 P2P_Site1-BGW3_Ethernet2/1
+Et8/1                          up             up                 
+Et9/1                          up             up                 
+Et10/1                         up             up                 
+Et11/1                         up             up                 
+Et12/1                         up             up                 
+Et13/1                         up             up                 
+Et14/1                         up             up                 
+Et15/1                         up             up                 
+Et16/1                         up             up                 
+Et17/1                         up             up                 
+Et18/1                         up             up                 
+Et19/1                         up             up                 
+Et20/1                         up             up                 
+Et21/1                         up             up                 
+Et22/1                         up             up                 
+Et23/1                         up             up                 
+Et24/1                         up             up                 
+Et25/1                         up             up                 
+Et26/1                         up             up                 
+Et27/1                         up             up                 
+Et28/1                         up             up                 
+Et29/1                         up             up                 
+Et30/1                         up             up                 
+Et31/1                         up             up                 
+Et32/1                         up             up                 
+Et33                           up             up                 
+Et34                           up             up                 
 Lo0                            up             up                 ROUTER_ID
 Ma1                            up             up                 OOB_MANAGEMENT

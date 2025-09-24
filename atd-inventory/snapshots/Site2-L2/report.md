@@ -11,69 +11,73 @@
 
 ```
 Interface                      Status         Protocol           Description
-Et1                            down           down               test eth1 access port
+Et1                            up             up                 test eth1 access port
 Et2                            up             up                 test eth2 routed port
-Et3                            down           down               
-Et4                            down           down               
-Et5                            down           down               
-Et6                            down           down               
-Et7                            down           down               
-Et8                            down           down               
-Et9                            down           down               
-Et10                           down           down               
-Et11                           down           down               
-Et12                           down           down               
-Et13                           down           down               
-Et14                           down           down               
-Et15                           down           down               
-Et16                           down           down               
-Et17                           down           down               
-Et18                           down           down               
-Et19                           down           down               
-Et20                           down           down               
-Et21                           down           down               
-Et22                           down           down               
-Et23                           down           down               
-Et24                           down           down               
-Et25                           down           down               
-Et26                           down           down               
-Et27                           down           down               
-Et28                           down           down               
-Et29                           down           down               
-Et30                           down           down               
-Et31                           down           down               
-Et32                           down           down               
-Et33                           down           down               
-Et34                           down           down               
-Et35                           down           down               
-Et36                           down           down               
-Et37                           down           down               
-Et38                           down           down               
-Et39                           down           down               
-Et40                           down           down               
-Et41                           down           down               
-Et42                           down           down               
-Et43                           down           down               
-Et44                           down           down               
-Et45                           down           down               
-Et46                           down           down               
-Et47                           down           down               
-Et48                           down           down               
-Et49/1                         down           down               
-Et50/1                         down           down               
+Et3                            up             up                 
+Et4                            up             up                 
+Et5                            up             up                 
+Et6                            up             up                 
+Et7                            up             up                 
+Et8                            up             up                 
+Et9                            up             up                 
+Et10                           up             up                 
+Et11                           up             up                 
+Et12                           up             up                 
+Et13                           up             up                 
+Et14                           up             up                 
+Et15                           up             up                 
+Et16                           up             up                 
+Et17                           up             up                 
+Et18                           up             up                 
+Et19                           up             up                 
+Et20                           up             up                 
+Et21                           up             up                 
+Et22                           up             up                 
+Et23                           up             up                 
+Et24                           up             up                 
+Et25                           up             up                 
+Et26                           up             up                 
+Et27                           up             up                 
+Et28                           up             up                 
+Et29                           up             up                 
+Et30                           up             up                 
+Et31                           up             up                 
+Et32                           up             up                 
+Et33                           up             up                 
+Et34                           up             up                 
+Et35                           up             up                 
+Et36                           up             up                 
+Et37                           up             up                 
+Et38                           up             up                 
+Et39                           up             up                 
+Et40                           up             up                 
+Et41                           up             up                 
+Et42                           up             up                 
+Et43                           up             up                 
+Et44                           up             up                 
+Et45                           up             up                 
+Et46                           up             up                 
+Et47                           up             up                 
+Et48                           up             up                 
+Et49/1                         up             up                 
+Et50/1                         up             up                 
 Et51/1                         up             up                 P2P_Site2-S1_Ethernet2/1
 Et52/1                         up             up                 P2P_Site2-S2_Ethernet2/1
 Et53/1                         up             up                 P2P_Site2-S3_Ethernet2/1
-Et54/1                         down           down               
-Et55/1                         down           down               
-Et56/1                         down           down               
+Et54/1                         up             up                 
+Et55/1                         up             up                 
+Et56/1                         up             up                 
 Lo0                            up             up                 ROUTER_ID
 Lo1                            up             up                 VXLAN_TUNNEL_SOURCE
 Lo100                          up             up                 DIAG_VRF_bluevrf
+Lo200                          up             up                 DIAG_VRF_redvrf
 Ma1                            up             up                 oob_management
-Vl2300                         up             up                 bluenet1
-Vl2301                         up             up                 bluenet2
+Vl101                          up             up                 bluenet1
+Vl102                          up             up                 bluenet2
+Vl201                          up             up                 rednet1
+Vl202                          up             up                 rednet2
 Vl4097                         up             up                 
+Vl4098                         up             up                 
 Vx1                            up             up                 Site2-L2_VTEP
 ```
 ## show ip interface brief
@@ -82,28 +86,34 @@ Vx1                            up             up                 Site2-L2_VTEP
 Address
 Interface       IP Address            Status     Protocol         MTU   Owner  
 --------------- --------------------- ---------- ------------ --------- -------
+Ethernet2       10.192.222.254/24     up         up              1500          
 Ethernet51/1    172.32.255.127/31     up         up              9000          
 Ethernet52/1    172.32.255.129/31     up         up              9000          
 Ethernet53/1    172.32.255.131/31     up         up              9000          
 Loopback0       192.2.255.24/32       up         up             65535          
 Loopback1       192.2.254.24/32       up         up             65535          
 Loopback100     10.255.1.24/32        up         up             65535          
+Loopback200     10.255.2.24/32        up         up             65535          
 Management1     192.168.0.24/24       up         up              1500          
-Vlan2300        192.168.11.1/24       up         up              1500          
-Vlan2301        192.168.12.1/24       up         up              1500          
-Vlan4097        unassigned            up         up              9164
+Vlan101         10.10.101.254/24      up         up              1500          
+Vlan102         10.10.102.254/24      up         up              1500          
+Vlan201         10.20.201.254/24      up         up              1500          
+Vlan202         10.20.202.254/24      up         up              1500          
+Vlan4097        unassigned            up         up              9164          
+Vlan4098        unassigned            up         up              9164
 ```
 ## show lldp neighbors
 
 ```
-Last table change time   : 2:44:05 ago
-Number of table inserts  : 4
+Last table change time   : 0:54:47 ago
+Number of table inserts  : 5
 Number of table deletes  : 0
 Number of table drops    : 0
 Number of table age-outs : 0
 
 Port            Neighbor Device ID       Neighbor Port ID    TTL
 ------------ ------------------------ ---------------------- ---
+Et1             Site2-Host2              Ethernet1           120
 Et2             Site2-Host2              Ethernet2           120
 Et51/1          Site2-S1.act.lab         Ethernet2/1         120
 Et52/1          Site2-S2.act.lab         Ethernet2/1         120
@@ -120,7 +130,7 @@ Et53/1          Site2-S3.act.lab         Ethernet2/1         120
 no aaa root
 !
 username arista privilege 15 role network-admin secret sha512 $6$arista$hvhzPKMNzxDEPi2.4ml69k2ZGn88hWas4/loWEFDCkC2QEh/onTkN954QCDvZPAHLZDn41AoDozW5SKPFe0.6.
-username cvpadmin privilege 15 role network-admin secret sha512 $6$xbv7r3EIfgUYdOUl$F6nvpqyAK5Y4OntAtDrh8Gx8iC55ZjUiPaZGNFvs0IeMTkcj7czx0uMtF5iX9ayiy0L1AsuoafVE8HZ0ELUB20
+username cvpadmin privilege 15 role network-admin secret sha512 $6$Zh8WAD.HCerhh6Mm$x5KHPRmXlJaHmu3.LZWWXlup9LhJV2kd4T/9N0MTcIi7d6RVHD6wOtt2P57ISL13nwZkE.3cjQ6jFPdzJYT891
 !
 management api http-commands
    no shutdown
@@ -155,33 +165,42 @@ system l1
    unsupported speed action error
    unsupported error-correction action error
 !
-vlan 20
-   name L2-V20
-!
-vlan 30
-   name L2-V30
-!
-vlan 2300
+vlan 101
    name bluenet1
 !
-vlan 2301
+vlan 102
    name bluenet2
+!
+vlan 201
+   name rednet1
+!
+vlan 202
+   name rednet2
+!
+vlan 301
+   name L2-V301
+!
+vlan 302
+   name L2-V302
 !
 vrf instance bluevrf
 !
 vrf instance mgmt
 !
+vrf instance redvrf
+!
 aaa authorization exec default local
 !
 interface Ethernet1
    description test eth1 access port
-   switchport access vlan 2300
+   switchport access vlan 201
    spanning-tree portfast
    spanning-tree bpduguard enable
 !
 interface Ethernet2
    description test eth2 routed port
-   vrf bluevrf
+   no switchport
+   vrf redvrf
    ip address 10.192.222.254/24
 !
 interface Ethernet3
@@ -317,37 +336,57 @@ interface Loopback100
    vrf bluevrf
    ip address 10.255.1.24/32
 !
+interface Loopback200
+   description DIAG_VRF_redvrf
+   vrf redvrf
+   ip address 10.255.2.24/32
+!
 interface Management1
    description oob_management
    vrf mgmt
    ip address 192.168.0.24/24
 !
-interface Vlan2300
+interface Vlan101
    description bluenet1
    vrf bluevrf
-   ip address virtual 192.168.11.1/24
+   ip address virtual 10.10.101.254/24
 !
-interface Vlan2301
+interface Vlan102
    description bluenet2
    vrf bluevrf
-   ip address virtual 192.168.12.1/24
+   ip address virtual 10.10.102.254/24
+!
+interface Vlan201
+   description rednet1
+   vrf redvrf
+   ip address virtual 10.20.201.254/24
+!
+interface Vlan202
+   description rednet2
+   vrf redvrf
+   ip address virtual 10.20.202.254/24
 !
 interface Vxlan1
    description Site2-L2_VTEP
    vxlan source-interface Loopback1
    vxlan udp-port 4789
-   vxlan vlan 20 vni 30020
-   vxlan vlan 30 vni 30030
-   vxlan vlan 2300 vni 32300
-   vxlan vlan 2301 vni 32301
+   vxlan vlan 101 vni 30101
+   vxlan vlan 102 vni 30102
+   vxlan vlan 201 vni 30201
+   vxlan vlan 202 vni 30202
+   vxlan vlan 301 vni 30301
+   vxlan vlan 302 vni 30302
    vxlan vrf bluevrf vni 10
+   vxlan vrf redvrf vni 20
 !
 ip virtual-router mac-address 00:1c:73:00:dc:01
 ip address virtual source-nat vrf bluevrf address 10.255.1.24
+ip address virtual source-nat vrf redvrf address 10.255.2.24
 !
 ip routing
 ip routing vrf bluevrf
 no ip routing vrf mgmt
+ip routing vrf redvrf
 !
 ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
    seq 10 permit 192.2.255.0/24 eq 32
@@ -366,7 +405,6 @@ router bfd
 !
 router bgp 65202
    router-id 192.2.255.24
-   update wait-install
    no bgp default ipv4-unicast
    distance bgp 20 200 200
    graceful-restart restart-time 300
@@ -401,24 +439,34 @@ router bgp 65202
    neighbor 192.2.255.3 description Site2-S3_Loopback0
    redistribute connected route-map RM-CONN-2-BGP
    !
-   vlan 20
-      rd 192.2.255.24:30020
-      route-target both 30020:30020
+   vlan 101
+      rd 192.2.255.24:30101
+      route-target both 30101:30101
       redistribute learned
    !
-   vlan 30
-      rd 192.2.255.24:30030
-      route-target both 30030:30030
+   vlan 102
+      rd 192.2.255.24:30102
+      route-target both 30102:30102
       redistribute learned
    !
-   vlan 2300
-      rd 192.2.255.24:32300
-      route-target both 32300:32300
+   vlan 201
+      rd 192.2.255.24:30201
+      route-target both 30201:30201
       redistribute learned
    !
-   vlan 2301
-      rd 192.2.255.24:32301
-      route-target both 32301:32301
+   vlan 202
+      rd 192.2.255.24:30202
+      route-target both 30202:30202
+      redistribute learned
+   !
+   vlan 301
+      rd 192.2.255.24:30301
+      route-target both 30301:30301
+      redistribute learned
+   !
+   vlan 302
+      rd 192.2.255.24:30302
+      route-target both 30302:30302
       redistribute learned
    !
    address-family evpn
@@ -432,6 +480,13 @@ router bgp 65202
       rd 192.2.255.24:10
       route-target import evpn 10:10
       route-target export evpn 10:10
+      router-id 192.2.255.24
+      redistribute connected
+   !
+   vrf redvrf
+      rd 192.2.255.24:20
+      route-target import evpn 20:20
+      route-target export evpn 20:20
       router-id 192.2.255.24
       redistribute connected
 !
@@ -460,7 +515,7 @@ Internal build ID: 47416e3e-5279-42fe-a5bd-cf7624a68bb9
 Image format version: 1.0
 Image optimization: None
 
-Uptime: 2 hours and 47 minutes
+Uptime: 58 minutes
 Total memory: 3970560 kB
-Free memory: 2470076 kB
+Free memory: 2472028 kB
 ```

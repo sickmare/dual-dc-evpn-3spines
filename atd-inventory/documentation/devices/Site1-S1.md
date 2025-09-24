@@ -224,9 +224,9 @@ vlan internal order ascending range 1006 1199
 | Ethernet2/1 | P2P_Site1-L2_Ethernet51/1 | - | 172.30.255.66/31 | default | 9000 | False | - | - |
 | Ethernet3/1 | P2P_Site1-L3_Ethernet51/1 | - | 172.30.255.72/31 | default | 9000 | False | - | - |
 | Ethernet4/1 | P2P_Site1-L4_Ethernet51/1 | - | 172.30.255.78/31 | default | 9000 | False | - | - |
-| Ethernet5/1 | P2P_Site1-BGW1_Ethernet51/1 | - | 172.30.255.84/31 | default | 9000 | False | - | - |
-| Ethernet6/1 | P2P_Site1-BGW2_Ethernet51/1 | - | 172.30.255.90/31 | default | 9000 | False | - | - |
-| Ethernet7/1 | P2P_Site1-BGW3_Ethernet51/1 | - | 172.30.255.96/31 | default | 9000 | False | - | - |
+| Ethernet5/1 | P2P_Site1-BGW1_Ethernet1/1 | - | 172.30.255.84/31 | default | 9000 | False | - | - |
+| Ethernet6/1 | P2P_Site1-BGW2_Ethernet1/1 | - | 172.30.255.90/31 | default | 9000 | False | - | - |
+| Ethernet7/1 | P2P_Site1-BGW3_Ethernet1/1 | - | 172.30.255.96/31 | default | 9000 | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
 
@@ -261,21 +261,21 @@ interface Ethernet4/1
    ip address 172.30.255.78/31
 !
 interface Ethernet5/1
-   description P2P_Site1-BGW1_Ethernet51/1
+   description P2P_Site1-BGW1_Ethernet1/1
    no shutdown
    mtu 9000
    no switchport
    ip address 172.30.255.84/31
 !
 interface Ethernet6/1
-   description P2P_Site1-BGW2_Ethernet51/1
+   description P2P_Site1-BGW2_Ethernet1/1
    no shutdown
    mtu 9000
    no switchport
    ip address 172.30.255.90/31
 !
 interface Ethernet7/1
-   description P2P_Site1-BGW3_Ethernet51/1
+   description P2P_Site1-BGW3_Ethernet1/1
    no shutdown
    mtu 9000
    no switchport
@@ -374,7 +374,6 @@ ASN Notation: asplain
 | ---------- |
 | graceful-restart restart-time 300 |
 | graceful-restart |
-| update wait-install |
 | no bgp default ipv4-unicast |
 | distance bgp 20 200 200 |
 | maximum-paths 4 ecmp 4 |
@@ -434,7 +433,6 @@ ASN Notation: asplain
 !
 router bgp 65001
    router-id 192.0.255.1
-   update wait-install
    no bgp default ipv4-unicast
    distance bgp 20 200 200
    graceful-restart restart-time 300
@@ -464,13 +462,13 @@ router bgp 65001
    neighbor 172.30.255.79 description Site1-L4_Ethernet51/1
    neighbor 172.30.255.85 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.30.255.85 remote-as 65131
-   neighbor 172.30.255.85 description Site1-BGW1_Ethernet51/1
+   neighbor 172.30.255.85 description Site1-BGW1_Ethernet1/1
    neighbor 172.30.255.91 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.30.255.91 remote-as 65131
-   neighbor 172.30.255.91 description Site1-BGW2_Ethernet51/1
+   neighbor 172.30.255.91 description Site1-BGW2_Ethernet1/1
    neighbor 172.30.255.97 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.30.255.97 remote-as 65131
-   neighbor 172.30.255.97 description Site1-BGW3_Ethernet51/1
+   neighbor 172.30.255.97 description Site1-BGW3_Ethernet1/1
    neighbor 192.0.255.13 peer group EVPN-OVERLAY-PEERS
    neighbor 192.0.255.13 remote-as 65101
    neighbor 192.0.255.13 description Site1-L1_Loopback0

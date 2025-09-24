@@ -6,10 +6,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: evpn Peer: 192.168.250.1 - Session state is not established - State: Connect"
-    ],
+    "result": "success",
     "custom_field": "BGP EVPN Peer: DCI-1 (IP: 192.168.250.1)"
   },
   {
@@ -19,10 +16,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: evpn Peer: 192.168.250.2 - Session state is not established - State: Connect"
-    ],
+    "result": "success",
     "custom_field": "BGP EVPN Peer: DCI-2 (IP: 192.168.250.2)"
   },
   {
@@ -32,10 +26,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: evpn Peer: 192.168.250.3 - Session state is not established - State: Connect"
-    ],
+    "result": "success",
     "custom_field": "BGP EVPN Peer: DCI-3 (IP: 192.168.250.3)"
   },
   {
@@ -45,10 +36,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: evpn Peer: 192.2.255.1 - Session state is not established - State: Active"
-    ],
+    "result": "success",
     "custom_field": "BGP EVPN Peer: Site2-S1 (IP: 192.2.255.1)"
   },
   {
@@ -58,10 +46,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: evpn Peer: 192.2.255.2 - Session state is not established - State: Active"
-    ],
+    "result": "success",
     "custom_field": "BGP EVPN Peer: Site2-S2 (IP: 192.2.255.2)"
   },
   {
@@ -71,10 +56,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: evpn Peer: 192.2.255.3 - Session state is not established - State: Active"
-    ],
+    "result": "success",
     "custom_field": "BGP EVPN Peer: Site2-S3 (IP: 192.2.255.3)"
   },
   {
@@ -114,10 +96,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: ipv4 SAFI: unicast VRF: default Peer: 172.32.255.150 - Session state is not established - State: Idle"
-    ],
+    "result": "success",
     "custom_field": "BGP IPv4 Unicast Peer: Site2-S1 (IP: 172.32.255.150)"
   },
   {
@@ -127,10 +106,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: ipv4 SAFI: unicast VRF: default Peer: 172.32.255.152 - Session state is not established - State: Idle"
-    ],
+    "result": "success",
     "custom_field": "BGP IPv4 Unicast Peer: Site2-S2 (IP: 172.32.255.152)"
   },
   {
@@ -140,10 +116,7 @@
       "bgp"
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
-    "result": "failure",
-    "messages": [
-      "AFI: ipv4 SAFI: unicast VRF: default Peer: 172.32.255.154 - Session state is not established - State: Idle"
-    ],
+    "result": "success",
     "custom_field": "BGP IPv4 Unicast Peer: Site2-S3 (IP: 172.32.255.154)"
   },
   {
@@ -154,46 +127,37 @@
     ],
     "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
     "result": "success",
+    "custom_field": "Local: Ethernet1/1 - Remote: Site2-S1 Ethernet6/1"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet2/1 - Remote: Site2-S2 Ethernet6/1"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
+    "custom_field": "Local: Ethernet3/1 - Remote: Site2-S3 Ethernet6/1"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyLLDPNeighbors",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
+    "result": "success",
     "custom_field": "Local: Ethernet5/1 - Remote: DCI-1 Ethernet5/1"
-  },
-  {
-    "name": "Site2-BGW2",
-    "test": "VerifyLLDPNeighbors",
-    "categories": [
-      "connectivity"
-    ],
-    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
-    "result": "failure",
-    "messages": [
-      "Port Ethernet51/1 (Neighbor: Site2-S1.act.lab, Neighbor Port: Ethernet6/1) - Port not found"
-    ],
-    "custom_field": "Local: Ethernet51/1 - Remote: Site2-S1 Ethernet6/1"
-  },
-  {
-    "name": "Site2-BGW2",
-    "test": "VerifyLLDPNeighbors",
-    "categories": [
-      "connectivity"
-    ],
-    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
-    "result": "failure",
-    "messages": [
-      "Port Ethernet52/1 (Neighbor: Site2-S2.act.lab, Neighbor Port: Ethernet6/1) - Port not found"
-    ],
-    "custom_field": "Local: Ethernet52/1 - Remote: Site2-S2 Ethernet6/1"
-  },
-  {
-    "name": "Site2-BGW2",
-    "test": "VerifyLLDPNeighbors",
-    "categories": [
-      "connectivity"
-    ],
-    "description": "Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.",
-    "result": "failure",
-    "messages": [
-      "Port Ethernet53/1 (Neighbor: Site2-S3.act.lab, Neighbor Port: Ethernet6/1) - Port not found"
-    ],
-    "custom_field": "Local: Ethernet53/1 - Remote: Site2-S3 Ethernet6/1"
   },
   {
     "name": "Site2-BGW2",
@@ -282,10 +246,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.0.255.13 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site1-L1 Loopback0 (IP: 192.0.255.13)"
   },
   {
@@ -295,10 +256,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.0.255.14 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site1-L2 Loopback0 (IP: 192.0.255.14)"
   },
   {
@@ -308,10 +266,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.0.255.15 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site1-L3 Loopback0 (IP: 192.0.255.15)"
   },
   {
@@ -321,10 +276,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.0.255.16 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site1-L4 Loopback0 (IP: 192.0.255.16)"
   },
   {
@@ -334,10 +286,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.0.255.1 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site1-S1 Loopback0 (IP: 192.0.255.1)"
   },
   {
@@ -347,10 +296,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.0.255.2 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site1-S2 Loopback0 (IP: 192.0.255.2)"
   },
   {
@@ -360,10 +306,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.0.255.3 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site1-S3 Loopback0 (IP: 192.0.255.3)"
   },
   {
@@ -409,10 +352,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.2.255.23 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site2-L1 Loopback0 (IP: 192.2.255.23)"
   },
   {
@@ -422,10 +362,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.2.255.24 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site2-L2 Loopback0 (IP: 192.2.255.24)"
   },
   {
@@ -435,10 +372,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.2.255.25 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site2-L3 Loopback0 (IP: 192.2.255.25)"
   },
   {
@@ -448,10 +382,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.2.255.26 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site2-L4 Loopback0 (IP: 192.2.255.26)"
   },
   {
@@ -461,10 +392,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.2.255.1 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site2-S1 Loopback0 (IP: 192.2.255.1)"
   },
   {
@@ -474,10 +402,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.2.255.2 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site2-S2 Loopback0 (IP: 192.2.255.2)"
   },
   {
@@ -487,10 +412,7 @@
       "connectivity"
     ],
     "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 192.2.255.3 (src: 192.2.255.28, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
+    "result": "success",
     "custom_field": "Source: Loopback0 (IP: 192.2.255.28) - Destination: Site2-S3 Loopback0 (IP: 192.2.255.3)"
   },
   {
@@ -501,46 +423,37 @@
     ],
     "description": "Test network reachability to one or many destination IP(s).",
     "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet1/1 (IP: 172.32.255.151) - Destination: Site2-S1 Ethernet6/1 (IP: 172.32.255.150)"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet2/1 (IP: 172.32.255.153) - Destination: Site2-S2 Ethernet6/1 (IP: 172.32.255.152)"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
+    "custom_field": "Source: P2P Interface Ethernet3/1 (IP: 172.32.255.155) - Destination: Site2-S3 Ethernet6/1 (IP: 172.32.255.154)"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyReachability",
+    "categories": [
+      "connectivity"
+    ],
+    "description": "Test network reachability to one or many destination IP(s).",
+    "result": "success",
     "custom_field": "Source: P2P Interface Ethernet5/1 (IP: 172.16.30.24) - Destination: DCI-1 Ethernet5/1 (IP: 172.16.30.25)"
-  },
-  {
-    "name": "Site2-BGW2",
-    "test": "VerifyReachability",
-    "categories": [
-      "connectivity"
-    ],
-    "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 172.32.255.150 (src: 172.32.255.151, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
-    "custom_field": "Source: P2P Interface Ethernet51/1 (IP: 172.32.255.151) - Destination: Site2-S1 Ethernet6/1 (IP: 172.32.255.150)"
-  },
-  {
-    "name": "Site2-BGW2",
-    "test": "VerifyReachability",
-    "categories": [
-      "connectivity"
-    ],
-    "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 172.32.255.152 (src: 172.32.255.153, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
-    "custom_field": "Source: P2P Interface Ethernet52/1 (IP: 172.32.255.153) - Destination: Site2-S2 Ethernet6/1 (IP: 172.32.255.152)"
-  },
-  {
-    "name": "Site2-BGW2",
-    "test": "VerifyReachability",
-    "categories": [
-      "connectivity"
-    ],
-    "description": "Test network reachability to one or many destination IP(s).",
-    "result": "failure",
-    "messages": [
-      "Host 172.32.255.154 (src: 172.32.255.155, vrf: default, size: 100B, repeat: 1) - Unreachable"
-    ],
-    "custom_field": "Source: P2P Interface Ethernet53/1 (IP: 172.32.255.155) - Destination: Site2-S3 Ethernet6/1 (IP: 172.32.255.154)"
   },
   {
     "name": "Site2-BGW2",
@@ -621,46 +534,37 @@
     ],
     "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
     "result": "success",
+    "custom_field": "Interface Ethernet1/1 - P2P_Site2-S1_Ethernet6/1 = 'up'"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet2/1 - P2P_Site2-S2_Ethernet6/1 = 'up'"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Ethernet3/1 - P2P_Site2-S3_Ethernet6/1 = 'up'"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
     "custom_field": "Interface Ethernet5/1 - P2P_DCI-1_Ethernet5/1 = 'up'"
-  },
-  {
-    "name": "Site2-BGW2",
-    "test": "VerifyInterfacesStatus",
-    "categories": [
-      "interfaces"
-    ],
-    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-    "result": "failure",
-    "messages": [
-      "Ethernet51/1 - Not configured"
-    ],
-    "custom_field": "Interface Ethernet51/1 - P2P_Site2-S1_Ethernet6/1 = 'up'"
-  },
-  {
-    "name": "Site2-BGW2",
-    "test": "VerifyInterfacesStatus",
-    "categories": [
-      "interfaces"
-    ],
-    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-    "result": "failure",
-    "messages": [
-      "Ethernet52/1 - Not configured"
-    ],
-    "custom_field": "Interface Ethernet52/1 - P2P_Site2-S2_Ethernet6/1 = 'up'"
-  },
-  {
-    "name": "Site2-BGW2",
-    "test": "VerifyInterfacesStatus",
-    "categories": [
-      "interfaces"
-    ],
-    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-    "result": "failure",
-    "messages": [
-      "Ethernet53/1 - Not configured"
-    ],
-    "custom_field": "Interface Ethernet53/1 - P2P_Site2-S3_Ethernet6/1 = 'up'"
   },
   {
     "name": "Site2-BGW2",
@@ -720,7 +624,7 @@
     ],
     "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
     "result": "success",
-    "custom_field": "Interface Vlan2300 - bluenet1 = 'up'"
+    "custom_field": "Interface Loopback200 - DIAG_VRF_redvrf = 'up'"
   },
   {
     "name": "Site2-BGW2",
@@ -730,7 +634,37 @@
     ],
     "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
     "result": "success",
-    "custom_field": "Interface Vlan2301 - bluenet2 = 'up'"
+    "custom_field": "Interface Vlan101 - bluenet1 = 'up'"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Vlan102 - bluenet2 = 'up'"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Vlan201 - rednet1 = 'up'"
+  },
+  {
+    "name": "Site2-BGW2",
+    "test": "VerifyInterfacesStatus",
+    "categories": [
+      "interfaces"
+    ],
+    "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
+    "result": "success",
+    "custom_field": "Interface Vlan202 - rednet2 = 'up'"
   },
   {
     "name": "Site2-BGW2",
@@ -759,10 +693,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.0.254.13']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.0.254.13 - Peer: Site1-L1"
   },
   {
@@ -772,10 +703,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.0.254.14']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.0.254.14 - Peer: Site1-L2"
   },
   {
@@ -785,10 +713,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.0.254.15']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.0.254.15 - Peer: Site1-L3"
   },
   {
@@ -828,10 +753,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.0.255.1']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.0.255.1 - Peer: Site1-S1"
   },
   {
@@ -841,10 +763,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.0.255.13']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.0.255.13 - Peer: Site1-L1"
   },
   {
@@ -854,10 +773,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.0.255.14']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.0.255.14 - Peer: Site1-L2"
   },
   {
@@ -867,10 +783,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.0.255.15']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.0.255.15 - Peer: Site1-L3"
   },
   {
@@ -880,10 +793,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.0.255.16']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.0.255.16 - Peer: Site1-L4"
   },
   {
@@ -923,10 +833,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.0.255.2']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.0.255.2 - Peer: Site1-S2"
   },
   {
@@ -936,10 +843,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.0.255.3']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.0.255.3 - Peer: Site1-S3"
   },
   {
@@ -979,10 +883,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.2.254.23']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.2.254.23 - Peer: Site2-L1"
   },
   {
@@ -992,10 +893,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.2.254.24']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.2.254.24 - Peer: Site2-L2"
   },
   {
@@ -1005,10 +903,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.2.254.25']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.2.254.25 - Peer: Site2-L3"
   },
   {
@@ -1054,10 +949,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.2.255.1']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.2.255.1 - Peer: Site2-S1"
   },
   {
@@ -1067,10 +959,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.2.255.2']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.2.255.2 - Peer: Site2-S2"
   },
   {
@@ -1080,10 +969,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.2.255.23']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.2.255.23 - Peer: Site2-L1"
   },
   {
@@ -1093,10 +979,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.2.255.24']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.2.255.24 - Peer: Site2-L2"
   },
   {
@@ -1106,10 +989,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.2.255.25']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.2.255.25 - Peer: Site2-L3"
   },
   {
@@ -1119,10 +999,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.2.255.26']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.2.255.26 - Peer: Site2-L4"
   },
   {
@@ -1168,10 +1045,7 @@
       "routing"
     ],
     "description": "Verifies that the provided routes are present in the routing table of a specified VRF.",
-    "result": "failure",
-    "messages": [
-      "The following route(s) are missing from the routing table of VRF default: ['192.2.255.3']"
-    ],
+    "result": "success",
     "custom_field": "Route: 192.2.255.3 - Peer: Site2-S3"
   },
   {

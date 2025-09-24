@@ -161,6 +161,48 @@ anta.tests.interfaces:
 anta.tests.routing.bgp:
 - VerifyBGPSpecificPeers:
     address_families:
+    - afi: evpn
+      peers:
+      - 192.0.255.17
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: 192.0.255.17'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.0.255.18
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: 192.0.255.18'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.0.255.19
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: 192.0.255.19'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.2.255.27
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: 192.2.255.27'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.2.255.28
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: 192.2.255.28'
+- VerifyBGPSpecificPeers:
+    address_families:
+    - afi: evpn
+      peers:
+      - 192.2.255.29
+    result_overwrite:
+      custom_field: 'BGP EVPN Peer: 192.2.255.29'
+- VerifyBGPSpecificPeers:
+    address_families:
     - afi: ipv4
       peers:
       - 172.16.30.4

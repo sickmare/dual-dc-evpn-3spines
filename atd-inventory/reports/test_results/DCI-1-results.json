@@ -7,6 +7,66 @@
     ],
     "description": "Verifies the health of specific BGP peer(s) for given address families.",
     "result": "success",
+    "custom_field": "BGP EVPN Peer: 192.0.255.17"
+  },
+  {
+    "name": "DCI-1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: 192.0.255.18"
+  },
+  {
+    "name": "DCI-1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: 192.0.255.19"
+  },
+  {
+    "name": "DCI-1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: 192.2.255.27"
+  },
+  {
+    "name": "DCI-1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: 192.2.255.28"
+  },
+  {
+    "name": "DCI-1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
+    "custom_field": "BGP EVPN Peer: 192.2.255.29"
+  },
+  {
+    "name": "DCI-1",
+    "test": "VerifyBGPSpecificPeers",
+    "categories": [
+      "bgp"
+    ],
+    "description": "Verifies the health of specific BGP peer(s) for given address families.",
+    "result": "success",
     "custom_field": "BGP IPv4 Unicast Peer: Site1-BGW1 (IP: 172.16.30.0)"
   },
   {

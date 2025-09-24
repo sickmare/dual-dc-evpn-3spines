@@ -4,7 +4,7 @@ config_end: true
 enable_password:
   disabled: true
 ethernet_interfaces:
-- name: Ethernet51/1
+- name: Ethernet1/1
   description: P2P_Site2-S1_Ethernet7/1
   shutdown: false
   mtu: 9000
@@ -14,7 +14,7 @@ ethernet_interfaces:
   peer_type: spine
   switchport:
     enabled: false
-- name: Ethernet52/1
+- name: Ethernet2/1
   description: P2P_Site2-S2_Ethernet7/1
   shutdown: false
   mtu: 9000
@@ -24,7 +24,7 @@ ethernet_interfaces:
   peer_type: spine
   switchport:
     enabled: false
-- name: Ethernet53/1
+- name: Ethernet3/1
   description: P2P_Site2-S3_Ethernet7/1
   shutdown: false
   mtu: 9000
@@ -94,6 +94,11 @@ loopback_interfaces:
   shutdown: false
   vrf: bluevrf
   ip_address: 10.255.1.29/32
+- name: Loopback200
+  description: DIAG_VRF_redvrf
+  shutdown: false
+  vrf: redvrf
+  ip_address: 10.255.2.29/32
 management_api_http:
   enable_https: true
   enable_vrfs:
@@ -141,8 +146,6 @@ router_bgp:
   maximum_paths:
     paths: 4
     ecmp: 4
-  updates:
-    wait_install: true
   bgp:
     default:
       ipv4_unicast: false
@@ -231,60 +234,88 @@ router_bgp:
       enabled: true
       route_map: RM-CONN-2-BGP
   vlans:
-  - id: 2300
+  - id: 101
     tenant: Tenant_A
-    rd: 192.2.255.29:32300
+    rd: 192.2.255.29:30101
     rd_evpn_domain:
       domain: remote
-      rd: 192.2.255.29:32300
+      rd: 192.2.255.29:30101
     route_targets:
       both:
-      - 32300:32300
+      - 30101:30101
       import_export_evpn_domains:
       - domain: remote
-        route_target: 32300:32300
+        route_target: 30101:30101
     redistribute_routes:
     - learned
-  - id: 2301
+  - id: 102
     tenant: Tenant_A
-    rd: 192.2.255.29:32301
+    rd: 192.2.255.29:30102
     rd_evpn_domain:
       domain: remote
-      rd: 192.2.255.29:32301
+      rd: 192.2.255.29:30102
     route_targets:
       both:
-      - 32301:32301
+      - 30102:30102
       import_export_evpn_domains:
       - domain: remote
-        route_target: 32301:32301
+        route_target: 30102:30102
     redistribute_routes:
     - learned
-  - id: 20
+  - id: 201
     tenant: Tenant_A
-    rd: 192.2.255.29:30020
+    rd: 192.2.255.29:30201
     rd_evpn_domain:
       domain: remote
-      rd: 192.2.255.29:30020
+      rd: 192.2.255.29:30201
     route_targets:
       both:
-      - 30020:30020
+      - 30201:30201
       import_export_evpn_domains:
       - domain: remote
-        route_target: 30020:30020
+        route_target: 30201:30201
     redistribute_routes:
     - learned
-  - id: 30
+  - id: 202
     tenant: Tenant_A
-    rd: 192.2.255.29:30030
+    rd: 192.2.255.29:30202
     rd_evpn_domain:
       domain: remote
-      rd: 192.2.255.29:30030
+      rd: 192.2.255.29:30202
     route_targets:
       both:
-      - 30030:30030
+      - 30202:30202
       import_export_evpn_domains:
       - domain: remote
-        route_target: 30030:30030
+        route_target: 30202:30202
+    redistribute_routes:
+    - learned
+  - id: 301
+    tenant: Tenant_A
+    rd: 192.2.255.29:30301
+    rd_evpn_domain:
+      domain: remote
+      rd: 192.2.255.29:30301
+    route_targets:
+      both:
+      - 30301:30301
+      import_export_evpn_domains:
+      - domain: remote
+        route_target: 30301:30301
+    redistribute_routes:
+    - learned
+  - id: 302
+    tenant: Tenant_A
+    rd: 192.2.255.29:30302
+    rd_evpn_domain:
+      domain: remote
+      rd: 192.2.255.29:30302
+    route_targets:
+      both:
+      - 30302:30302
+      import_export_evpn_domains:
+      - domain: remote
+        route_target: 30302:30302
     redistribute_routes:
     - learned
   address_family_evpn:
@@ -328,6 +359,21 @@ router_bgp:
     redistribute:
       connected:
         enabled: true
+  - name: redvrf
+    rd: 192.2.255.29:20
+    route_targets:
+      import:
+      - address_family: evpn
+        route_targets:
+        - '20:20'
+      export:
+      - address_family: evpn
+        route_targets:
+        - '20:20'
+    router_id: 192.2.255.29
+    redistribute:
+      connected:
+        enabled: true
 service_routing_protocols_model: multi-agent
 spanning_tree:
   mode: mstp
@@ -342,45 +388,72 @@ transceiver_qsfp_default_mode_4x10: true
 virtual_source_nat_vrfs:
 - name: bluevrf
   ip_address: 10.255.1.29
+- name: redvrf
+  ip_address: 10.255.2.29
 vlan_interfaces:
-- name: Vlan2300
+- name: Vlan101
   description: bluenet1
   shutdown: false
   vrf: bluevrf
-  ip_address_virtual: 192.168.11.1/24
+  ip_address_virtual: 10.10.101.254/24
   tenant: Tenant_A
   tags:
   - bluenet1-tag
-- name: Vlan2301
+- name: Vlan102
   description: bluenet2
   shutdown: false
   vrf: bluevrf
-  ip_address_virtual: 192.168.12.1/24
+  ip_address_virtual: 10.10.102.254/24
   tenant: Tenant_A
   tags:
-  - bluenet1-tag
+  - bluenet2-tag
+- name: Vlan201
+  description: rednet1
+  shutdown: false
+  vrf: redvrf
+  ip_address_virtual: 10.20.201.254/24
+  tenant: Tenant_A
+  tags:
+  - rednet1-tag
+- name: Vlan202
+  description: rednet2
+  shutdown: false
+  vrf: redvrf
+  ip_address_virtual: 10.20.202.254/24
+  tenant: Tenant_A
+  tags:
+  - rednet2-tag
 vlan_internal_order:
   allocation: ascending
   range:
     beginning: 1006
     ending: 1199
 vlans:
-- id: 2300
+- id: 101
   name: bluenet1
   tenant: Tenant_A
-- id: 2301
+- id: 102
   name: bluenet2
   tenant: Tenant_A
-- id: 20
-  name: L2-V20
+- id: 201
+  name: rednet1
   tenant: Tenant_A
-- id: 30
-  name: L2-V30
+- id: 202
+  name: rednet2
+  tenant: Tenant_A
+- id: 301
+  name: L2-V301
+  tenant: Tenant_A
+- id: 302
+  name: L2-V302
   tenant: Tenant_A
 vrfs:
 - name: mgmt
   ip_routing: false
 - name: bluevrf
+  ip_routing: true
+  tenant: Tenant_A
+- name: redvrf
   ip_routing: true
   tenant: Tenant_A
 vxlan_interface:
@@ -390,14 +463,20 @@ vxlan_interface:
       source_interface: Loopback1
       udp_port: 4789
       vlans:
-      - id: 2300
-        vni: 32300
-      - id: 2301
-        vni: 32301
-      - id: 20
-        vni: 30020
-      - id: 30
-        vni: 30030
+      - id: 101
+        vni: 30101
+      - id: 102
+        vni: 30102
+      - id: 201
+        vni: 30201
+      - id: 202
+        vni: 30202
+      - id: 301
+        vni: 30301
+      - id: 302
+        vni: 30302
       vrfs:
       - name: bluevrf
         vni: 10
+      - name: redvrf
+        vni: 20

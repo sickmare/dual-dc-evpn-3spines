@@ -15,36 +15,36 @@ Et1/1                          up             up                 P2P_Site2-L1_Et
 Et2/1                          up             up                 P2P_Site2-L2_Ethernet51/1
 Et3/1                          up             up                 P2P_Site2-L3_Ethernet51/1
 Et4/1                          up             up                 P2P_Site2-L4_Ethernet51/1
-Et5/1                          up             up                 P2P_Site2-BGW1_Ethernet51/1
-Et6/1                          up             up                 P2P_Site2-BGW2_Ethernet51/1
-Et7/1                          up             up                 P2P_Site2-BGW3_Ethernet51/1
-Et8/1                          down           down               
-Et9/1                          down           down               
-Et10/1                         down           down               
-Et11/1                         down           down               
-Et12/1                         down           down               
-Et13/1                         down           down               
-Et14/1                         down           down               
-Et15/1                         down           down               
-Et16/1                         down           down               
-Et17/1                         down           down               
-Et18/1                         down           down               
-Et19/1                         down           down               
-Et20/1                         down           down               
-Et21/1                         down           down               
-Et22/1                         down           down               
-Et23/1                         down           down               
-Et24/1                         down           down               
-Et25/1                         down           down               
-Et26/1                         down           down               
-Et27/1                         down           down               
-Et28/1                         down           down               
-Et29/1                         down           down               
-Et30/1                         down           down               
-Et31/1                         down           down               
-Et32/1                         down           down               
-Et33                           down           down               
-Et34                           down           down               
+Et5/1                          up             up                 P2P_Site2-BGW1_Ethernet1/1
+Et6/1                          up             up                 P2P_Site2-BGW2_Ethernet1/1
+Et7/1                          up             up                 P2P_Site2-BGW3_Ethernet1/1
+Et8/1                          up             up                 
+Et9/1                          up             up                 
+Et10/1                         up             up                 
+Et11/1                         up             up                 
+Et12/1                         up             up                 
+Et13/1                         up             up                 
+Et14/1                         up             up                 
+Et15/1                         up             up                 
+Et16/1                         up             up                 
+Et17/1                         up             up                 
+Et18/1                         up             up                 
+Et19/1                         up             up                 
+Et20/1                         up             up                 
+Et21/1                         up             up                 
+Et22/1                         up             up                 
+Et23/1                         up             up                 
+Et24/1                         up             up                 
+Et25/1                         up             up                 
+Et26/1                         up             up                 
+Et27/1                         up             up                 
+Et28/1                         up             up                 
+Et29/1                         up             up                 
+Et30/1                         up             up                 
+Et31/1                         up             up                 
+Et32/1                         up             up                 
+Et33                           up             up                 
+Et34                           up             up                 
 Lo0                            up             up                 ROUTER_ID
 Ma1                            up             up                 OOB_MANAGEMENT
 ```
@@ -67,7 +67,7 @@ Management1     192.168.0.20/24       up         up              1500
 ## show lldp neighbors
 
 ```
-Last table change time   : 2:38:25 ago
+Last table change time   : 0:54:16 ago
 Number of table inserts  : 7
 Number of table deletes  : 0
 Number of table drops    : 0
@@ -94,7 +94,7 @@ Et7/1          Site2-BGW3.act.lab       Ethernet1/1         120
 no aaa root
 !
 username arista privilege 15 role network-admin secret sha512 $6$arista$hvhzPKMNzxDEPi2.4ml69k2ZGn88hWas4/loWEFDCkC2QEh/onTkN954QCDvZPAHLZDn41AoDozW5SKPFe0.6.
-username cvpadmin privilege 15 role network-admin secret sha512 $6$gJWgs/NffSwWd9Eu$etQeB.OH26a3wU7mHD4kqde62NiNU/h30jV4JI0FHge8GX37TWjPYxu3YiXlMSfoOw6Q38AQSjXz2T1r/0GuL.
+username cvpadmin privilege 15 role network-admin secret sha512 $6$DTIBnIIaz1MAjt.j$tpbjDwZpcKfdnmd2G2.8u.co4yUc7anlADgglgs/V3KwH3azVMOgNS7vgzg4sJRVXdkpJ67lN9tBJE7dedFKi/
 !
 management api http-commands
    no shutdown
@@ -157,19 +157,19 @@ interface Ethernet4/1
    ip address 172.32.255.138/31
 !
 interface Ethernet5/1
-   description P2P_Site2-BGW1_Ethernet51/1
+   description P2P_Site2-BGW1_Ethernet1/1
    mtu 9000
    no switchport
    ip address 172.32.255.144/31
 !
 interface Ethernet6/1
-   description P2P_Site2-BGW2_Ethernet51/1
+   description P2P_Site2-BGW2_Ethernet1/1
    mtu 9000
    no switchport
    ip address 172.32.255.150/31
 !
 interface Ethernet7/1
-   description P2P_Site2-BGW3_Ethernet51/1
+   description P2P_Site2-BGW3_Ethernet1/1
    mtu 9000
    no switchport
    ip address 172.32.255.156/31
@@ -256,7 +256,6 @@ router bfd
 !
 router bgp 65002
    router-id 192.2.255.1
-   update wait-install
    no bgp default ipv4-unicast
    distance bgp 20 200 200
    graceful-restart restart-time 300
@@ -286,13 +285,13 @@ router bgp 65002
    neighbor 172.32.255.139 description Site2-L4_Ethernet51/1
    neighbor 172.32.255.145 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.32.255.145 remote-as 65231
-   neighbor 172.32.255.145 description Site2-BGW1_Ethernet51/1
+   neighbor 172.32.255.145 description Site2-BGW1_Ethernet1/1
    neighbor 172.32.255.151 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.32.255.151 remote-as 65231
-   neighbor 172.32.255.151 description Site2-BGW2_Ethernet51/1
+   neighbor 172.32.255.151 description Site2-BGW2_Ethernet1/1
    neighbor 172.32.255.157 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.32.255.157 remote-as 65231
-   neighbor 172.32.255.157 description Site2-BGW3_Ethernet51/1
+   neighbor 172.32.255.157 description Site2-BGW3_Ethernet1/1
    neighbor 192.2.255.23 peer group EVPN-OVERLAY-PEERS
    neighbor 192.2.255.23 remote-as 65201
    neighbor 192.2.255.23 description Site2-L1_Loopback0
@@ -348,7 +347,7 @@ Internal build ID: 47416e3e-5279-42fe-a5bd-cf7624a68bb9
 Image format version: 1.0
 Image optimization: None
 
-Uptime: 2 hours and 47 minutes
+Uptime: 57 minutes
 Total memory: 3970560 kB
-Free memory: 2519012 kB
+Free memory: 2533884 kB
 ```

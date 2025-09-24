@@ -227,26 +227,34 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
-| 20 | L2-V20 | - |
-| 30 | L2-V30 | - |
-| 2300 | bluenet1 | - |
-| 2301 | bluenet2 | - |
+| 101 | bluenet1 | - |
+| 102 | bluenet2 | - |
+| 201 | rednet1 | - |
+| 202 | rednet2 | - |
+| 301 | L2-V301 | - |
+| 302 | L2-V302 | - |
 
 ### VLANs Device Configuration
 
 ```eos
 !
-vlan 20
-   name L2-V20
-!
-vlan 30
-   name L2-V30
-!
-vlan 2300
+vlan 101
    name bluenet1
 !
-vlan 2301
+vlan 102
    name bluenet2
+!
+vlan 201
+   name rednet1
+!
+vlan 202
+   name rednet2
+!
+vlan 301
+   name L2-V301
+!
+vlan 302
+   name L2-V302
 ```
 
 ## Interfaces
@@ -259,7 +267,7 @@ vlan 2301
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
-| Ethernet1 | test eth1 trunk port | trunk | 20,30,2300-2301 | - | - | - |
+| Ethernet1 | test eth1 access port | access | 201 | - | - | - |
 
 *Inherited from Port-Channel Interface
 
@@ -267,7 +275,7 @@ vlan 2301
 
 | Interface | Description | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet2 | test eth2 routed port | - | 10.192.22.254/24 | bluevrf | - | False | - | - |
+| Ethernet2 | test eth2 routed port | - | 10.192.122.254/24 | redvrf | - | False | - | - |
 | Ethernet51/1 | P2P_Site1-S1_Ethernet2/1 | - | 172.30.255.67/31 | default | 9000 | False | - | - |
 | Ethernet52/1 | P2P_Site1-S2_Ethernet2/1 | - | 172.30.255.69/31 | default | 9000 | False | - | - |
 | Ethernet53/1 | P2P_Site1-S3_Ethernet2/1 | - | 172.30.255.71/31 | default | 9000 | False | - | - |
@@ -277,10 +285,10 @@ vlan 2301
 ```eos
 !
 interface Ethernet1
-   description test eth1 trunk port
+   description test eth1 access port
    no shutdown
-   switchport trunk allowed vlan 20,2300,2301,30
-   switchport mode trunk
+   switchport access vlan 201
+   switchport mode access
    switchport
    spanning-tree portfast
    spanning-tree bpduguard enable
@@ -289,9 +297,9 @@ interface Ethernet2
    description test eth2 routed port
    no shutdown
    no switchport
-   switchport
-   vrf bluevrf
-   ip address 10.192.22.254/24
+   no switchport
+   vrf redvrf
+   ip address 10.192.122.254/24
 !
 interface Ethernet51/1
    description P2P_Site1-S1_Ethernet2/1
@@ -326,6 +334,7 @@ interface Ethernet53/1
 | Loopback0 | ROUTER_ID | default | 192.0.255.14/32 |
 | Loopback1 | VXLAN_TUNNEL_SOURCE | default | 192.0.254.14/32 |
 | Loopback100 | DIAG_VRF_bluevrf | bluevrf | 10.255.1.14/32 |
+| Loopback200 | DIAG_VRF_redvrf | redvrf | 10.255.2.14/32 |
 
 ##### IPv6
 
@@ -334,6 +343,7 @@ interface Ethernet53/1
 | Loopback0 | ROUTER_ID | default | - |
 | Loopback1 | VXLAN_TUNNEL_SOURCE | default | - |
 | Loopback100 | DIAG_VRF_bluevrf | bluevrf | - |
+| Loopback200 | DIAG_VRF_redvrf | redvrf | - |
 
 #### Loopback Interfaces Device Configuration
 
@@ -354,6 +364,12 @@ interface Loopback100
    no shutdown
    vrf bluevrf
    ip address 10.255.1.14/32
+!
+interface Loopback200
+   description DIAG_VRF_redvrf
+   no shutdown
+   vrf redvrf
+   ip address 10.255.2.14/32
 ```
 
 ### VLAN Interfaces
@@ -362,31 +378,47 @@ interface Loopback100
 
 | Interface | Description | VRF |  MTU | Shutdown |
 | --------- | ----------- | --- | ---- | -------- |
-| Vlan2300 | bluenet1 | bluevrf | - | False |
-| Vlan2301 | bluenet2 | bluevrf | - | False |
+| Vlan101 | bluenet1 | bluevrf | - | False |
+| Vlan102 | bluenet2 | bluevrf | - | False |
+| Vlan201 | rednet1 | redvrf | - | False |
+| Vlan202 | rednet2 | redvrf | - | False |
 
 ##### IPv4
 
 | Interface | VRF | IP Address | IP Address Virtual | IP Router Virtual Address | ACL In | ACL Out |
 | --------- | --- | ---------- | ------------------ | ------------------------- | ------ | ------- |
-| Vlan2300 |  bluevrf  |  -  |  192.168.11.1/24  |  -  |  -  |  -  |
-| Vlan2301 |  bluevrf  |  -  |  192.168.12.1/24  |  -  |  -  |  -  |
+| Vlan101 |  bluevrf  |  -  |  10.10.101.254/24  |  -  |  -  |  -  |
+| Vlan102 |  bluevrf  |  -  |  10.10.102.254/24  |  -  |  -  |  -  |
+| Vlan201 |  redvrf  |  -  |  10.20.201.254/24  |  -  |  -  |  -  |
+| Vlan202 |  redvrf  |  -  |  10.20.202.254/24  |  -  |  -  |  -  |
 
 #### VLAN Interfaces Device Configuration
 
 ```eos
 !
-interface Vlan2300
+interface Vlan101
    description bluenet1
    no shutdown
    vrf bluevrf
-   ip address virtual 192.168.11.1/24
+   ip address virtual 10.10.101.254/24
 !
-interface Vlan2301
+interface Vlan102
    description bluenet2
    no shutdown
    vrf bluevrf
-   ip address virtual 192.168.12.1/24
+   ip address virtual 10.10.102.254/24
+!
+interface Vlan201
+   description rednet1
+   no shutdown
+   vrf redvrf
+   ip address virtual 10.20.201.254/24
+!
+interface Vlan202
+   description rednet2
+   no shutdown
+   vrf redvrf
+   ip address virtual 10.20.202.254/24
 ```
 
 ### VXLAN Interface
@@ -402,16 +434,19 @@ interface Vlan2301
 
 | VLAN | VNI | Flood List | Multicast Group |
 | ---- | --- | ---------- | --------------- |
-| 20 | 30020 | - | - |
-| 30 | 30030 | - | - |
-| 2300 | 32300 | - | - |
-| 2301 | 32301 | - | - |
+| 101 | 30101 | - | - |
+| 102 | 30102 | - | - |
+| 201 | 30201 | - | - |
+| 202 | 30202 | - | - |
+| 301 | 30301 | - | - |
+| 302 | 30302 | - | - |
 
 ##### VRF to VNI and Multicast Group Mappings
 
 | VRF | VNI | Multicast Group |
 | ---- | --- | --------------- |
 | bluevrf | 10 | - |
+| redvrf | 20 | - |
 
 #### VXLAN Interface Device Configuration
 
@@ -421,11 +456,14 @@ interface Vxlan1
    description Site1-L2_VTEP
    vxlan source-interface Loopback1
    vxlan udp-port 4789
-   vxlan vlan 20 vni 30020
-   vxlan vlan 30 vni 30030
-   vxlan vlan 2300 vni 32300
-   vxlan vlan 2301 vni 32301
+   vxlan vlan 101 vni 30101
+   vxlan vlan 102 vni 30102
+   vxlan vlan 201 vni 30201
+   vxlan vlan 202 vni 30202
+   vxlan vlan 301 vni 30301
+   vxlan vlan 302 vni 30302
    vxlan vrf bluevrf vni 10
+   vxlan vrf redvrf vni 20
 ```
 
 ## Routing
@@ -461,6 +499,7 @@ ip virtual-router mac-address 00:1c:73:00:dc:01
 | default | True |
 | bluevrf | True |
 | mgmt | False |
+| redvrf | True |
 
 #### IP Routing Device Configuration
 
@@ -469,6 +508,7 @@ ip virtual-router mac-address 00:1c:73:00:dc:01
 ip routing
 ip routing vrf bluevrf
 no ip routing vrf mgmt
+ip routing vrf redvrf
 ```
 
 ### IPv6 Routing
@@ -480,6 +520,7 @@ no ip routing vrf mgmt
 | default | False |
 | bluevrf | false |
 | mgmt | false |
+| redvrf | false |
 
 ### Static Routes
 
@@ -510,7 +551,6 @@ ASN Notation: asplain
 | ---------- |
 | graceful-restart restart-time 300 |
 | graceful-restart |
-| update wait-install |
 | no bgp default ipv4-unicast |
 | distance bgp 20 200 200 |
 | maximum-paths 4 ecmp 4 |
@@ -559,16 +599,19 @@ ASN Notation: asplain
 
 | VLAN | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute |
 | ---- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ |
-| 20 | 192.0.255.14:30020 | 30020:30020 | - | - | learned |
-| 30 | 192.0.255.14:30030 | 30030:30030 | - | - | learned |
-| 2300 | 192.0.255.14:32300 | 32300:32300 | - | - | learned |
-| 2301 | 192.0.255.14:32301 | 32301:32301 | - | - | learned |
+| 101 | 192.0.255.14:30101 | 30101:30101 | - | - | learned |
+| 102 | 192.0.255.14:30102 | 30102:30102 | - | - | learned |
+| 201 | 192.0.255.14:30201 | 30201:30201 | - | - | learned |
+| 202 | 192.0.255.14:30202 | 30202:30202 | - | - | learned |
+| 301 | 192.0.255.14:30301 | 30301:30301 | - | - | learned |
+| 302 | 192.0.255.14:30302 | 30302:30302 | - | - | learned |
 
 #### Router BGP VRFs
 
 | VRF | Route-Distinguisher | Redistribute |
 | --- | ------------------- | ------------ |
 | bluevrf | 192.0.255.14:10 | connected |
+| redvrf | 192.0.255.14:20 | connected |
 
 #### Router BGP Device Configuration
 
@@ -576,7 +619,6 @@ ASN Notation: asplain
 !
 router bgp 65102
    router-id 192.0.255.14
-   update wait-install
    no bgp default ipv4-unicast
    distance bgp 20 200 200
    graceful-restart restart-time 300
@@ -611,24 +653,34 @@ router bgp 65102
    neighbor 192.0.255.3 description Site1-S3_Loopback0
    redistribute connected route-map RM-CONN-2-BGP
    !
-   vlan 20
-      rd 192.0.255.14:30020
-      route-target both 30020:30020
+   vlan 101
+      rd 192.0.255.14:30101
+      route-target both 30101:30101
       redistribute learned
    !
-   vlan 30
-      rd 192.0.255.14:30030
-      route-target both 30030:30030
+   vlan 102
+      rd 192.0.255.14:30102
+      route-target both 30102:30102
       redistribute learned
    !
-   vlan 2300
-      rd 192.0.255.14:32300
-      route-target both 32300:32300
+   vlan 201
+      rd 192.0.255.14:30201
+      route-target both 30201:30201
       redistribute learned
    !
-   vlan 2301
-      rd 192.0.255.14:32301
-      route-target both 32301:32301
+   vlan 202
+      rd 192.0.255.14:30202
+      route-target both 30202:30202
+      redistribute learned
+   !
+   vlan 301
+      rd 192.0.255.14:30301
+      route-target both 30301:30301
+      redistribute learned
+   !
+   vlan 302
+      rd 192.0.255.14:30302
+      route-target both 30302:30302
       redistribute learned
    !
    address-family evpn
@@ -642,6 +694,13 @@ router bgp 65102
       rd 192.0.255.14:10
       route-target import evpn 10:10
       route-target export evpn 10:10
+      router-id 192.0.255.14
+      redistribute connected
+   !
+   vrf redvrf
+      rd 192.0.255.14:20
+      route-target import evpn 20:20
+      route-target export evpn 20:20
       router-id 192.0.255.14
       redistribute connected
 ```
@@ -727,6 +786,7 @@ route-map RM-CONN-2-BGP permit 10
 | -------- | ---------- |
 | bluevrf | enabled |
 | mgmt | disabled |
+| redvrf | enabled |
 
 ### VRF Instances Device Configuration
 
@@ -735,6 +795,8 @@ route-map RM-CONN-2-BGP permit 10
 vrf instance bluevrf
 !
 vrf instance mgmt
+!
+vrf instance redvrf
 ```
 
 ## Virtual Source NAT
@@ -744,10 +806,12 @@ vrf instance mgmt
 | Source NAT VRF | Source NAT IPv4 Address | Source NAT IPv6 Address |
 | -------------- | ----------------------- | ----------------------- |
 | bluevrf | 10.255.1.14 | - |
+| redvrf | 10.255.2.14 | - |
 
 ### Virtual Source NAT Configuration
 
 ```eos
 !
 ip address virtual source-nat vrf bluevrf address 10.255.1.14
+ip address virtual source-nat vrf redvrf address 10.255.2.14
 ```

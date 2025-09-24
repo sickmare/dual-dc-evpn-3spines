@@ -1,7 +1,7 @@
 Interface                      Status         Protocol           Description
-Et1/1                          up             up                 
-Et2/1                          up             up                 
-Et3/1                          up             up                 
+Et1/1                          up             up                 P2P_Site2-S1_Ethernet6/1
+Et2/1                          up             up                 P2P_Site2-S2_Ethernet6/1
+Et3/1                          up             up                 P2P_Site2-S3_Ethernet6/1
 Et4/1                          up             up                 
 Et5/1                          up             up                 P2P_DCI-1_Ethernet5/1
 Et6/1                          up             up                 P2P_DCI-2_Ethernet5/1
@@ -38,8 +38,12 @@ Et36/1                         up             up
 Lo0                            up             up                 ROUTER_ID
 Lo1                            up             up                 VXLAN_TUNNEL_SOURCE
 Lo100                          up             up                 DIAG_VRF_bluevrf
+Lo200                          up             up                 DIAG_VRF_redvrf
 Ma1                            up             up                 OOB_MANAGEMENT
-Vl2300                         up             up                 bluenet1
-Vl2301                         up             up                 bluenet2
+Vl101                          up             up                 bluenet1
+Vl102                          up             up                 bluenet2
+Vl201                          up             up                 rednet1
+Vl202                          up             up                 rednet2
 Vl4097                         up             up                 
+Vl4098                         up             up                 
 Vx1                            up             up                 Site2-BGW2_VTEP

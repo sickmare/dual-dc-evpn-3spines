@@ -3,23 +3,23 @@ anta.tests.connectivity:
     neighbors:
     - neighbor_device: Site2-S1.act.lab
       neighbor_port: Ethernet7/1
-      port: Ethernet51/1
+      port: Ethernet1/1
     result_overwrite:
-      custom_field: 'Local: Ethernet51/1 - Remote: Site2-S1 Ethernet7/1'
+      custom_field: 'Local: Ethernet1/1 - Remote: Site2-S1 Ethernet7/1'
 - VerifyLLDPNeighbors:
     neighbors:
     - neighbor_device: Site2-S2.act.lab
       neighbor_port: Ethernet7/1
-      port: Ethernet52/1
+      port: Ethernet2/1
     result_overwrite:
-      custom_field: 'Local: Ethernet52/1 - Remote: Site2-S2 Ethernet7/1'
+      custom_field: 'Local: Ethernet2/1 - Remote: Site2-S2 Ethernet7/1'
 - VerifyLLDPNeighbors:
     neighbors:
     - neighbor_device: Site2-S3.act.lab
       neighbor_port: Ethernet7/1
-      port: Ethernet53/1
+      port: Ethernet3/1
     result_overwrite:
-      custom_field: 'Local: Ethernet53/1 - Remote: Site2-S3 Ethernet7/1'
+      custom_field: 'Local: Ethernet3/1 - Remote: Site2-S3 Ethernet7/1'
 - VerifyLLDPNeighbors:
     neighbors:
     - neighbor_device: DCI-1.act.lab
@@ -48,7 +48,7 @@ anta.tests.connectivity:
       source: 172.32.255.157
       vrf: default
     result_overwrite:
-      custom_field: 'Source: P2P Interface Ethernet51/1 (IP: 172.32.255.157) - Destination:
+      custom_field: 'Source: P2P Interface Ethernet1/1 (IP: 172.32.255.157) - Destination:
         Site2-S1 Ethernet7/1 (IP: 172.32.255.156)'
 - VerifyReachability:
     hosts:
@@ -57,7 +57,7 @@ anta.tests.connectivity:
       source: 172.32.255.159
       vrf: default
     result_overwrite:
-      custom_field: 'Source: P2P Interface Ethernet52/1 (IP: 172.32.255.159) - Destination:
+      custom_field: 'Source: P2P Interface Ethernet2/1 (IP: 172.32.255.159) - Destination:
         Site2-S2 Ethernet7/1 (IP: 172.32.255.158)'
 - VerifyReachability:
     hosts:
@@ -66,7 +66,7 @@ anta.tests.connectivity:
       source: 172.32.255.161
       vrf: default
     result_overwrite:
-      custom_field: 'Source: P2P Interface Ethernet53/1 (IP: 172.32.255.161) - Destination:
+      custom_field: 'Source: P2P Interface Ethernet3/1 (IP: 172.32.255.161) - Destination:
         Site2-S3 Ethernet7/1 (IP: 172.32.255.160)'
 - VerifyReachability:
     hosts:
@@ -325,22 +325,22 @@ anta.tests.hardware:
 anta.tests.interfaces:
 - VerifyInterfacesStatus:
     interfaces:
-    - name: Ethernet51/1
+    - name: Ethernet1/1
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet51/1 - P2P_Site2-S1_Ethernet7/1 = 'up'
+      custom_field: Interface Ethernet1/1 - P2P_Site2-S1_Ethernet7/1 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
-    - name: Ethernet52/1
+    - name: Ethernet2/1
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet52/1 - P2P_Site2-S2_Ethernet7/1 = 'up'
+      custom_field: Interface Ethernet2/1 - P2P_Site2-S2_Ethernet7/1 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
-    - name: Ethernet53/1
+    - name: Ethernet3/1
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet53/1 - P2P_Site2-S3_Ethernet7/1 = 'up'
+      custom_field: Interface Ethernet3/1 - P2P_Site2-S3_Ethernet7/1 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Ethernet5/1
@@ -361,16 +361,28 @@ anta.tests.interfaces:
       custom_field: Interface Ethernet7/1 - P2P_DCI-3_Ethernet6/1 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
-    - name: Vlan2300
+    - name: Vlan101
       status: up
     result_overwrite:
-      custom_field: Interface Vlan2300 - bluenet1 = 'up'
+      custom_field: Interface Vlan101 - bluenet1 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
-    - name: Vlan2301
+    - name: Vlan102
       status: up
     result_overwrite:
-      custom_field: Interface Vlan2301 - bluenet2 = 'up'
+      custom_field: Interface Vlan102 - bluenet2 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Vlan201
+      status: up
+    result_overwrite:
+      custom_field: Interface Vlan201 - rednet1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Vlan202
+      status: up
+    result_overwrite:
+      custom_field: Interface Vlan202 - rednet2 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Loopback0
@@ -389,6 +401,12 @@ anta.tests.interfaces:
       status: up
     result_overwrite:
       custom_field: Interface Loopback100 - DIAG_VRF_bluevrf = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Loopback200
+      status: up
+    result_overwrite:
+      custom_field: Interface Loopback200 - DIAG_VRF_redvrf = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Vxlan1

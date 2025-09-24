@@ -12,7 +12,7 @@ servers:
         profile: int_vpc_trunk_host
         enabled: true
         mtu:
-        vlans: '20'
+        vlans: '101-102,201-202,301-302'
         port_channel:
           description: PortChannel
           mode: active
@@ -29,7 +29,7 @@ servers:
         profile: int_vpc_trunk_host
         enabled: true
         mtu:
-        vlans: '20'
+        vlans: '101-102,201-202,301-302'
         port_channel:
           description: PortChannel
           mode: active

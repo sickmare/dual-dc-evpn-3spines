@@ -298,7 +298,7 @@ anta.tests.interfaces:
     - name: Ethernet1
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet1 - test eth1 trunk port = 'up'
+      custom_field: Interface Ethernet1 - test eth1 access port = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Ethernet2
@@ -307,16 +307,28 @@ anta.tests.interfaces:
       custom_field: Interface Ethernet2 - test eth2 routed port = 'up'
 - VerifyInterfacesStatus:
     interfaces:
-    - name: Vlan2300
+    - name: Vlan101
       status: up
     result_overwrite:
-      custom_field: Interface Vlan2300 - bluenet1 = 'up'
+      custom_field: Interface Vlan101 - bluenet1 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
-    - name: Vlan2301
+    - name: Vlan102
       status: up
     result_overwrite:
-      custom_field: Interface Vlan2301 - bluenet2 = 'up'
+      custom_field: Interface Vlan102 - bluenet2 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Vlan201
+      status: up
+    result_overwrite:
+      custom_field: Interface Vlan201 - rednet1 = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Vlan202
+      status: up
+    result_overwrite:
+      custom_field: Interface Vlan202 - rednet2 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Loopback0
@@ -335,6 +347,12 @@ anta.tests.interfaces:
       status: up
     result_overwrite:
       custom_field: Interface Loopback100 - DIAG_VRF_bluevrf = 'up'
+- VerifyInterfacesStatus:
+    interfaces:
+    - name: Loopback200
+      status: up
+    result_overwrite:
+      custom_field: Interface Loopback200 - DIAG_VRF_redvrf = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Vxlan1

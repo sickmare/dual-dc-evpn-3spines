@@ -30,24 +30,24 @@ anta.tests.connectivity:
 - VerifyLLDPNeighbors:
     neighbors:
     - neighbor_device: Site2-BGW1.act.lab
-      neighbor_port: Ethernet51/1
+      neighbor_port: Ethernet1/1
       port: Ethernet5/1
     result_overwrite:
-      custom_field: 'Local: Ethernet5/1 - Remote: Site2-BGW1 Ethernet51/1'
+      custom_field: 'Local: Ethernet5/1 - Remote: Site2-BGW1 Ethernet1/1'
 - VerifyLLDPNeighbors:
     neighbors:
     - neighbor_device: Site2-BGW2.act.lab
-      neighbor_port: Ethernet51/1
+      neighbor_port: Ethernet1/1
       port: Ethernet6/1
     result_overwrite:
-      custom_field: 'Local: Ethernet6/1 - Remote: Site2-BGW2 Ethernet51/1'
+      custom_field: 'Local: Ethernet6/1 - Remote: Site2-BGW2 Ethernet1/1'
 - VerifyLLDPNeighbors:
     neighbors:
     - neighbor_device: Site2-BGW3.act.lab
-      neighbor_port: Ethernet51/1
+      neighbor_port: Ethernet1/1
       port: Ethernet7/1
     result_overwrite:
-      custom_field: 'Local: Ethernet7/1 - Remote: Site2-BGW3 Ethernet51/1'
+      custom_field: 'Local: Ethernet7/1 - Remote: Site2-BGW3 Ethernet1/1'
 - VerifyReachability:
     hosts:
     - destination: 172.32.255.121
@@ -92,7 +92,7 @@ anta.tests.connectivity:
       vrf: default
     result_overwrite:
       custom_field: 'Source: P2P Interface Ethernet5/1 (IP: 172.32.255.144) - Destination:
-        Site2-BGW1 Ethernet51/1 (IP: 172.32.255.145)'
+        Site2-BGW1 Ethernet1/1 (IP: 172.32.255.145)'
 - VerifyReachability:
     hosts:
     - destination: 172.32.255.151
@@ -101,7 +101,7 @@ anta.tests.connectivity:
       vrf: default
     result_overwrite:
       custom_field: 'Source: P2P Interface Ethernet6/1 (IP: 172.32.255.150) - Destination:
-        Site2-BGW2 Ethernet51/1 (IP: 172.32.255.151)'
+        Site2-BGW2 Ethernet1/1 (IP: 172.32.255.151)'
 - VerifyReachability:
     hosts:
     - destination: 172.32.255.157
@@ -110,7 +110,7 @@ anta.tests.connectivity:
       vrf: default
     result_overwrite:
       custom_field: 'Source: P2P Interface Ethernet7/1 (IP: 172.32.255.156) - Destination:
-        Site2-BGW3 Ethernet51/1 (IP: 172.32.255.157)'
+        Site2-BGW3 Ethernet1/1 (IP: 172.32.255.157)'
 anta.tests.hardware:
 - VerifyEnvironmentPower:
     result_overwrite:
@@ -161,19 +161,19 @@ anta.tests.interfaces:
     - name: Ethernet5/1
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet5/1 - P2P_Site2-BGW1_Ethernet51/1 = 'up'
+      custom_field: Interface Ethernet5/1 - P2P_Site2-BGW1_Ethernet1/1 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Ethernet6/1
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet6/1 - P2P_Site2-BGW2_Ethernet51/1 = 'up'
+      custom_field: Interface Ethernet6/1 - P2P_Site2-BGW2_Ethernet1/1 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Ethernet7/1
       status: up
     result_overwrite:
-      custom_field: Interface Ethernet7/1 - P2P_Site2-BGW3_Ethernet51/1 = 'up'
+      custom_field: Interface Ethernet7/1 - P2P_Site2-BGW3_Ethernet1/1 = 'up'
 - VerifyInterfacesStatus:
     interfaces:
     - name: Loopback0

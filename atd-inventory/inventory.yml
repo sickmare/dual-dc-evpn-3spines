@@ -140,6 +140,7 @@ all:
         Site1_MLAG_LEAF:
         Site2_SINGLE_LEAF:
         Site2_MLAG_LEAF:
+        
   vars:
     ansible_user: cvpadmin
     ansible_password: cvp123!

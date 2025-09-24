@@ -325,11 +325,25 @@ ASN Notation: asplain
 
 | BGP Tuning |
 | ---------- |
+| graceful-restart restart-time 300 |
+| graceful-restart |
 | no bgp default ipv4-unicast |
 | distance bgp 20 200 200 |
 | maximum-paths 4 ecmp 4 |
 
 #### Router BGP Peer Groups
+
+##### EVPN-OVERLAY-CORE
+
+| Settings | Value |
+| -------- | ----- |
+| Address Family | evpn |
+| Next-hop unchanged | True |
+| Source | Loopback0 |
+| BFD | True |
+| Ebgp multihop | 15 |
+| Send community | all |
+| Maximum routes | 0 (no limit) |
 
 ##### IPv4-UNDERLAY-PEERS
 
@@ -349,6 +363,20 @@ ASN Notation: asplain
 | 172.16.30.22 | 65231 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 172.16.30.28 | 65231 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 172.16.30.34 | 65231 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 192.0.255.17 | 65131 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
+| 192.0.255.18 | 65131 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
+| 192.0.255.19 | 65131 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
+| 192.2.255.27 | 65231 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
+| 192.2.255.28 | 65231 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
+| 192.2.255.29 | 65231 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
+
+#### Router BGP EVPN Address Family
+
+##### EVPN Peer Groups
+
+| Peer Group | Activate | Route-map In | Route-map Out | Encapsulation | Next-hop-self Source Interface |
+| ---------- | -------- | ------------ | ------------- | ------------- | ------------------------------ |
+| EVPN-OVERLAY-CORE | True |  - | - | default | - |
 
 #### Router BGP Device Configuration
 
@@ -358,7 +386,16 @@ router bgp 64999
    router-id 192.168.250.3
    no bgp default ipv4-unicast
    distance bgp 20 200 200
+   graceful-restart restart-time 300
+   graceful-restart
    maximum-paths 4 ecmp 4
+   neighbor EVPN-OVERLAY-CORE peer group
+   neighbor EVPN-OVERLAY-CORE next-hop-unchanged
+   neighbor EVPN-OVERLAY-CORE update-source Loopback0
+   neighbor EVPN-OVERLAY-CORE bfd
+   neighbor EVPN-OVERLAY-CORE ebgp-multihop 15
+   neighbor EVPN-OVERLAY-CORE send-community
+   neighbor EVPN-OVERLAY-CORE maximum-routes 0
    neighbor IPv4-UNDERLAY-PEERS peer group
    neighbor IPv4-UNDERLAY-PEERS send-community
    neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
@@ -380,7 +417,28 @@ router bgp 64999
    neighbor 172.16.30.34 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.16.30.34 remote-as 65231
    neighbor 172.16.30.34 description Site2-BGW3
+   neighbor 192.0.255.17 peer group EVPN-OVERLAY-CORE
+   neighbor 192.0.255.17 remote-as 65131
+   neighbor 192.0.255.17 description Site1_BGW1_Loopback0
+   neighbor 192.0.255.18 peer group EVPN-OVERLAY-CORE
+   neighbor 192.0.255.18 remote-as 65131
+   neighbor 192.0.255.18 description Site1_BGW2_Loopback0
+   neighbor 192.0.255.19 peer group EVPN-OVERLAY-CORE
+   neighbor 192.0.255.19 remote-as 65131
+   neighbor 192.0.255.19 description Site1_BGW3_Loopback0
+   neighbor 192.2.255.27 peer group EVPN-OVERLAY-CORE
+   neighbor 192.2.255.27 remote-as 65231
+   neighbor 192.2.255.27 description Site2_BGW1_Loopback0
+   neighbor 192.2.255.28 peer group EVPN-OVERLAY-CORE
+   neighbor 192.2.255.28 remote-as 65231
+   neighbor 192.2.255.28 description Site2_BGW2_Loopback0
+   neighbor 192.2.255.29 peer group EVPN-OVERLAY-CORE
+   neighbor 192.2.255.29 remote-as 65231
+   neighbor 192.2.255.29 description Site2_BGW3_Loopback0
    redistribute connected route-map RM-CONN-2-BGP
+   !
+   address-family evpn
+      neighbor EVPN-OVERLAY-CORE activate
    !
    address-family ipv4
       neighbor IPv4-UNDERLAY-PEERS activate

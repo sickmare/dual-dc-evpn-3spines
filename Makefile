@@ -8,9 +8,9 @@ help: ## Display help message (*: main entry points / []: part of an entry point
 build: ## Build fabric artifacts
 	ansible-playbook playbooks/atd-fabric-build.yml
 
-.PHONY: provision-cvp
+.PHONY: deploy-cvp
 provision-cvp: ## Push configurations to CVP and create tasks (user must execute)
-	ansible-playbook playbooks/atd-fabric-provision.yml
+	ansible-playbook playbooks/atd-fabric-deploy.yml
 
 .PHONY: provision-cvpstudio
 provision-cvpstudio: ## Push configurations to CVP static studio

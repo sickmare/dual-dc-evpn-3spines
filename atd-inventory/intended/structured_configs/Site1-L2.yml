@@ -35,28 +35,27 @@ ethernet_interfaces:
   switchport:
     enabled: false
 - name: Ethernet1
-  description: test eth1 trunk port
+  description: test eth1 access port
   shutdown: false
   spanning_tree_bpduguard: enabled
   spanning_tree_portfast: edge
   peer_type: network_port
-  port_profile: int_trunk_host
+  port_profile: int_access_host
   switchport:
     enabled: true
-    mode: trunk
-    trunk:
-      allowed_vlan: 20,2300,2301,30
+    mode: access
+    access_vlan: 201
 - name: Ethernet2
   description: test eth2 routed port
   shutdown: false
   mtu: null
   type: routed
-  vrf: bluevrf
-  ip_address: 10.192.22.254/24
+  vrf: redvrf
+  ip_address: 10.192.122.254/24
   peer_type: network_port
   port_profile: int_routed_host
   switchport:
-    enabled: true
+    enabled: false
 hostname: Site1-L2
 ip_igmp_snooping:
   globally_enabled: true
@@ -87,6 +86,11 @@ loopback_interfaces:
   shutdown: false
   vrf: bluevrf
   ip_address: 10.255.1.14/32
+- name: Loopback200
+  description: DIAG_VRF_redvrf
+  shutdown: false
+  vrf: redvrf
+  ip_address: 10.255.2.14/32
 management_api_http:
   enable_https: true
   enable_vrfs:
@@ -134,8 +138,6 @@ router_bgp:
   maximum_paths:
     paths: 4
     ecmp: 4
-  updates:
-    wait_install: true
   bgp:
     default:
       ipv4_unicast: false
@@ -187,36 +189,52 @@ router_bgp:
       enabled: true
       route_map: RM-CONN-2-BGP
   vlans:
-  - id: 2300
+  - id: 101
     tenant: Tenant_A
-    rd: 192.0.255.14:32300
+    rd: 192.0.255.14:30101
     route_targets:
       both:
-      - 32300:32300
+      - 30101:30101
     redistribute_routes:
     - learned
-  - id: 2301
+  - id: 102
     tenant: Tenant_A
-    rd: 192.0.255.14:32301
+    rd: 192.0.255.14:30102
     route_targets:
       both:
-      - 32301:32301
+      - 30102:30102
     redistribute_routes:
     - learned
-  - id: 20
+  - id: 201
     tenant: Tenant_A
-    rd: 192.0.255.14:30020
+    rd: 192.0.255.14:30201
     route_targets:
       both:
-      - 30020:30020
+      - 30201:30201
     redistribute_routes:
     - learned
-  - id: 30
+  - id: 202
     tenant: Tenant_A
-    rd: 192.0.255.14:30030
+    rd: 192.0.255.14:30202
     route_targets:
       both:
-      - 30030:30030
+      - 30202:30202
+    redistribute_routes:
+    - learned
+  - id: 301
+    tenant: Tenant_A
+    rd: 192.0.255.14:30301
+    route_targets:
+      both:
+      - 30301:30301
+    redistribute_routes:
+    - learned
+  - id: 302
+    tenant: Tenant_A
+    rd: 192.0.255.14:30302
+    route_targets:
+      both:
+      - 30302:30302
     redistribute_routes:
     - learned
   address_family_evpn:
@@ -245,6 +263,21 @@ router_bgp:
     redistribute:
       connected:
         enabled: true
+  - name: redvrf
+    rd: 192.0.255.14:20
+    route_targets:
+      import:
+      - address_family: evpn
+        route_targets:
+        - '20:20'
+      export:
+      - address_family: evpn
+        route_targets:
+        - '20:20'
+    router_id: 192.0.255.14
+    redistribute:
+      connected:
+        enabled: true
 service_routing_protocols_model: multi-agent
 spanning_tree:
   mode: mstp
@@ -259,45 +292,72 @@ transceiver_qsfp_default_mode_4x10: true
 virtual_source_nat_vrfs:
 - name: bluevrf
   ip_address: 10.255.1.14
+- name: redvrf
+  ip_address: 10.255.2.14
 vlan_interfaces:
-- name: Vlan2300
+- name: Vlan101
   description: bluenet1
   shutdown: false
   vrf: bluevrf
-  ip_address_virtual: 192.168.11.1/24
+  ip_address_virtual: 10.10.101.254/24
   tenant: Tenant_A
   tags:
   - bluenet1-tag
-- name: Vlan2301
+- name: Vlan102
   description: bluenet2
   shutdown: false
   vrf: bluevrf
-  ip_address_virtual: 192.168.12.1/24
+  ip_address_virtual: 10.10.102.254/24
   tenant: Tenant_A
   tags:
-  - bluenet1-tag
+  - bluenet2-tag
+- name: Vlan201
+  description: rednet1
+  shutdown: false
+  vrf: redvrf
+  ip_address_virtual: 10.20.201.254/24
+  tenant: Tenant_A
+  tags:
+  - rednet1-tag
+- name: Vlan202
+  description: rednet2
+  shutdown: false
+  vrf: redvrf
+  ip_address_virtual: 10.20.202.254/24
+  tenant: Tenant_A
+  tags:
+  - rednet2-tag
 vlan_internal_order:
   allocation: ascending
   range:
     beginning: 1006
     ending: 1199
 vlans:
-- id: 2300
+- id: 101
   name: bluenet1
   tenant: Tenant_A
-- id: 2301
+- id: 102
   name: bluenet2
   tenant: Tenant_A
-- id: 20
-  name: L2-V20
+- id: 201
+  name: rednet1
   tenant: Tenant_A
-- id: 30
-  name: L2-V30
+- id: 202
+  name: rednet2
+  tenant: Tenant_A
+- id: 301
+  name: L2-V301
+  tenant: Tenant_A
+- id: 302
+  name: L2-V302
   tenant: Tenant_A
 vrfs:
 - name: mgmt
   ip_routing: false
 - name: bluevrf
+  ip_routing: true
+  tenant: Tenant_A
+- name: redvrf
   ip_routing: true
   tenant: Tenant_A
 vxlan_interface:
@@ -307,14 +367,20 @@ vxlan_interface:
       source_interface: Loopback1
       udp_port: 4789
       vlans:
-      - id: 2300
-        vni: 32300
-      - id: 2301
-        vni: 32301
-      - id: 20
-        vni: 30020
-      - id: 30
-        vni: 30030
+      - id: 101
+        vni: 30101
+      - id: 102
+        vni: 30102
+      - id: 201
+        vni: 30201
+      - id: 202
+        vni: 30202
+      - id: 301
+        vni: 30301
+      - id: 302
+        vni: 30302
       vrfs:
       - name: bluevrf
         vni: 10
+      - name: redvrf
+        vni: 20

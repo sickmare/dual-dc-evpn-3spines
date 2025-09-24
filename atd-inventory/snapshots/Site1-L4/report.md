@@ -70,42 +70,53 @@ Et56/1                         up             up
 Lo0                            up             up                 ROUTER_ID
 Lo1                            up             up                 VXLAN_TUNNEL_SOURCE
 Lo100                          up             up                 DIAG_VRF_bluevrf
+Lo200                          up             up                 DIAG_VRF_redvrf
 Ma1                            up             up                 OOB_MANAGEMENT
-Po1                            down           lowerlayerdown     PortChannel
-Po2                            down           lowerlayerdown     PortChannel
+Po1                            up             up                 PortChannel
+Po2                            up             up                 PortChannel
 Po491                          up             up                 MLAG_Site1-L3_Port-Channel491
-Vl2300                         up             up                 bluenet1
-Vl2301                         up             up                 bluenet2
+Vl101                          up             up                 bluenet1
+Vl102                          up             up                 bluenet2
+Vl201                          up             up                 rednet1
+Vl202                          up             up                 rednet2
 Vl3009                         up             up                 MLAG_L3_VRF_bluevrf
+Vl3019                         up             up                 MLAG_L3_VRF_redvrf
 Vl4093                         up             up                 MLAG_L3
 Vl4094                         up             up                 MLAG
 Vl4097                         up             up                 
+Vl4098                         up             up                 
 Vx1                            up             up                 Site1-L4_VTEP
 ```
 ## show ip interface brief
 
 ```
 Address
-Interface        IP Address           Status     Protocol         MTU   Owner  
----------------- -------------------- ---------- ------------ --------- -------
-Ethernet51/1     172.30.255.79/31     up         up              9000          
-Ethernet52/1     172.30.255.81/31     up         up              9000          
-Ethernet53/1     172.30.255.83/31     up         up              9000          
-Loopback0        192.0.255.16/32      up         up             65535          
-Loopback1        192.0.254.15/32      up         up             65535          
-Loopback100      10.255.1.16/32       up         up             65535          
-Management1      192.168.0.16/24      up         up              1500          
-Vlan2300         192.168.11.1/24      up         up              1500          
-Vlan2301         192.168.12.1/24      up         up              1500          
-Vlan3009         10.255.251.25/31     up         up              9000          
-Vlan4093         10.255.251.25/31     up         up              9000          
-Vlan4094         10.255.252.25/31     up         up              9000          
-Vlan4097         unassigned           up         up              9164
+Interface       IP Address            Status     Protocol         MTU   Owner  
+--------------- --------------------- ---------- ------------ --------- -------
+Ethernet3       10.192.144.254/24     up         up              1500          
+Ethernet51/1    172.30.255.79/31      up         up              9000          
+Ethernet52/1    172.30.255.81/31      up         up              9000          
+Ethernet53/1    172.30.255.83/31      up         up              9000          
+Loopback0       192.0.255.16/32       up         up             65535          
+Loopback1       192.0.254.15/32       up         up             65535          
+Loopback100     10.255.1.16/32        up         up             65535          
+Loopback200     10.255.2.16/32        up         up             65535          
+Management1     192.168.0.16/24       up         up              1500          
+Vlan101         10.10.101.254/24      up         up              1500          
+Vlan102         10.10.102.254/24      up         up              1500          
+Vlan201         10.20.201.254/24      up         up              1500          
+Vlan202         10.20.202.254/24      up         up              1500          
+Vlan3009        10.255.251.25/31      up         up              9000          
+Vlan3019        10.255.251.25/31      up         up              9000          
+Vlan4093        10.255.251.25/31      up         up              9000          
+Vlan4094        10.255.252.25/31      up         up              1500          
+Vlan4097        unassigned            up         up              9164          
+Vlan4098        unassigned            up         up              9164
 ```
 ## show lldp neighbors
 
 ```
-Last table change time   : 2:39:43 ago
+Last table change time   : 0:55:40 ago
 Number of table inserts  : 7
 Number of table deletes  : 0
 Number of table drops    : 0
@@ -132,7 +143,7 @@ Et53/1          Site1-S3.act.lab         Ethernet4/1         120
 no aaa root
 !
 username arista privilege 15 role network-admin secret sha512 $6$arista$hvhzPKMNzxDEPi2.4ml69k2ZGn88hWas4/loWEFDCkC2QEh/onTkN954QCDvZPAHLZDn41AoDozW5SKPFe0.6.
-username cvpadmin privilege 15 role network-admin secret sha512 $6$aki8DbMdvNAKrwhI$pfdFXi0io7G6uP0A6GGurFoVrI9XNGXP.QG0F9KrkQ3AJ42JEk2z6o9VFtd6iDPfxekH4OOZ831aYxoKbWjFy.
+username cvpadmin privilege 15 role network-admin secret sha512 $6$YtU/7t2hmY8DZitB$EDGeWOhvHFDVkcgMUuBk6e.UOwHVswnOvb4XFlCcrN6PWktOnriF3bNDHxynO7fFO0zyjtbe39i6DRmkv7L76.
 !
 management api http-commands
    no shutdown
@@ -168,20 +179,30 @@ system l1
    unsupported speed action error
    unsupported error-correction action error
 !
-vlan 20
-   name L2-V20
-!
-vlan 30
-   name L2-V30
-!
-vlan 2300
+vlan 101
    name bluenet1
 !
-vlan 2301
+vlan 102
    name bluenet2
+!
+vlan 201
+   name rednet1
+!
+vlan 202
+   name rednet2
+!
+vlan 301
+   name L2-V301
+!
+vlan 302
+   name L2-V302
 !
 vlan 3009
    name MLAG_L3_VRF_bluevrf
+   trunk group MLAG
+!
+vlan 3019
+   name MLAG_L3_VRF_redvrf
    trunk group MLAG
 !
 vlan 4093
@@ -196,11 +217,13 @@ vrf instance bluevrf
 !
 vrf instance mgmt
 !
+vrf instance redvrf
+!
 aaa authorization exec default local
 !
 interface Port-Channel1
    description PortChannel
-   switchport trunk allowed vlan 20
+   switchport trunk allowed vlan 101-102,201-202,301-302
    switchport mode trunk
    mlag 1
    spanning-tree portfast
@@ -208,7 +231,7 @@ interface Port-Channel1
 !
 interface Port-Channel2
    description PortChannel
-   switchport trunk allowed vlan 20
+   switchport trunk allowed vlan 101-102,201-202,301-302
    switchport mode trunk
    mlag 2
    spanning-tree portfast
@@ -229,8 +252,9 @@ interface Ethernet2
 !
 interface Ethernet3
    description test eth3 routed port
+   no switchport
    vrf bluevrf
-   ip address 10.192.43.254/24
+   ip address 10.192.144.254/24
 !
 interface Ethernet4
 !
@@ -367,25 +391,46 @@ interface Loopback100
    vrf bluevrf
    ip address 10.255.1.16/32
 !
+interface Loopback200
+   description DIAG_VRF_redvrf
+   vrf redvrf
+   ip address 10.255.2.16/32
+!
 interface Management1
    description OOB_MANAGEMENT
    vrf mgmt
    ip address 192.168.0.16/24
 !
-interface Vlan2300
+interface Vlan101
    description bluenet1
    vrf bluevrf
-   ip address virtual 192.168.11.1/24
+   ip address virtual 10.10.101.254/24
 !
-interface Vlan2301
+interface Vlan102
    description bluenet2
    vrf bluevrf
-   ip address virtual 192.168.12.1/24
+   ip address virtual 10.10.102.254/24
+!
+interface Vlan201
+   description rednet1
+   vrf redvrf
+   ip address virtual 10.20.201.254/24
+!
+interface Vlan202
+   description rednet2
+   vrf redvrf
+   ip address virtual 10.20.202.254/24
 !
 interface Vlan3009
    description MLAG_L3_VRF_bluevrf
    mtu 9000
    vrf bluevrf
+   ip address 10.255.251.25/31
+!
+interface Vlan3019
+   description MLAG_L3_VRF_redvrf
+   mtu 9000
+   vrf redvrf
    ip address 10.255.251.25/31
 !
 interface Vlan4093
@@ -395,7 +440,7 @@ interface Vlan4093
 !
 interface Vlan4094
    description MLAG
-   mtu 9000
+   mtu 1500
    no autostate
    ip address 10.255.252.25/31
 !
@@ -404,18 +449,23 @@ interface Vxlan1
    vxlan source-interface Loopback1
    vxlan virtual-router encapsulation mac-address mlag-system-id
    vxlan udp-port 4789
-   vxlan vlan 20 vni 30020
-   vxlan vlan 30 vni 30030
-   vxlan vlan 2300 vni 32300
-   vxlan vlan 2301 vni 32301
+   vxlan vlan 101 vni 30101
+   vxlan vlan 102 vni 30102
+   vxlan vlan 201 vni 30201
+   vxlan vlan 202 vni 30202
+   vxlan vlan 301 vni 30301
+   vxlan vlan 302 vni 30302
    vxlan vrf bluevrf vni 10
+   vxlan vrf redvrf vni 20
 !
 ip virtual-router mac-address 00:1c:73:00:dc:01
 ip address virtual source-nat vrf bluevrf address 10.255.1.16
+ip address virtual source-nat vrf redvrf address 10.255.2.16
 !
 ip routing
 ip routing vrf bluevrf
 no ip routing vrf mgmt
+ip routing vrf redvrf
 !
 ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
    seq 10 permit 192.0.255.0/24 eq 32
@@ -454,7 +504,6 @@ router bfd
 !
 router bgp 65103
    router-id 192.0.255.16
-   update wait-install
    no bgp default ipv4-unicast
    distance bgp 20 200 200
    graceful-restart restart-time 300
@@ -498,24 +547,34 @@ router bgp 65103
    neighbor 192.0.255.3 description Site1-S3_Loopback0
    redistribute connected route-map RM-CONN-2-BGP
    !
-   vlan 20
-      rd 192.0.255.16:30020
-      route-target both 30020:30020
+   vlan 101
+      rd 192.0.255.16:30101
+      route-target both 30101:30101
       redistribute learned
    !
-   vlan 30
-      rd 192.0.255.16:30030
-      route-target both 30030:30030
+   vlan 102
+      rd 192.0.255.16:30102
+      route-target both 30102:30102
       redistribute learned
    !
-   vlan 2300
-      rd 192.0.255.16:32300
-      route-target both 32300:32300
+   vlan 201
+      rd 192.0.255.16:30201
+      route-target both 30201:30201
       redistribute learned
    !
-   vlan 2301
-      rd 192.0.255.16:32301
-      route-target both 32301:32301
+   vlan 202
+      rd 192.0.255.16:30202
+      route-target both 30202:30202
+      redistribute learned
+   !
+   vlan 301
+      rd 192.0.255.16:30301
+      route-target both 30301:30301
+      redistribute learned
+   !
+   vlan 302
+      rd 192.0.255.16:30302
+      route-target both 30302:30302
       redistribute learned
    !
    address-family evpn
@@ -531,9 +590,17 @@ router bgp 65103
       route-target import evpn 10:10
       route-target export evpn 10:10
       router-id 192.0.255.16
-      update wait-install
       neighbor 10.255.251.24 peer group MLAG-IPv4-UNDERLAY-PEER
       neighbor 10.255.251.24 description Site1-L3_Vlan3009
+      redistribute connected route-map RM-CONN-2-BGP-VRFS
+   !
+   vrf redvrf
+      rd 192.0.255.16:20
+      route-target import evpn 20:20
+      route-target export evpn 20:20
+      router-id 192.0.255.16
+      neighbor 10.255.251.24 peer group MLAG-IPv4-UNDERLAY-PEER
+      neighbor 10.255.251.24 description Site1-L3_Vlan3019
       redistribute connected route-map RM-CONN-2-BGP-VRFS
 !
 router multicast
@@ -561,7 +628,7 @@ Internal build ID: 47416e3e-5279-42fe-a5bd-cf7624a68bb9
 Image format version: 1.0
 Image optimization: None
 
-Uptime: 2 hours and 48 minutes
+Uptime: 59 minutes
 Total memory: 3970560 kB
-Free memory: 2394624 kB
+Free memory: 2396880 kB
 ```

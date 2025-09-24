@@ -58,14 +58,19 @@ Et56/1                         up             up
 Lo0                            up             up                 ROUTER_ID
 Lo1                            up             up                 VXLAN_TUNNEL_SOURCE
 Lo100                          up             up                 DIAG_VRF_bluevrf
+Lo200                          up             up                 DIAG_VRF_redvrf
 Ma1                            up             up                 OOB_MANAGEMENT
-Po1                            down           lowerlayerdown     PortChannel
-Po2                            down           lowerlayerdown     PortChannel
+Po1                            up             up                 PortChannel
+Po2                            up             up                 PortChannel
 Po491                          up             up                 MLAG_Site1-L4_Port-Channel491
-Vl2300                         up             up                 bluenet1
-Vl2301                         up             up                 bluenet2
+Vl101                          up             up                 bluenet1
+Vl102                          up             up                 bluenet2
+Vl201                          up             up                 rednet1
+Vl202                          up             up                 rednet2
 Vl3009                         up             up                 MLAG_L3_VRF_bluevrf
+Vl3019                         up             up                 MLAG_L3_VRF_redvrf
 Vl4093                         up             up                 MLAG_L3
 Vl4094                         up             up                 MLAG
 Vl4097                         up             up                 
+Vl4098                         up             up                 
 Vx1                            up             up                 Site1-L3_VTEP
