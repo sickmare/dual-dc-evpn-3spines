@@ -215,7 +215,7 @@ id,dut,categories,test,description,inputs,result,messages
 214,Site1-BGW1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 215,Site1-BGW1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 216,Site1-BGW1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-217,Site1-BGW1,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+217,Site1-BGW1,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 218,Site1-BGW1,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 219,Site1-BGW2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: DCI-1 (IP: 192.168.250.1),PASS,
 220,Site1-BGW2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: DCI-2 (IP: 192.168.250.2),PASS,
@@ -319,7 +319,7 @@ id,dut,categories,test,description,inputs,result,messages
 318,Site1-BGW2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 319,Site1-BGW2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 320,Site1-BGW2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-321,Site1-BGW2,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+321,Site1-BGW2,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 322,Site1-BGW2,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 323,Site1-BGW3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: DCI-1 (IP: 192.168.250.1),PASS,
 324,Site1-BGW3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: DCI-2 (IP: 192.168.250.2),PASS,
@@ -423,7 +423,7 @@ id,dut,categories,test,description,inputs,result,messages
 422,Site1-BGW3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 423,Site1-BGW3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 424,Site1-BGW3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-425,Site1-BGW3,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+425,Site1-BGW3,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 426,Site1-BGW3,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 427,Site1-L1,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-S1 (IP: 192.0.255.1),PASS,
 428,Site1-L1,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-S2 (IP: 192.0.255.2),PASS,
@@ -514,7 +514,7 @@ id,dut,categories,test,description,inputs,result,messages
 513,Site1-L1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 514,Site1-L1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 515,Site1-L1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-516,Site1-L1,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+516,Site1-L1,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 517,Site1-L1,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 518,Site1-L2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-S1 (IP: 192.0.255.1),PASS,
 519,Site1-L2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-S2 (IP: 192.0.255.2),PASS,
@@ -605,7 +605,7 @@ id,dut,categories,test,description,inputs,result,messages
 604,Site1-L2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 605,Site1-L2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 606,Site1-L2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-607,Site1-L2,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+607,Site1-L2,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 608,Site1-L2,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 609,Site1-L3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-S1 (IP: 192.0.255.1),PASS,
 610,Site1-L3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-S2 (IP: 192.0.255.2),PASS,
@@ -710,7 +710,7 @@ id,dut,categories,test,description,inputs,result,messages
 709,Site1-L3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 710,Site1-L3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 711,Site1-L3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-712,Site1-L3,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+712,Site1-L3,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 713,Site1-L3,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 714,Site1-L4,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-S1 (IP: 192.0.255.1),PASS,
 715,Site1-L4,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-S2 (IP: 192.0.255.2),PASS,
@@ -815,7 +815,7 @@ id,dut,categories,test,description,inputs,result,messages
 814,Site1-L4,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 815,Site1-L4,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 816,Site1-L4,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-817,Site1-L4,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+817,Site1-L4,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 818,Site1-L4,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 819,Site1-S1,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-BGW1 (IP: 192.0.255.17),PASS,
 820,Site1-S1,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-BGW2 (IP: 192.0.255.18),PASS,
@@ -858,7 +858,7 @@ id,dut,categories,test,description,inputs,result,messages
 857,Site1-S1,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Ethernet7/1 - P2P_Site1-BGW3_Ethernet1/1 = 'up',PASS,
 858,Site1-S1,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Loopback0 - ROUTER_ID = 'up',PASS,
 859,Site1-S1,Routing,VerifyRoutingProtocolModel,Verifies the configured routing protocol model.,Routing protocol model: multi-agent,PASS,
-860,Site1-S1,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+860,Site1-S1,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 861,Site1-S1,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 862,Site1-S2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-BGW1 (IP: 192.0.255.17),PASS,
 863,Site1-S2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-BGW2 (IP: 192.0.255.18),PASS,
@@ -901,7 +901,7 @@ id,dut,categories,test,description,inputs,result,messages
 900,Site1-S2,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Ethernet7/1 - P2P_Site1-BGW3_Ethernet2/1 = 'up',PASS,
 901,Site1-S2,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Loopback0 - ROUTER_ID = 'up',PASS,
 902,Site1-S2,Routing,VerifyRoutingProtocolModel,Verifies the configured routing protocol model.,Routing protocol model: multi-agent,PASS,
-903,Site1-S2,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+903,Site1-S2,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 904,Site1-S2,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 905,Site1-S3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-BGW1 (IP: 192.0.255.17),PASS,
 906,Site1-S3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site1-BGW2 (IP: 192.0.255.18),PASS,
@@ -944,7 +944,7 @@ id,dut,categories,test,description,inputs,result,messages
 943,Site1-S3,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Ethernet7/1 - P2P_Site1-BGW3_Ethernet3/1 = 'up',PASS,
 944,Site1-S3,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Loopback0 - ROUTER_ID = 'up',PASS,
 945,Site1-S3,Routing,VerifyRoutingProtocolModel,Verifies the configured routing protocol model.,Routing protocol model: multi-agent,PASS,
-946,Site1-S3,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+946,Site1-S3,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 947,Site1-S3,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 948,Site2-BGW1,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: DCI-1 (IP: 192.168.250.1),PASS,
 949,Site2-BGW1,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: DCI-2 (IP: 192.168.250.2),PASS,
@@ -1048,7 +1048,7 @@ id,dut,categories,test,description,inputs,result,messages
 1047,Site2-BGW1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,FAIL,The following route(s) are missing from the routing table of VRF default: ['192.2.255.28']
 1048,Site2-BGW1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,FAIL,The following route(s) are missing from the routing table of VRF default: ['192.2.255.29']
 1049,Site2-BGW1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-1050,Site2-BGW1,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+1050,Site2-BGW1,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 1051,Site2-BGW1,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 1052,Site2-BGW2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: DCI-1 (IP: 192.168.250.1),PASS,
 1053,Site2-BGW2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: DCI-2 (IP: 192.168.250.2),PASS,
@@ -1152,7 +1152,7 @@ id,dut,categories,test,description,inputs,result,messages
 1151,Site2-BGW2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 1152,Site2-BGW2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,FAIL,The following route(s) are missing from the routing table of VRF default: ['192.2.255.29']
 1153,Site2-BGW2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-1154,Site2-BGW2,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+1154,Site2-BGW2,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 1155,Site2-BGW2,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 1156,Site2-BGW3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: DCI-1 (IP: 192.168.250.1),PASS,
 1157,Site2-BGW3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: DCI-2 (IP: 192.168.250.2),PASS,
@@ -1256,7 +1256,7 @@ id,dut,categories,test,description,inputs,result,messages
 1255,Site2-BGW3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,FAIL,The following route(s) are missing from the routing table of VRF default: ['192.2.255.28']
 1256,Site2-BGW3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 1257,Site2-BGW3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-1258,Site2-BGW3,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+1258,Site2-BGW3,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 1259,Site2-BGW3,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 1260,Site2-L1,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-S1 (IP: 192.2.255.1),PASS,
 1261,Site2-L1,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-S2 (IP: 192.2.255.2),PASS,
@@ -1347,7 +1347,7 @@ id,dut,categories,test,description,inputs,result,messages
 1346,Site2-L1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 1347,Site2-L1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 1348,Site2-L1,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-1349,Site2-L1,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+1349,Site2-L1,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 1350,Site2-L1,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 1351,Site2-L2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-S1 (IP: 192.2.255.1),PASS,
 1352,Site2-L2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-S2 (IP: 192.2.255.2),PASS,
@@ -1438,7 +1438,7 @@ id,dut,categories,test,description,inputs,result,messages
 1437,Site2-L2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 1438,Site2-L2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 1439,Site2-L2,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-1440,Site2-L2,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+1440,Site2-L2,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 1441,Site2-L2,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 1442,Site2-L3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-S1 (IP: 192.2.255.1),FAIL,"AFI: evpn Peer: 192.2.255.1 - Session has non-empty message queues - InQ: 0, OutQ: 18530"
 1443,Site2-L3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-S2 (IP: 192.2.255.2),FAIL,"AFI: evpn Peer: 192.2.255.2 - Session has non-empty message queues - InQ: 0, OutQ: 18530"
@@ -1543,7 +1543,7 @@ id,dut,categories,test,description,inputs,result,messages
 1542,Site2-L3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 1543,Site2-L3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 1544,Site2-L3,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-1545,Site2-L3,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+1545,Site2-L3,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 1546,Site2-L3,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 1547,Site2-L4,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-S1 (IP: 192.2.255.1),PASS,
 1548,Site2-L4,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-S2 (IP: 192.2.255.2),PASS,
@@ -1648,7 +1648,7 @@ id,dut,categories,test,description,inputs,result,messages
 1647,Site2-L4,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.28 - Peer: Site2-BGW2,PASS,
 1648,Site2-L4,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.29 - Peer: Site2-BGW3,PASS,
 1649,Site2-L4,Routing,VerifyRoutingTableEntry,Verifies that the provided routes are present in the routing table of a specified VRF.,Route: 192.2.255.3 - Peer: Site2-S3,PASS,
-1650,Site2-L4,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+1650,Site2-L4,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 1651,Site2-L4,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 1652,Site2-S1,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-BGW1 (IP: 192.2.255.27),PASS,
 1653,Site2-S1,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-BGW2 (IP: 192.2.255.28),PASS,
@@ -1691,7 +1691,7 @@ id,dut,categories,test,description,inputs,result,messages
 1690,Site2-S1,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Ethernet7/1 - P2P_Site2-BGW3_Ethernet1/1 = 'up',PASS,
 1691,Site2-S1,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Loopback0 - ROUTER_ID = 'up',PASS,
 1692,Site2-S1,Routing,VerifyRoutingProtocolModel,Verifies the configured routing protocol model.,Routing protocol model: multi-agent,PASS,
-1693,Site2-S1,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+1693,Site2-S1,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 1694,Site2-S1,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 1695,Site2-S2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-BGW1 (IP: 192.2.255.27),PASS,
 1696,Site2-S2,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-BGW2 (IP: 192.2.255.28),PASS,
@@ -1734,7 +1734,7 @@ id,dut,categories,test,description,inputs,result,messages
 1733,Site2-S2,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Ethernet7/1 - P2P_Site2-BGW3_Ethernet2/1 = 'up',PASS,
 1734,Site2-S2,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Loopback0 - ROUTER_ID = 'up',PASS,
 1735,Site2-S2,Routing,VerifyRoutingProtocolModel,Verifies the configured routing protocol model.,Routing protocol model: multi-agent,PASS,
-1736,Site2-S2,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+1736,Site2-S2,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 1737,Site2-S2,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,
 1738,Site2-S3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-BGW1 (IP: 192.2.255.27),PASS,
 1739,Site2-S3,BGP,VerifyBGPSpecificPeers,Verifies the health of specific BGP peer(s) for given address families.,BGP EVPN Peer: Site2-BGW2 (IP: 192.2.255.28),PASS,
@@ -1777,5 +1777,5 @@ id,dut,categories,test,description,inputs,result,messages
 1776,Site2-S3,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Ethernet7/1 - P2P_Site2-BGW3_Ethernet3/1 = 'up',PASS,
 1777,Site2-S3,Interfaces,VerifyInterfacesStatus,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interface Loopback0 - ROUTER_ID = 'up',PASS,
 1778,Site2-S3,Routing,VerifyRoutingProtocolModel,Verifies the configured routing protocol model.,Routing protocol model: multi-agent,PASS,
-1779,Site2-S3,System,VerifyNTP,Verifies if NTP is synchronised.,,FAIL,The device is not synchronized with the configured NTP server(s): 'unsynchronised'
+1779,Site2-S3,System,VerifyNTP,Verifies if NTP is synchronised.,,PASS,
 1780,Site2-S3,System,VerifyReloadCause,Verifies the last reload cause of the device.,,PASS,

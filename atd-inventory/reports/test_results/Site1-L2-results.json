@@ -907,10 +907,7 @@
       "system"
     ],
     "description": "Verifies if NTP is synchronised.",
-    "result": "failure",
-    "messages": [
-      "The device is not synchronized with the configured NTP server(s): 'unsynchronised'"
-    ]
+    "result": "success"
   },
   {
     "name": "Site1-L2",
